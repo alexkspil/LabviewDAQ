@@ -34,6 +34,12 @@
 					<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm/InitDeinitComm.lvclass"/>
 				</Item>
 				<Item Name="InitDeinitComm Messages" Type="Folder">
+					<Item Name="DeInit Done Msg" Type="Folder">
+						<Item Name="DeInit Done Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/DeInit Done Msg/DeInit Done Msg.lvclass"/>
+					</Item>
+					<Item Name="Disconnected Msg" Type="Folder">
+						<Item Name="Disconnected Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/Disconnected Msg/Disconnected Msg.lvclass"/>
+					</Item>
 					<Item Name="FoundInstruments Msg" Type="Folder">
 						<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
 					</Item>
@@ -62,8 +68,10 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="tm_closecamera_40.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_closecamera_40.vi"/>
+			<Item Name="tm_deinitialize_40.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_deinitialize_40.vi"/>
 			<Item Name="tm_errorreport.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_errorreport.vi"/>
 			<Item Name="tm_getframe16_40.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_getframe16_40.vi"/>
+			<Item Name="tm_getparameterlist_40.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_getparameterlist_40.vi"/>
 			<Item Name="tm_initialize_40.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_initialize_40.vi"/>
 			<Item Name="tm_opencamera_40.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_opencamera_40.vi"/>
 			<Item Name="tm_preparecapture_40.vi" Type="VI" URL="../HamaVIs/Hamamatsu Video Capture [4423]/tm_preparecapture_40.vi"/>
