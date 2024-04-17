@@ -2,6 +2,7 @@
 <Project Type="Project" LVVersion="23008000">
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="My Computer" Type="My Computer">
+		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.tcp.enabled" Type="Bool">false</Property>
@@ -11,9 +12,6 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="CameraInterface" Type="Folder">
-			<Item Name="CameraInterface.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvclass"/>
-		</Item>
 		<Item Name="InstrumentsConcrete" Type="Folder">
 			<Item Name="ArduinoTranslationStage" Type="Folder">
 				<Item Name="ArduinoTranslationStage.lvlib" Type="Library" URL="../../ArduinoTranslationStageUI/ArduinoTranslationStage.lvlib"/>
@@ -40,6 +38,9 @@
 				<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm/InitDeinitComm.lvclass"/>
 			</Item>
 			<Item Name="InitDeinitComm Messages" Type="Folder">
+				<Item Name="FoundInstruments Msg" Type="Folder">
+					<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
+				</Item>
 				<Item Name="InitDone Msg" Type="Folder">
 					<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
 				</Item>
@@ -69,6 +70,9 @@
 					<Item Name="StageMoveDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesComm Messages/StageMoveDone Msg/StageMoveDone Msg.lvclass"/>
 				</Item>
 			</Item>
+			<Item Name="CameraInterface" Type="Folder">
+				<Item Name="CameraInterface.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvclass"/>
+			</Item>
 		</Item>
 		<Item Name="User Interface" Type="Folder">
 			<Item Name="InterferometryUI" Type="Folder">
@@ -83,6 +87,7 @@
 			</Item>
 		</Item>
 		<Item Name="instrumentType.ctl" Type="VI" URL="../InterferometryUI/instrumentType.ctl"/>
+		<Item Name="InstrumentData.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam/InstrumentData.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="ASICamera2_no_err.lvlib" Type="Library" URL="/&lt;userlib&gt;/ASICamera2_no_err/ASICamera2_no_err.lvlib"/>

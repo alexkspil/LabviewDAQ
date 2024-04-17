@@ -4,7 +4,9 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="SpectroMirrorCtrl.ctl" Type="VI" URL="../SpectroscopyUI/SpectroMirrorCtrl.ctl"/>
+	<Item Name="typedefs" Type="Folder">
+		<Item Name="SpectroMirrorCtrl.ctl" Type="VI" URL="../SpectroscopyUI/SpectroMirrorCtrl.ctl"/>
+		<Item Name="SpectrSlitControl.ctl" Type="VI" URL="../SpectroscopyUI/SpectrSlitControl.ctl"/>
+	</Item>
 	<Item Name="SpectroscopyUI.lvclass" Type="LVClass" URL="../SpectroscopyUI/SpectroscopyUI.lvclass"/>
-	<Item Name="SpectrSlitControl.ctl" Type="VI" URL="../SpectroscopyUI/SpectrSlitControl.ctl"/>
 </Library>

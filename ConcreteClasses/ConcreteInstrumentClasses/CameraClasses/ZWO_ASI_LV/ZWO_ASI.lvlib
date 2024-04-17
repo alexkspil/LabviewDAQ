@@ -7,6 +7,7 @@
 	<Item Name="Messages for this Actor" Type="Folder">
 		<Item Name="CloseCamera Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/CloseCamera Msg/CloseCamera Msg.lvclass"/>
 		<Item Name="DeInit Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/DeInit Msg/DeInit Msg.lvclass"/>
+		<Item Name="FindInstruments Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/FindInstruments Msg/FindInstruments Msg.lvclass"/>
 		<Item Name="GetFrame Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/GetFrame Msg/GetFrame Msg.lvclass"/>
 		<Item Name="GetParameter Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/GetParameter Msg/GetParameter Msg.lvclass"/>
 		<Item Name="GetParameterList Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/GetParameterList Msg/GetParameterList Msg.lvclass"/>

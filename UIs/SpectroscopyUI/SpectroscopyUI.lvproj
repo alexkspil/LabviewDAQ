@@ -13,6 +13,49 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Interfaces" Type="Folder">
+			<Item Name="AbstractInstrumentClasses" Type="Folder">
+				<Item Name="Spectrometers_LV" Type="Folder">
+					<Item Name="Spectrometer Messages" Type="Folder">
+						<Item Name="SetMirror Msg" Type="Folder"/>
+					</Item>
+					<Item Name="SpectrometerComm" Type="Folder">
+						<Item Name="SpectrometerComm.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm/SpectrometerComm.lvclass"/>
+					</Item>
+					<Item Name="SpectrometerComm Messages" Type="Folder">
+						<Item Name="GratingChanged Msg" Type="Folder">
+							<Item Name="GratingChanged Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/GratingChanged Msg/GratingChanged Msg.lvclass"/>
+						</Item>
+						<Item Name="MirrorMoved Msg" Type="Folder">
+							<Item Name="MirrorMoved Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/MirrorMoved Msg/MirrorMoved Msg.lvclass"/>
+						</Item>
+						<Item Name="SendParameters Msg" Type="Folder">
+							<Item Name="ParametersUpdated Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/SendParameters Msg/ParametersUpdated Msg.lvclass"/>
+						</Item>
+						<Item Name="SlitMoved Msg" Type="Folder">
+							<Item Name="SlitMoved Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/SlitMoved Msg/SlitMoved Msg.lvclass"/>
+						</Item>
+						<Item Name="WavelengthSet Msg" Type="Folder">
+							<Item Name="WavelengthSet Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/WavelengthSet Msg/WavelengthSet Msg.lvclass"/>
+						</Item>
+					</Item>
+					<Item Name="SpectrometerInterface" Type="Folder">
+						<Item Name="Spectrometer.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerInterface/Spectrometer.lvclass"/>
+					</Item>
+				</Item>
+				<Item Name="Cameras" Type="Folder">
+					<Item Name="CameraDAQ" Type="Folder">
+						<Item Name="CameraDAQ.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraDAQ/CameraDAQ.lvclass"/>
+					</Item>
+					<Item Name="CameraDAQ Messages" Type="Folder">
+						<Item Name="GrabFrame Msg" Type="Folder">
+							<Item Name="GrabFrame Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraDAQ Messages/GrabFrame Msg/GrabFrame Msg.lvclass"/>
+						</Item>
+					</Item>
+					<Item Name="CameraInterface" Type="Folder">
+						<Item Name="CameraInterface.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvclass"/>
+					</Item>
+				</Item>
+			</Item>
 			<Item Name="InitDeInitInterface" Type="Folder">
 				<Item Name="InitDeinit" Type="Folder">
 					<Item Name="InitDeinit.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinit/InitDeinit.lvclass"/>
@@ -22,39 +65,8 @@
 					<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm/InitDeinitComm.lvclass"/>
 				</Item>
 				<Item Name="InitDeinitComm Messages" Type="Folder">
-					<Item Name="InitDone Msg" Type="Folder">
-						<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
-					</Item>
-				</Item>
-			</Item>
-		</Item>
-		<Item Name="AbstractInstrumentClasses" Type="Folder">
-			<Item Name="Spectrometers_LV" Type="Folder">
-				<Item Name="Spectrometer Messages" Type="Folder">
-					<Item Name="SetMirror Msg" Type="Folder"/>
-				</Item>
-				<Item Name="SpectrometerComm" Type="Folder">
-					<Item Name="SpectrometerComm.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm/SpectrometerComm.lvclass"/>
-				</Item>
-				<Item Name="SpectrometerComm Messages" Type="Folder">
-					<Item Name="GratingChanged Msg" Type="Folder">
-						<Item Name="GratingChanged Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/GratingChanged Msg/GratingChanged Msg.lvclass"/>
-					</Item>
-					<Item Name="MirrorMoved Msg" Type="Folder">
-						<Item Name="MirrorMoved Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/MirrorMoved Msg/MirrorMoved Msg.lvclass"/>
-					</Item>
-					<Item Name="SendParameters Msg" Type="Folder">
-						<Item Name="ParametersUpdated Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/SendParameters Msg/ParametersUpdated Msg.lvclass"/>
-					</Item>
-					<Item Name="SlitMoved Msg" Type="Folder">
-						<Item Name="SlitMoved Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/SlitMoved Msg/SlitMoved Msg.lvclass"/>
-					</Item>
-					<Item Name="WavelengthSet Msg" Type="Folder">
-						<Item Name="WavelengthSet Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm Messages/WavelengthSet Msg/WavelengthSet Msg.lvclass"/>
-					</Item>
-				</Item>
-				<Item Name="SpectrometerInterface" Type="Folder">
-					<Item Name="Spectrometer.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerInterface/Spectrometer.lvclass"/>
+					<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
+					<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
 				</Item>
 			</Item>
 		</Item>
@@ -85,6 +97,7 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
+			<Item Name="InstrumentData.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam/InstrumentData.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
