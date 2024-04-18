@@ -10,7 +10,7 @@
 			<Item Name="Disconnected Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/Disconnected Msg/Disconnected Msg.lvclass"/>
 		</Item>
 		<Item Name="StageMoveDone Msg" Type="Folder">
-			<Item Name="StageMoveDone Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/StageMoveDone Msg/StageMoveDone Msg 2.lvclass"/>
+			<Item Name="StageMoveDone Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/StageMoveDone Msg/StageMoveDone Msg.lvclass"/>
 		</Item>
 		<Item Name="SaveCSVImage Msg" Type="Folder">
 			<Item Name="SaveCSVImage Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/SaveCSVImage Msg/SaveCSVImage Msg.lvclass"/>
@@ -19,13 +19,13 @@
 			<Item Name="LimitReached Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/LimitReached Msg/LimitReached Msg 2.lvclass"/>
 		</Item>
 		<Item Name="InitDone Msg" Type="Folder">
-			<Item Name="InitDone Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/InitDone Msg/InitDone Msg 2.lvclass"/>
+			<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/InitDone Msg/InitDone Msg.lvclass"/>
 		</Item>
 		<Item Name="GrabFrame Msg" Type="Folder">
-			<Item Name="GrabFrame Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/GrabFrame Msg/GrabFrame Msg 2.lvclass"/>
+			<Item Name="GrabFrame Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/GrabFrame Msg/GrabFrame Msg.lvclass"/>
 		</Item>
 		<Item Name="FoundInstruments Msg" Type="Folder">
-			<Item Name="FoundInstruments Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/FoundInstruments Msg/FoundInstruments Msg 2.lvclass"/>
+			<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
 		</Item>
 		<Item Name="DeInit Done Msg" Type="Folder">
 			<Item Name="DeInit Done Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/DeInit Done Msg/DeInit Done Msg.lvclass"/>
