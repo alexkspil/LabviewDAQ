@@ -5,5 +5,31 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="Interferometry Messages" Type="Folder">
+		<Item Name="Disconnected Msg" Type="Folder">
+			<Item Name="Disconnected Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/Disconnected Msg/Disconnected Msg.lvclass"/>
+		</Item>
+		<Item Name="StageMoveDone Msg" Type="Folder">
+			<Item Name="StageMoveDone Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/StageMoveDone Msg/StageMoveDone Msg 2.lvclass"/>
+		</Item>
+		<Item Name="SaveCSVImage Msg" Type="Folder">
+			<Item Name="SaveCSVImage Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/SaveCSVImage Msg/SaveCSVImage Msg.lvclass"/>
+		</Item>
+		<Item Name="LimitReached Msg" Type="Folder">
+			<Item Name="LimitReached Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/LimitReached Msg/LimitReached Msg 2.lvclass"/>
+		</Item>
+		<Item Name="InitDone Msg" Type="Folder">
+			<Item Name="InitDone Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/InitDone Msg/InitDone Msg 2.lvclass"/>
+		</Item>
+		<Item Name="GrabFrame Msg" Type="Folder">
+			<Item Name="GrabFrame Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/GrabFrame Msg/GrabFrame Msg 2.lvclass"/>
+		</Item>
+		<Item Name="FoundInstruments Msg" Type="Folder">
+			<Item Name="FoundInstruments Msg 2.lvclass" Type="LVClass" URL="../InterferometryUI Messages/FoundInstruments Msg/FoundInstruments Msg 2.lvclass"/>
+		</Item>
+		<Item Name="DeInit Done Msg" Type="Folder">
+			<Item Name="DeInit Done Msg.lvclass" Type="LVClass" URL="../InterferometryUI Messages/DeInit Done Msg/DeInit Done Msg.lvclass"/>
+		</Item>
+	</Item>
 	<Item Name="InterferometryUI.lvclass" Type="LVClass" URL="../InterferometryUI/InterferometryUI.lvclass"/>
 </Library>
