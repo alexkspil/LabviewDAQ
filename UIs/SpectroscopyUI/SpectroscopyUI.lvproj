@@ -65,13 +65,25 @@
 					<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm/InitDeinitComm.lvclass"/>
 				</Item>
 				<Item Name="InitDeinitComm Messages" Type="Folder">
+					<Item Name="Disconnected Msg" Type="Folder">
+						<Item Name="Disconnected Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/Disconnected Msg/Disconnected Msg.lvclass"/>
+					</Item>
 					<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
 					<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
+					<Item Name="DeInit Done Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/DeInit Done Msg/DeInit Done Msg.lvclass"/>
 				</Item>
 			</Item>
 		</Item>
 		<Item Name="ConcreteInstrumentClasses" Type="Folder">
-			<Item Name="HRS_Spectrometer.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/SpectrometerClasses/Spectrometer_HRS_LV/HRS_Spectrometer/HRS_Spectrometer.lvlib"/>
+			<Item Name="HamaCam" Type="Folder">
+				<Item Name="HamaCam" Type="Folder">
+					<Item Name="FoundInstruments.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam/FoundInstruments.ctl"/>
+				</Item>
+				<Item Name="HamaCam.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam.lvlib"/>
+			</Item>
+			<Item Name="HRS_Spectrometer" Type="Folder">
+				<Item Name="HRS_Spectrometer.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/SpectrometerClasses/Spectrometer_HRS_LV/HRS_Spectrometer/HRS_Spectrometer.lvlib"/>
+			</Item>
 		</Item>
 		<Item Name="UI" Type="Folder">
 			<Item Name="SpectroscopyUI" Type="Folder">
@@ -97,7 +109,21 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
-			<Item Name="InstrumentData.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam/InstrumentData.ctl"/>
+			<Item Name="tm_initialize_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_initialize_40.vi"/>
+			<Item Name="tmcamcon.dll" Type="Document" URL="tmcamcon.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="tm_errorreport.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_errorreport.vi"/>
+			<Item Name="tm_waitnextframe_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_waitnextframe_40.vi"/>
+			<Item Name="tm_getframe16_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_getframe16_40.vi"/>
+			<Item Name="tm_opencamera_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_opencamera_40.vi"/>
+			<Item Name="tm_preparecapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_preparecapture_40.vi"/>
+			<Item Name="tm_startcapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_startcapture_40.vi"/>
+			<Item Name="tm_unpreparecapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_unpreparecapture_40.vi"/>
+			<Item Name="tm_stopcapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_stopcapture_40.vi"/>
+			<Item Name="tm_closecamera_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_closecamera_40.vi"/>
+			<Item Name="tm_deinitialize_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_deinitialize_40.vi"/>
+			<Item Name="tm_getparameterlist_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_getparameterlist_40.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

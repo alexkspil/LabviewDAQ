@@ -86,8 +86,7 @@
 				<Item Name="launcher.vi" Type="VI" URL="../launcher.vi"/>
 			</Item>
 		</Item>
-		<Item Name="instrumentType.ctl" Type="VI" URL="../InterferometryUI/instrumentType.ctl"/>
-		<Item Name="InstrumentData.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam/InstrumentData.ctl"/>
+		<Item Name="typedefs.lvlib" Type="Library" URL="../../../typedefs/typedefs.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="ASICamera2_no_err.lvlib" Type="Library" URL="/&lt;userlib&gt;/ASICamera2_no_err/ASICamera2_no_err.lvlib"/>
