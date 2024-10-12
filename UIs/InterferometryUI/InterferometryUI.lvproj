@@ -88,6 +88,7 @@
 		</Item>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../../../typedefs/typedefs.lvlib"/>
 		<Item Name="InterferometryUIPublicData.ctl" Type="VI" URL="../InterferometryUI/InterferometryUIPublicData.ctl"/>
+		<Item Name="ASICamera2_no_err.lvlib" Type="Library" URL="/&lt;userlib&gt;/ASICamera2_no_err/ASICamera2_no_err.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
@@ -144,6 +145,8 @@
 				<Item Name="DialogType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/DialogType.ctl"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
+				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
+				<Item Name="subDisplayMessage.vi" Type="VI" URL="/&lt;vilib&gt;/express/express output/DisplayMessageBlock.llb/subDisplayMessage.vi"/>
 			</Item>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="ASICamera2_no_err.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/ZWO_ASI_LV/Labview_ASI_demo_64bit_221128/user.lib/ASICamera2_no_err/ASICamera2_no_err.lvlib"/>
@@ -153,6 +156,10 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="ASICamera2.dll" Type="Document" URL="/../../LabviewDAQ-master/ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/ZWO_ASI_LV/Labview_ASI_demo_64bit_221128/user.lib/ASICamera2_no_err/ASICamera2.dll"/>
+			<Item Name="ASICamera2.dll" Type="Document" URL="ASICamera2.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="OpenCamera Msg.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/ZWO_ASI_LV/ZWO_ASI Messages/OpenCamera Msg/OpenCamera Msg.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

@@ -12,9 +12,9 @@
 		<Item Name="GetParameter Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/GetParameter Msg/GetParameter Msg.lvclass"/>
 		<Item Name="GetParameterList Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/GetParameterList Msg/GetParameterList Msg.lvclass"/>
 		<Item Name="Init Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/Init Msg/Init Msg.lvclass"/>
-		<Item Name="OpenCamera Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/OpenCamera Msg/OpenCamera Msg.lvclass"/>
 		<Item Name="SetExposure Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/SetExposure Msg/SetExposure Msg.lvclass"/>
 		<Item Name="SetParameter Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/SetParameter Msg/SetParameter Msg.lvclass"/>
+		<Item Name="SetSubarray Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/SetSubarray Msg/SetSubarray Msg.lvclass"/>
 		<Item Name="StartCapture Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/StartCapture Msg/StartCapture Msg.lvclass"/>
 		<Item Name="StopCapture Msg.lvclass" Type="LVClass" URL="../ZWO_ASI Messages/StopCapture Msg/StopCapture Msg.lvclass"/>
 	</Item>
