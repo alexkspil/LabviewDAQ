@@ -4,6 +4,15 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Messages for this Actor" Type="Folder"/>
-	<Item Name="Inovance_Camera.lvclass" Type="LVClass" URL="../Inovance_Camera/Inovance_Camera.lvclass"/>
+	<Item Name="SubVIs" Type="Folder">
+		<Item Name="Inovance_Get_Frame_SubVI.vi" Type="VI" URL="../SubVIs/Inovance_Get_Frame_SubVI.vi"/>
+		<Item Name="Inovance_Init_SubVI.vi" Type="VI" URL="../SubVIs/Inovance_Init_SubVI.vi"/>
+		<Item Name="Inovance_Main_Process.vi" Type="VI" URL="../SubVIs/Inovance_Main_Process.vi"/>
+		<Item Name="Inovance_Set_Exposure_SubVI.vi" Type="VI" URL="../SubVIs/Inovance_Set_Exposure_SubVI.vi"/>
+		<Item Name="Inovance_Set_Gain_SubVI.vi" Type="VI" URL="../SubVIs/Inovance_Set_Gain_SubVI.vi"/>
+		<Item Name="Inovance_Set_Trigger_Mode_SubVI.vi" Type="VI" URL="../SubVIs/Inovance_Set_Trigger_Mode_SubVI.vi"/>
+	</Item>
+	<Item Name="Inovance_Camera.lvclass" Type="LVClass" URL="../Inovance_Camera.lvclass"/>
 </Library>
