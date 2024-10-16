@@ -58,6 +58,7 @@
 		<Item Name="ImageProcessingParameters.ctl" Type="VI" URL="../../../../../typedefs/ImageProcessingParameters.ctl"/>
 		<Item Name="IMAQ_ROI_ctrl.ctl" Type="VI" URL="../../../../../UIs/Camera_Controller/Camera_Controller/SubVIs/IMAQ_ROI_ctrl.ctl"/>
 		<Item Name="XY_Dummy.ctl" Type="VI" URL="../../../../../UIs/Camera_Controller/Camera_Controller/SubVIs/XY_Dummy.ctl"/>
+		<Item Name="LUT_Scale.ctl" Type="VI" URL="../../../../../UIs/Camera_Controller/Camera_Controller/SubVIs/LUT_Scale.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
