@@ -5,7 +5,6 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Messages for this Actor" Type="Folder"/>
 	<Item Name="SubVIs" Type="Folder">
 		<Item Name="Inovance_Get_Frame_SubVI.vi" Type="VI" URL="../SubVIs/Inovance_Get_Frame_SubVI.vi"/>
 		<Item Name="Inovance_Init_SubVI.vi" Type="VI" URL="../SubVIs/Inovance_Init_SubVI.vi"/>

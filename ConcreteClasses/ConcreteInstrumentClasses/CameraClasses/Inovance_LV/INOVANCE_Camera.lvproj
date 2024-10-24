@@ -40,6 +40,8 @@
 			<Item Name="Gain Set Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Gain Set Msg/Gain Set Msg.lvclass"/>
 			<Item Name="Frame Ready Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Frame Ready Msg/Frame Ready Msg.lvclass"/>
 			<Item Name="Exposure Set Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Exposure Set Msg/Exposure Set Msg.lvclass"/>
+			<Item Name="Cam Init Done Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Cam Init Done Msg/Cam Init Done Msg.lvclass"/>
+			<Item Name="Cam DeInit Done Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Cam DeInit Done Msg/Cam DeInit Done Msg.lvclass"/>
 		</Item>
 		<Item Name="Camera Messages" Type="Folder">
 			<Item Name="SingleAcquisition Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/SingleAcquisition Msg/SingleAcquisition Msg.lvclass"/>
@@ -55,10 +57,7 @@
 		<Item Name="Inovance_Camera.lvlib" Type="Library" URL="../Inovance_Camera/Inovance_Camera.lvlib"/>
 		<Item Name="Camera_Controller.lvlib" Type="Library" URL="../../../../../UIs/Camera_Controller/Camera_Controller.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../../../../../UIs/Camera_Controller/launcher.vi"/>
-		<Item Name="ImageProcessingParameters.ctl" Type="VI" URL="../../../../../typedefs/ImageProcessingParameters.ctl"/>
-		<Item Name="IMAQ_ROI_ctrl.ctl" Type="VI" URL="../../../../../UIs/Camera_Controller/Camera_Controller/SubVIs/IMAQ_ROI_ctrl.ctl"/>
-		<Item Name="XY_Dummy.ctl" Type="VI" URL="../../../../../UIs/Camera_Controller/Camera_Controller/SubVIs/XY_Dummy.ctl"/>
-		<Item Name="LUT_Scale.ctl" Type="VI" URL="../../../../../UIs/Camera_Controller/Camera_Controller/SubVIs/LUT_Scale.ctl"/>
+		<Item Name="typedefs.lvlib" Type="Library" URL="../../../../../typedefs/typedefs.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
@@ -113,8 +112,22 @@
 				<Item Name="Color to RGB.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/Color to RGB.vi"/>
 				<Item Name="IMAQ Overlay ROI" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay ROI"/>
 				<Item Name="IMAQ ImageToArray" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ImageToArray"/>
+				<Item Name="IMAQ Write JPEG File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write JPEG File 2"/>
+				<Item Name="IMAQ Write TIFF File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write TIFF File 2"/>
+				<Item Name="IMAQ Write PNG File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write PNG File 2"/>
+				<Item Name="IMAQ Write JPEG2000 File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write JPEG2000 File 2"/>
+				<Item Name="IMAQ Write Image And Vision Info File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write Image And Vision Info File 2"/>
+				<Item Name="IMAQ Write BMP File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write BMP File 2"/>
+				<Item Name="IMAQ Write File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write File 2"/>
+				<Item Name="cfis_Replace Percent Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/cfis_Replace Percent Code.vi"/>
+				<Item Name="cfis_Reverse Scan From String For Integer.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/cfis_Reverse Scan From String For Integer.vi"/>
+				<Item Name="cfis_Get File Extension Without Changing Case.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/cfis_Get File Extension Without Changing Case.vi"/>
+				<Item Name="cfis_Split File Path Into Three Parts.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/cfis_Split File Path Into Three Parts.vi"/>
+				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
+				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
+				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
+				<Item Name="Create File with Incrementing Suffix.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Create File with Incrementing Suffix.vi"/>
 			</Item>
-			<Item Name="typedefs.lvlib" Type="Library" URL="../../../../../typedefs/typedefs.lvlib"/>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="AddressType.ctl" Type="VI" URL="../../../../../typedefs/AddressType.ctl"/>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>

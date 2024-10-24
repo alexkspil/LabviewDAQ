@@ -4,7 +4,6 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="Messages for this Actor" Type="Folder"/>
 	<Item Name="SubVIs" Type="Folder">
 		<Item Name="Enumerate_Cameras.vi" Type="VI" URL="../Camera_Controller/SubVIs/Enumerate_Cameras.vi"/>
 		<Item Name="Image_Processing.vi" Type="VI" URL="../Camera_Controller/SubVIs/Image_Processing.vi"/>
