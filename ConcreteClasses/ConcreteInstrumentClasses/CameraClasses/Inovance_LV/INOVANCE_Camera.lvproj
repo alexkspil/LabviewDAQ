@@ -12,25 +12,6 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Init DeInit Messages" Type="Folder">
-			<Item Name="DeInit Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit Messages/DeInit Msg/DeInit Msg.lvclass"/>
-			<Item Name="Disconnect Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit Messages/Disconnect Msg/Disconnect Msg.lvclass"/>
-			<Item Name="Init Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit Messages/Init Msg/Init Msg.lvclass"/>
-		</Item>
-		<Item Name="InitDeinitComm" Type="Folder">
-			<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm/InitDeinitComm.lvclass"/>
-		</Item>
-		<Item Name="InitDeinitComm Messages" Type="Folder">
-			<Item Name="DeInit Done Msg" Type="Folder">
-				<Item Name="DeInit Done Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/DeInit Done Msg/DeInit Done Msg.lvclass"/>
-			</Item>
-			<Item Name="Disconnected Msg" Type="Folder">
-				<Item Name="Disconnected Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/Disconnected Msg/Disconnected Msg.lvclass"/>
-			</Item>
-			<Item Name="InitDone Msg" Type="Folder">
-				<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
-			</Item>
-		</Item>
 		<Item Name="CameraComm" Type="Folder">
 			<Item Name="CameraComm.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm/CameraComm.lvclass"/>
 		</Item>
@@ -58,6 +39,7 @@
 		<Item Name="Camera_Controller.lvlib" Type="Library" URL="../../../../../UIs/Camera_Controller/Camera_Controller.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../../../../../UIs/Camera_Controller/launcher.vi"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../../../../../typedefs/typedefs.lvlib"/>
+		<Item Name="BeamProfilerData.ctl" Type="VI" URL="../../../../../typedefs/BeamProfilerData.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
@@ -146,6 +128,8 @@
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="DeInit Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit Messages/DeInit Msg/DeInit Msg.lvclass"/>
+			<Item Name="Init Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit Messages/Init Msg/Init Msg.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
