@@ -12,31 +12,13 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="CameraComm" Type="Folder">
-			<Item Name="CameraComm.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm/CameraComm.lvclass"/>
-		</Item>
-		<Item Name="CameraComm Messages" Type="Folder">
-			<Item Name="Capture Started Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Capture Started Msg/Capture Started Msg.lvclass"/>
-			<Item Name="Capture Stopped Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Capture Stopped Msg/Capture Stopped Msg.lvclass"/>
-			<Item Name="Gain Set Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Gain Set Msg/Gain Set Msg.lvclass"/>
-			<Item Name="Frame Ready Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Frame Ready Msg/Frame Ready Msg.lvclass"/>
-			<Item Name="Exposure Set Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Exposure Set Msg/Exposure Set Msg.lvclass"/>
-			<Item Name="Cam Init Done Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Cam Init Done Msg/Cam Init Done Msg.lvclass"/>
-			<Item Name="Cam DeInit Done Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/Cam DeInit Done Msg/Cam DeInit Done Msg.lvclass"/>
-		</Item>
-		<Item Name="Camera Messages" Type="Folder">
-			<Item Name="SingleAcquisition Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/SingleAcquisition Msg/SingleAcquisition Msg.lvclass"/>
-			<Item Name="SetExposure Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/SetExposure Msg/SetExposure Msg.lvclass"/>
-			<Item Name="Set Gain Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/Set Gain Msg/Set Gain Msg.lvclass"/>
-			<Item Name="StartCapture Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/StartCapture Msg/StartCapture Msg.lvclass"/>
-			<Item Name="StopCapture Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/StopCapture Msg/StopCapture Msg.lvclass"/>
-			<Item Name="GetFrame Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/GetFrame Msg/GetFrame Msg.lvclass"/>
-		</Item>
-		<Item Name="InitDeinit.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit/InitDeinit.lvclass"/>
-		<Item Name="CameraInterface.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvclass"/>
-		<Item Name="CameraOptionsInterface.lvclass" Type="LVClass" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraOptionsInterface/CameraOptionsInterface.lvclass"/>
-		<Item Name="Inovance_Camera.lvlib" Type="Library" URL="../Inovance_Camera/Inovance_Camera.lvlib"/>
+		<Item Name="CameraComm.lvlib" Type="Library" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm/CameraComm.lvlib"/>
+		<Item Name="CameraComm Messages.lvlib" Type="Library" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/CameraComm Messages.lvlib"/>
+		<Item Name="CameraInterface Messages.lvlib" Type="Library" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/CameraInterface Messages.lvlib"/>
+		<Item Name="CameraInterface.lvlib" Type="Library" URL="../../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvlib"/>
+		<Item Name="InitDeInit.lvlib" Type="Library" URL="../../../../../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
 		<Item Name="Camera_Controller.lvlib" Type="Library" URL="../../../../../UIs/Camera_Controller/Camera_Controller.lvlib"/>
+		<Item Name="Inovance_Camera.lvlib" Type="Library" URL="../Inovance_Camera/Inovance_Camera.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../../../../../UIs/Camera_Controller/launcher.vi"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../../../../../typedefs/typedefs.lvlib"/>
 		<Item Name="BeamProfilerData.ctl" Type="VI" URL="../../../../../typedefs/BeamProfilerData.ctl"/>
@@ -128,8 +110,7 @@
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="DeInit Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit Messages/DeInit Msg/DeInit Msg.lvclass"/>
-			<Item Name="Init Msg.lvclass" Type="LVClass" URL="../../../../../Interfaces/InitDeinitInterface/InitDeinit Messages/Init Msg/Init Msg.lvclass"/>
+			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../../../../UIs/SinglePhotonUI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

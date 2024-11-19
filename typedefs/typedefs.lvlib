@@ -4,14 +4,25 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="Camera_Init_Params.ctl" Type="VI" URL="../Camera_Init_Params.ctl"/>
-	<Item Name="FoundInstruments.ctl" Type="VI" URL="../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam/FoundInstruments.ctl"/>
+	<Item Name="Controller_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhotonUI/Libraries/SPIController/Controller_Cluster.ctl"/>
+	<Item Name="Controller_Scan_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhotonUI/Libraries/SPIController/Controller_Scan_Cluster.ctl"/>
+	<Item Name="CountsHistos.ctl" Type="VI" URL="../../UIs/SinglePhotonUI/Libraries/SinglePhotonInterferenceUI/CountsHistos.ctl"/>
+	<Item Name="DownJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/DownJog.ctl"/>
 	<Item Name="ImageProcessingParameters.ctl" Type="VI" URL="../ImageProcessingParameters.ctl"/>
 	<Item Name="IMAQ_ROI_ctrl.ctl" Type="VI" URL="../../UIs/Camera_Controller/Camera_Controller/SubVIs/IMAQ_ROI_ctrl.ctl"/>
 	<Item Name="InstrumentData.ctl" Type="VI" URL="../InstrumentData.ctl"/>
 	<Item Name="instrumentType.ctl" Type="VI" URL="../instrumentType.ctl"/>
+	<Item Name="KIM_Init_Params.ctl" Type="VI" URL="../KIM_Init_Params.ctl"/>
+	<Item Name="KIM_Positions.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/KIM_Positions.ctl"/>
+	<Item Name="LeftJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/LeftJog.ctl"/>
 	<Item Name="LUT_Scale.ctl" Type="VI" URL="../../UIs/Camera_Controller/Camera_Controller/SubVIs/LUT_Scale.ctl"/>
-	<Item Name="SpectrometerParameters.ctl" Type="VI" URL="../SpectrometerParameters.ctl"/>
-	<Item Name="SpectroMirrorCtrl.ctl" Type="VI" URL="../SpectroMirrorCtrl.ctl"/>
-	<Item Name="SpectrSlitControl.ctl" Type="VI" URL="../SpectrSlitControl.ctl"/>
+	<Item Name="MH_InitInfo.ctl" Type="VI" URL="../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_InitInfo.ctl"/>
+	<Item Name="RightJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/RightJog.ctl"/>
+	<Item Name="Scan_Data_For_Controller.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/Scan_Data_For_Controller.ctl"/>
+	<Item Name="StageMoveDone_For_UI.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/StageMoveDone_For_UI.ctl"/>
+	<Item Name="TranslationStagePublicData.ctl" Type="VI" URL="../TranslationStagePublicData.ctl"/>
+	<Item Name="UpJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/UpJog.ctl"/>
 	<Item Name="XY_Dummy.ctl" Type="VI" URL="../../UIs/Camera_Controller/Camera_Controller/SubVIs/XY_Dummy.ctl"/>
+	<Item Name="zJogIn.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/zJogIn.ctl"/>
+	<Item Name="zJogOut.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/zJogOut.ctl"/>
 </Library>

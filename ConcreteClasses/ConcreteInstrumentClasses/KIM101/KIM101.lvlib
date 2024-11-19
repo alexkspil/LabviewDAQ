@@ -4,6 +4,9 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Messages for this Actor" Type="Folder"/>
 	<Item Name="KIM101.lvclass" Type="LVClass" URL="../KIM101/KIM101.lvclass"/>
+	<Item Name="KIM_dll.lvlib" Type="Library" URL="../KIM_dll/KIM_dll.lvlib"/>
+	<Item Name="SetJogParameters.vi" Type="VI" URL="../SetJogParameters.vi"/>
 </Library>
