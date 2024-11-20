@@ -23,6 +23,9 @@
 		<Item Name="typedefs.lvlib" Type="Library" URL="../../../../typedefs/typedefs.lvlib"/>
 		<Item Name="BeamProfilerData.ctl" Type="VI" URL="../../../../typedefs/BeamProfilerData.ctl"/>
 		<Item Name="Hamamatsu_Camera.lvlib" Type="Library" URL="../Hama_LV/Hamamatsu_Camera.lvlib"/>
+		<Item Name="tm_setinputtrigger_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/trigger/tm_setinputtrigger_40.vi"/>
+		<Item Name="tm_sensorcooler_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/advanced/tm_sensorcooler_40.vi"/>
+		<Item Name="tm_setpropertyvalue.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/advanced/tm_setpropertyvalue.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
@@ -100,10 +103,12 @@
 				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="IMAQ ArrayToImage" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ArrayToImage"/>
+				<Item Name="LVMinMaxIncTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMinMaxIncTypeDef.ctl"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
+				<Item Name="tm_errorreport.vi" Type="VI" URL="/&lt;userlib&gt;/Hamamatsu Video Capture/tm_errorreport.vi"/>
 			</Item>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="AddressType.ctl" Type="VI" URL="../../../../typedefs/AddressType.ctl"/>
