@@ -33,6 +33,40 @@ def update_phase(grating_json, size,phase_array, modulation_depth):
     
     final_phase = np.flip(slm.load_phase( upscaled_phase_array ),0)
     return final_phase.tolist()
+
+def scan_phase(grating_json, size,index, modulation_depth):
+    """
+    Function that uploads one phase on the SLM, first using the grating_json we take a value 
+    which will be converted to divisions in our other program. Then the shape indicates the shape
+    of the square we will use on the SLM. The Phase array is the 2D array of squares we modify 
+    in the GUI and using the upscale function we make it to the wanted SLM size. Last variable is the
+    modulation depth.
+    """
+    cluster_data = json.loads(grating_json)
+    slm._core.modulation_depth = int(modulation_depth)
+    slm.divisions_x, slm.divisions_y = int(cluster_data['X']), int(cluster_data['Y'])
+
+    steps = 50
+    phase_array = np.zeros((2,2))
+    phases = np.linspace(0,2*np.pi,steps)
+    for i in range(steps):
+
+        if index == 0:
+            phase_array[0,1] = phases[i]
+            phase_array[1,1] = phases[i]
+
+        elif index == 1:
+            phase_array[0,0] = phases[i]
+            phase_array[0,1] = phases[i]
+        else:
+            phase_array[0,1] = phases[i]
+            phase_array[1,0] = phases[i]
+
+        upscale_factors = [int(size/phase_array.shape[0]),int(size/phase_array.shape[1])]
+        upscaled_phase_array = upscale(phase_array, upscale_factors)
+        final_phase = np.flip(slm.load_phase( upscaled_phase_array ),0)
+
+    return final_phase.tolist()
         
 def close_slm():
     """
@@ -93,3 +127,7 @@ def upscale(array: np.ndarray, factor: int | tuple[int, int]) -> np.ndarray:
 
     return array.repeat(fact1, axis=0).repeat(fact2, axis=1)
 
+def change_index(array):
+    np_array = np.array(array)*2
+    np_array = np.flip(np_array,0)
+    return np_array.tolist()

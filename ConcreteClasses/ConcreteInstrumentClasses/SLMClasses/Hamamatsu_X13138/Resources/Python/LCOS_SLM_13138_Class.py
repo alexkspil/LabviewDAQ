@@ -3,6 +3,8 @@
 # import numpy as np
 from ctypes import *
 import matplotlib.pyplot as plt
+import os
+
 
 class HamaSLM_13138:
     def __init__(self, monitor, modulation_depth) -> None:
@@ -19,12 +21,12 @@ class HamaSLM_13138:
         #pixel number
         self.array_size = self.x * self.y
         self.modulation_depth = modulation_depth #for 810 --> 214 #256
-
+        os.chdir(os.curdir)
         # make the 8bit unsigned integer array type
         self.FARRAY = c_uint8 * self.array_size
         self.farray = self.FARRAY(0)
-
-        self.Lcoslib = windll.LoadLibrary(r"C:\Users\quantum\Documents\LVDAQ\ConcreteClasses\ConcreteInstrumentClasses\SLMClasses\Hamamatsu_X13138\Resources\LabviewVIs\Image_Control.dll")
+        dll_dir = os.getcwd() + '\Image_Control.dll'
+        self.Lcoslib = windll.LoadLibrary(r'C:\Users\quantum\Documents\LVDAQ\ConcreteClasses\ConcreteInstrumentClasses\SLMClasses\Hamamatsu_X13138\Resources\Python\Image_Control.dll')
         #Select LCOS window
         Window_Settings = self.Lcoslib.Window_Settings
         Window_Settings.argtypes = [c_int, c_int, c_int, c_int]
