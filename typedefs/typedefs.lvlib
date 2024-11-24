@@ -15,7 +15,7 @@
 	<Item Name="InstrumentData.ctl" Type="VI" URL="../InstrumentData.ctl"/>
 	<Item Name="instrumentType.ctl" Type="VI" URL="../instrumentType.ctl"/>
 	<Item Name="KIM_Init_Params.ctl" Type="VI" URL="../KIM_Init_Params.ctl"/>
-	<Item Name="KIM_Positions.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/KIM_Positions.ctl"/>
+	<Item Name="BPC_Voltages.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/BPC_Voltages.ctl"/>
 	<Item Name="LeftJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/LeftJog.ctl"/>
 	<Item Name="LUT_Scale.ctl" Type="VI" URL="../../UIs/Camera_Controller/Camera_Controller/SubVIs/LUT_Scale.ctl"/>
 	<Item Name="MH_InitInfo.ctl" Type="VI" URL="../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_InitInfo.ctl"/>

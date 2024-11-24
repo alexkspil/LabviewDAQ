@@ -8,5 +8,5 @@
 	<Item Name="Messages for this Actor" Type="Folder"/>
 	<Item Name="KIM101.lvclass" Type="LVClass" URL="../KIM101/KIM101.lvclass"/>
 	<Item Name="KIM_dll.lvlib" Type="Library" URL="../KIM_dll/KIM_dll.lvlib"/>
-	<Item Name="SetJogParameters.vi" Type="VI" URL="../SetJogParameters.vi"/>
+	<Item Name="SetJogParameters.vi" Type="VI" URL="../../BPC301/BPC30x/SetJogParameters.vi"/>
 </Library>
