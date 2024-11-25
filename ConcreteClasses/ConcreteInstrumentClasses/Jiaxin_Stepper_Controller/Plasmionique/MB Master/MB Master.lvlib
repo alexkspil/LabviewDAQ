@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Library LVVersion="23008000">
 	<Property Name="NI.Lib.ContainingLib" Type="Str">Jiaxin_Stepper_Controller.lvlib</Property>
-	<Property Name="NI.Lib.ContainingLibPath" Type="Str">../../../Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller.lvlib</Property>
+	<Property Name="NI.Lib.ContainingLibPath" Type="Str">../../../Jiaxin_Stepper_Controller.lvlib</Property>
 	<Property Name="NI.Lib.Description" Type="Str">Modbus Master Library
 
 Copyright (c) 2016, Plasmionique Inc.
@@ -22,12 +22,10 @@ License: BSD (2-Clause) - http://opensource.org/licenses/BSD-2-Clause
 			<Item Name="Read Coils.vi" Type="VI" URL="../MB_Master/Read Coils.vi"/>
 			<Item Name="Read Discrete Inputs.vi" Type="VI" URL="../MB_Master/Read Discrete Inputs.vi"/>
 			<Item Name="Read Exception Status.vi" Type="VI" URL="../MB_Master/Read Exception Status.vi"/>
-			<Item Name="Read Holding Registers.vi" Type="VI" URL="../MB_Master/Read Holding Registers.vi"/>
 			<Item Name="Read Input Registers.vi" Type="VI" URL="../MB_Master/Read Input Registers.vi"/>
 			<Item Name="Read-Write Holding Registers.vi" Type="VI" URL="../MB_Master/Read-Write Holding Registers.vi"/>
 			<Item Name="Read Device Identification.vi" Type="VI" URL="../MB_Master/Read Device Identification.vi"/>
 			<Item Name="Write Multiple Coils.vi" Type="VI" URL="../MB_Master/Write Multiple Coils.vi"/>
-			<Item Name="Write Multiple Registers.vi" Type="VI" URL="../MB_Master/Write Multiple Registers.vi"/>
 			<Item Name="Write Single Coil.vi" Type="VI" URL="../MB_Master/Write Single Coil.vi"/>
 			<Item Name="Write Single Register.vi" Type="VI" URL="../MB_Master/Write Single Register.vi"/>
 		</Item>
@@ -49,7 +47,6 @@ License: BSD (2-Clause) - http://opensource.org/licenses/BSD-2-Clause
 				<Item Name="Build_Read Coils.vi" Type="VI" URL="../MB_PDU/Build_Read Coils.vi"/>
 				<Item Name="Build_Read Discrete Inputs.vi" Type="VI" URL="../MB_PDU/Build_Read Discrete Inputs.vi"/>
 				<Item Name="Build_Read Exception Status.vi" Type="VI" URL="../MB_PDU/Build_Read Exception Status.vi"/>
-				<Item Name="Build_Read Holding Registers.vi" Type="VI" URL="../MB_PDU/Build_Read Holding Registers.vi"/>
 				<Item Name="Build_Read Input Registers.vi" Type="VI" URL="../MB_PDU/Build_Read Input Registers.vi"/>
 				<Item Name="Build_Read Device Identification.vi" Type="VI" URL="../MB_PDU/Build_Read Device Identification.vi"/>
 				<Item Name="Build_Write Single Coil.vi" Type="VI" URL="../MB_PDU/Build_Write Single Coil.vi"/>
@@ -57,17 +54,16 @@ License: BSD (2-Clause) - http://opensource.org/licenses/BSD-2-Clause
 				<Item Name="Build_Write Multiple Coils.vi" Type="VI" URL="../MB_PDU/Build_Write Multiple Coils.vi"/>
 				<Item Name="Build_Write Multiple Holding Registers.vi" Type="VI" URL="../MB_PDU/Build_Write Multiple Holding Registers.vi"/>
 				<Item Name="Build_Read-Write Holding Registers.vi" Type="VI" URL="../MB_PDU/Build_Read-Write Holding Registers.vi"/>
-				<Item Name="Build_Mask Write Holding Register.vi" Type="VI" URL="../MB_PDU/Build_Mask Write Holding Register.vi"/>
 			</Item>
 			<Item Name="Interpret PDUs" Type="Folder">
 				<Item Name="Interpret_Read Device Identification.vi" Type="VI" URL="../MB_PDU/Interpret_Read Device Identification.vi"/>
 				<Item Name="Interpret_Read Coils.vi" Type="VI" URL="../MB_PDU/Interpret_Read Coils.vi"/>
 				<Item Name="Interpret_Read Exception Status.vi" Type="VI" URL="../MB_PDU/Interpret_Read Exception Status.vi"/>
-				<Item Name="Interpret_Read Registers.vi" Type="VI" URL="../MB_PDU/Interpret_Read Registers.vi"/>
 			</Item>
 		</Item>
 		<Item Name="MB_ReadDevID Codes.ctl" Type="VI" URL="../MB_PDU/MB_ReadDevID Codes.ctl"/>
 		<Item Name="MB_DevID Object.ctl" Type="VI" URL="../MB_PDU/MB_DevID Object.ctl"/>
 		<Item Name="MB_PDU_Cluster.ctl" Type="VI" URL="../MB_PDU/MB_PDU_Cluster.ctl"/>
 	</Item>
+	<Item Name="MB_VISA_Lock.lvlib" Type="Library" URL="../MB_VISA_Lock/MB_VISA_Lock.lvlib"/>
 </Library>

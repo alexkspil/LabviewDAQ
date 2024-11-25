@@ -5,9 +5,9 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Camera_Init_Params.ctl" Type="VI" URL="../Camera_Init_Params.ctl"/>
-	<Item Name="Controller_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhotonUI/Libraries/SPIController/Controller_Cluster.ctl"/>
-	<Item Name="Controller_Scan_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhotonUI/Libraries/SPIController/Controller_Scan_Cluster.ctl"/>
-	<Item Name="CountsHistos.ctl" Type="VI" URL="../../UIs/SinglePhotonUI/Libraries/SinglePhotonInterferenceUI/CountsHistos.ctl"/>
+	<Item Name="Controller_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhoton_UI/Libraries/SPIController/Controller_Cluster.ctl"/>
+	<Item Name="Controller_Scan_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhoton_UI/Libraries/SPIController/Controller_Scan_Cluster.ctl"/>
+	<Item Name="CountsHistos.ctl" Type="VI" URL="../../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/CountsHistos.ctl"/>
 	<Item Name="DownJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/DownJog.ctl"/>
 	<Item Name="Image Type.ctl" Type="VI" URL="../Image Type.ctl"/>
 	<Item Name="ImageProcessingParameters.ctl" Type="VI" URL="../ImageProcessingParameters.ctl"/>

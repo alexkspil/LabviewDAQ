@@ -12,17 +12,17 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="InitDeInit.lvlib" Type="Library" URL="../../../../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
 		<Item Name="CameraComm.lvlib" Type="Library" URL="../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm/CameraComm.lvlib"/>
 		<Item Name="CameraComm Messages.lvlib" Type="Library" URL="../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/CameraComm Messages.lvlib"/>
 		<Item Name="CameraInterface Messages.lvlib" Type="Library" URL="../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/CameraInterface Messages.lvlib"/>
 		<Item Name="CameraInterface.lvlib" Type="Library" URL="../../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvlib"/>
-		<Item Name="InitDeInit.lvlib" Type="Library" URL="../../../../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
 		<Item Name="Camera_Controller.lvlib" Type="Library" URL="../../../../UIs/Camera_Controller/Camera_Controller.lvlib"/>
 		<Item Name="Inovance_Camera.lvlib" Type="Library" URL="../Inovance_LV/Inovance_Camera/Inovance_Camera.lvlib"/>
+		<Item Name="Hamamatsu_Camera.lvlib" Type="Library" URL="../Hama_LV/Hamamatsu_Camera.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../../../../UIs/Camera_Controller/launcher.vi"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../../../../typedefs/typedefs.lvlib"/>
 		<Item Name="BeamProfilerData.ctl" Type="VI" URL="../../../../typedefs/BeamProfilerData.ctl"/>
-		<Item Name="Hamamatsu_Camera.lvlib" Type="Library" URL="../Hama_LV/Hamamatsu_Camera.lvlib"/>
 		<Item Name="tm_setinputtrigger_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/trigger/tm_setinputtrigger_40.vi"/>
 		<Item Name="tm_sensorcooler_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/advanced/tm_sensorcooler_40.vi"/>
 		<Item Name="tm_setpropertyvalue.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/advanced/tm_setpropertyvalue.vi"/>

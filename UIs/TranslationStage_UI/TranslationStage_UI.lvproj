@@ -12,6 +12,7 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="BPC30x.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/BPC301/BPC30x.lvlib"/>
+		<Item Name="Build_Mask Write Holding Register.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Plasmionique/MB Master/MB_PDU/Build_Mask Write Holding Register.vi"/>
 		<Item Name="InitDeInit.lvlib" Type="Library" URL="../../../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
 		<Item Name="Jiaxin_Stepper_Controller.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller.lvlib"/>
 		<Item Name="KIM101.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/KIM101/KIM101.lvlib"/>
@@ -60,7 +61,6 @@
 				<Item Name="LVBoundsTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVBoundsTypeDef.ctl"/>
 				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
 				<Item Name="MB Master.lvlib" Type="Library" URL="/&lt;vilib&gt;/Plasmionique/MB Master/MB Master.lvlib"/>
-				<Item Name="MB_VISA_Lock.lvlib" Type="Library" URL="/&lt;vilib&gt;/Plasmionique/MB Master/MB_VISA_Lock/MB_VISA_Lock.lvlib"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 				<Item Name="NI_Data Type.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/Data Type/NI_Data Type.lvlib"/>
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
@@ -88,7 +88,7 @@
 			</Item>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="AnalyzeEvent_Double.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/AnalyzeEvent_Double.vi"/>
-			<Item Name="Calc_Allan-Variance.VI" Type="VI" URL="../../SinglePhotonUI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Calc_Allan-Variance.VI"/>
+			<Item Name="Calc_Allan-Variance.VI" Type="VI" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Calc_Allan-Variance.VI"/>
 			<Item Name="CalcRate.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/CalcRate.vi"/>
 			<Item Name="ControllerComm.lvlib" Type="Library" URL="../../ControllerComm.lvlib"/>
 			<Item Name="Count_Coincidences.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/Count_Coincidences.vi"/>
@@ -101,7 +101,7 @@
 			<Item Name="JX_SetHome Msg.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_SetHome Msg/JX_SetHome Msg.lvclass"/>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
-			<Item Name="Mean_stdev_Calculation.vi" Type="VI" URL="../../SinglePhotonUI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Mean_stdev_Calculation.vi"/>
+			<Item Name="Mean_stdev_Calculation.vi" Type="VI" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Mean_stdev_Calculation.vi"/>
 			<Item Name="MH_ActorCluster.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Multiharp/MH_ActorCluster.ctl"/>
 			<Item Name="MH_AllocateAllHistoBuffer.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_AllocateAllHistoBuffer.vi"/>
 			<Item Name="MH_AllocateCntRateBuffer.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_AllocateCntRateBuffer.vi"/>
@@ -130,7 +130,7 @@
 			<Item Name="MH_OpenDevice.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_OpenDevice.vi"/>
 			<Item Name="MH_ReadFiFo.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_ReadFiFo.vi"/>
 			<Item Name="MH_RefSource.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_RefSource.ctl"/>
-			<Item Name="MH_SetAllChannels.vi" Type="VI" URL="../../SinglePhotonUI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/MH_SetAllChannels.vi"/>
+			<Item Name="MH_SetAllChannels.vi" Type="VI" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/MH_SetAllChannels.vi"/>
 			<Item Name="MH_SetBinning.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetBinning.vi"/>
 			<Item Name="MH_SetHistoLen.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetHistoLen.vi"/>
 			<Item Name="MH_SetInpChanCmds.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_SetInpChanCmds.ctl"/>
@@ -154,8 +154,8 @@
 			<Item Name="OTF_subtraction.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/OTF_subtraction.vi"/>
 			<Item Name="ProcessTTRecMHT2.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/ProcessTTRecMHT2.vi"/>
 			<Item Name="SetInputChannels.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/SetInputChannels.vi"/>
-			<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../../SinglePhotonUI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
-			<Item Name="SPIController.lvlib" Type="Library" URL="../../SinglePhotonUI/Libraries/SPIController/SPIController.lvlib"/>
+			<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
+			<Item Name="SPIController.lvlib" Type="Library" URL="../../SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
