@@ -5,5 +5,4 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="BPC30x.lvclass" Type="LVClass" URL="../BPC30x/BPC30x.lvclass"/>
-	<Item Name="BPC30x_dll.lvlib" Type="Library" URL="../BPC30x_dll.lvlib"/>
 </Library>

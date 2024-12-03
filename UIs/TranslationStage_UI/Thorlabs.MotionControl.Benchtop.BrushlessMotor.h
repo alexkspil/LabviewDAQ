@@ -139,7 +139,6 @@ extern "C"
 		MOT_LimitSwitchStopProfiled_Rotational=0x83,///<Stop profiled when hitting limit switch (rotational stage)
 	} MOT_LimitSwitchSWModes;
 
-
 	/// <summary> Values that represent MOT_LimitsSoftwareApproachPolicy. </summary>
 	typedef enum MOT_LimitsSoftwareApproachPolicy : short
 	{
@@ -171,6 +170,117 @@ extern "C"
 		Forwards = 0x01,///< Only rotate in a forward direction
 		Reverse = 0x02,///< Only rotate in a backward direction
 	} MOT_MovementDirections;
+
+	/// <summary> Values that represent the trigger input configuration modes. </summary>
+	typedef enum MOT_TriggerInputConfigModes : WORD
+	{
+		MOT_TrigIn_Disabled = 0x00,///< Trigger Disabled
+		MOT_TrigIn_GPI = 0x01,///< General purpose logic input
+		MOT_TrigIn_RelativeMove = 0x02,///< Move relative using relative move parameters
+		MOT_TrigIn_AbsoluteMove = 0x03,///< Move absolute using absolute move parameters
+		MOT_TrigIn_Home = 0x04,///< Perform a Home action
+		MOT_TrigIn_Stop = 0x05,///< Perform a Stop Immediate action
+	} MOT_TriggerInputConfigModes;
+
+	/// <summary> Values that represent Trigger Polarity. </summary>
+	typedef enum MOT_TriggerPolarity : WORD
+	{
+		MOT_TrigPolarityHigh = 0x01,///< Trigger Polarity high
+		MOT_TrigPolarityLow = 0x02,///< Trigger Polarity Low
+	} MOT_TriggerPolarity;
+
+	/// <summary> Values that represent the port to be used as an input trigger. </summary>
+	typedef enum MOT_TriggerInputSource : WORD
+	{
+		MOT_TrigSoftware = 0x00,///< Software
+		MOT_TrigPort1 = 0x01,///< Port 1
+		MOT_TrigPort2 = 0x02,///< Port 2
+		MOT_TrigPort3 = 0x03,///< Port 3
+	} MOT_TriggerInputSource;
+
+	/// <summary> Values that represent the trigger output configuration modes. </summary>
+	typedef enum MOT_TriggerOutputConfigModes : WORD
+	{
+		MOT_TrigOut_Disabled = 0x00,///< Trigger Disabled
+		MOT_TrigOut_GPO = 0x0A,///< General purpose output (set using MOT_SET_DIGOUTPUTS)
+		MOT_TrigOut_InMotion = 0x0B,///< Set when device moving
+		MOT_TrigOut_AtMaxVelocity = 0x0C,///< Set when at max velocity
+		MOT_TrigOut_AtPositionStepFwd = 0x0D,///< Set when at predefine position steps, Forward,<br />Set using wTrigStartPos, wTrigInterval, wTrigNumPulses,wTrigPulseWidth
+		MOT_TrigOut_AtPositionStepRev = 0x0E,///< Set when at predefine position steps, Reverse,<br />Set using wTrigStartPos, wTrigInterval, wTrigNumPulses,wTrigPulseWidth
+		MOT_TrigOut_AtPositionStepBoth = 0x0F,///< Set when at predefine position steps, Both,<br />Set using wTrigStartPos, wTrigInterval, wTrigNumPulses,wTrigPulseWidth
+		MOT_TrigOut_AtFwdLimit = 0x10,///< Set when forward limit switch is active
+		MOT_TrigOut_AtBwdLimit = 0x11,///< Set when backward limit switch is active
+		MOT_TrigOut_AtLimit = 0x12,///< Set when either limit switch is active
+	} MOT_TriggerOutputConfigModes;
+
+	/// <summary> Options for Port usage. </summary>
+	typedef enum MOD_AuxIOPortMode : short
+	{
+		MOD_AUXIOPORTMODE_SW = 0x01,///< Aux output(s) are controlled by software            
+		MOD_AUXIOPORTMODE_ENC = 0x02,///< Aux outputs are driven by encoder corresponding to the motor channel 
+	} MOD_AuxIOPortMode;
+
+	/// <summary> Options for Port usage. </summary>
+	typedef enum MOD_IOPortMode : short
+	{
+		MOD_IOPORTMODE_DIGIN = 0x00,///<Port is used for Digital input 
+		MOD_IOPORTMODE_DIGOUT = 0x01,///<Port is used for Digital output
+		MOD_IOPORTMODE_ANALOGOUT = 0x02,///<Port is used for Analog output
+	} MOD_IOPortMode;
+
+	/// <summary> Options when Port is used as an output. </summary>
+	typedef enum MOD_IOPortSource : short
+	{
+		MOD_IOPORTSOURCE_SOFTWARE = 0x00,///<The state of the output is software defined
+		MOD_IOPORTSOURCE_CHAN1 = 0x01,///<The state of the output is dependent on motor ch 1
+		MOD_IOPORTSOURCE_CHAN2 = 0x02,///<The state of the output is dependent on motor ch 2
+		MOD_IOPORTSOURCE_CHAN3 = 0x03,///<The state of the output is dependent on motor ch 3
+	} MOD_IOPortSource;
+
+	/// <summary> Options for the Analog Monitor variable. </summary>
+	typedef enum MOD_Monitor_Variable : short
+	{
+		MOD_MONITORVAR_POSERROR = 0x01,///< Position error (with SCALE and OFFSET)
+		MOD_MONITORVAR_POSITION = 0x02,///< Actual position (with SCALE and OFFSET)
+		MOD_MONITORVAR_IPHASEA = 0x03,///< Motor phase A current (absolute scale)
+		MOD_MONITORVAR_IPHASEB = 0x04,///< Motor phase B current (absolute scale)
+		MOD_MONITORVAR_IPHASEC = 0x05,///< Motor phase C current (absolute scale)
+		MOD_MONITORVAR_IMOT = 0x06,///< Motor current (absolute scale)
+	} MOD_Monitor_Variable;
+
+	/// <summary> Values that represent a trigger state. </summary>
+	typedef enum MOT_TriggerState : unsigned char
+	{
+		MOT_Trigger_Arm = 0x01,///< Arm the Trigger
+		MOT_Trigger_Cancel = 0x02,///< Cancel the Trigger
+	} MOT_TriggerState;
+
+	/// <summary> Values that represent the pattern used in the raster scan move. </summary>
+	typedef enum MOT_RasterScanMovePattern : WORD
+	{
+		MOT_RasterScanMovePattern_Flyback = 0x01,///< Flyback (unidirectional)
+		MOT_RasterScanMovePattern_FwdRev = 0x02,///< Forward/Reverse (bidirectional scan)
+	};
+
+	/// <summary> Values that represent the raster scan move triggering options. </summary>
+	typedef enum MOT_RasterScanMoveTriggerMode : WORD
+	{
+		MOT_RasterScanMoveTriggerMode_Software = 0x01,///< Software trigger, raster scan move starts immediately
+		MOT_RasterScanMoveTriggerMode_XStep = 0x02,///< Trigger starts next relative move along the X axis
+		MOT_RasterScanMoveTriggerMode_YStep = 0x03,///< Trigger starts the complete X axis move sequence, then stops and awaits next trigger before Y step
+		MOT_RasterScanMoveTriggerMode_XYScan = 0x04,///< Trigger starts the complete sequence of all moves
+		MOT_RasterScanMoveTriggerMode_OnOff = 0x05,///< Trigger starts the whole sequence, stops when trigger is de-asserted, resumes when trigger is asserted
+	};
+
+
+	/// <summary> Values that represent the raster scan movement control commands. </summary>
+	typedef enum MOT_RasterScanMoveCmd : unsigned char
+	{
+		MOT_RasterScanMoveCmd_Start = 0x01,///< Starts a move or enables Move
+		MOT_RasterScanMoveCmd_Pause = 0x02,///< Pauses Move
+		MOT_RasterScanMoveCmd_Stop = 0x03,///< Stops movement or disables triggering
+	};
+
 
 /** @} */ // Common
 
@@ -237,8 +347,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks>  Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -505,10 +615,210 @@ extern "C"
 		WORD lastNotUsed;
 	} MOT_BrushlessElectricOutputParameters;
 
+	/// <summary> Structure containing the LCD Parameters. </summary>
+	/// <value> Device GUI parameters. </value>
+	typedef struct MOT_LCDParams
+	{
+		/// <summary> The LCD control knob direction sense and scaling factor (0 to 65535). </summary>
+		WORD JSSensitivity;
+		/// <summary> The display intensity, range 0 to 100%. </summary>
+		WORD DisplayIntensity;
+		/// <summary> The display timeout in miniutes. </summary>
+		WORD DisplayTimeout;
+		/// <summary> The display dim intensity, range 0 to (Display Intensity). </summary>
+		WORD DisplayDimIntensity;
+		/// <summary> Reserved fields. </summary>
+		WORD reserved[10];
+	} MOT_LCDParams;
+
+	/// <summary> Structure containing the motion parameters for joystick or LCD panel initiated moves. </summary>
+	/// <value> Device GUI motion parameters. </value>
+	typedef struct MOT_LCDMoveParams
+	{
+		/// <summary> LCD knob control mode</summary>
+		/// <remarks> The Jog Mode determines how the motor should move.
+		///		   <list type=table>
+		///				<item><term>1</term><term>Continuous</term></item>
+		///				<item><term>2</term><term>Jog step</term></item>
+		///		   </list> </remarks>
+		MOT_JogModes JogMode;
+		/// <summary> The step in position steps. </summary>
+		unsigned int StepSize;
+		/// <summary> Velocity parameters for jogs. </summary>
+		/// Jog acceleration in position pos. steps/sec*sec.
+		int JogAccn;
+		/// Maximum (final) jogging velocity in pos. steps/sec.
+		int JogMaxVel;
+		/// <summary> The Stop Mode</summary>
+		/// <remarks> The Stop Mode determines how the jog should stop.
+		/// 		  <list type=table>
+		///				<item><term>1</term><term>Immediate</term></item>
+		///				<item><term>2</term><term>Profiled.</term></item>
+		/// 		  </list> </remarks>
+		MOT_StopModes StopMode;
+		/// Preset (teach) positions in wheel 'GoTo Position' mode [in position steps].
+		int PresetPositions[3];
+		/// <summary> Reserved fields. </summary>
+		WORD reserved[10];
+	} MOT_LCDMoveParams;
+
+	/// <summary> Structure containing a position associated with a channel. </summary>
+	/// <value> The channel and its position. </value>
+	typedef struct MOT_ChannelPosition
+	{
+		/// <summary> The Channel Number. </summary>
+		WORD channelNumber;
+		/// <summary> The Position. </summary>
+		int position;
+	} MOT_ChannelPosition;
+
+	/// <summary> Structure containing the Trigger IO Config Parameters. </summary>
+	/// <value> Trigger IO config parameters. </value>
+	typedef struct MOT_TriggerIOConfigParameters
+	{
+		/// <summary> The trigger mode to use. </summary>
+		MOT_TriggerInputConfigModes TriggerInMode;
+		/// <summary> The trigger polarity. </summary>
+		MOT_TriggerPolarity TriggerInPolarity;
+		/// <summary> The port to use as an input trigger. </summary>
+		MOT_TriggerInputSource InputSource;
+		/// <summary> The trigger mode to use. </summary>
+		MOT_TriggerOutputConfigModes TriggerOutMode;
+		/// <summary> The trigger polarity. </summary>
+		MOT_TriggerPolarity TriggerOutPolarity;
+
+		/// <summary> The forward movement trigger start position. </summary>
+		LONG StartPositionFwd;
+
+		/// <summary> The forward movement position interval between triggers. </summary>
+		LONG IntervalFwd;
+
+		/// <summary> The forward movement number of triggers. </summary>
+		LONG PulseCountFwd;
+
+		/// <summary> The reverse movement trigger start position. </summary>
+		LONG StartPositionRev;
+
+		/// <summary> The reverse movement position interval between triggers. </summary>
+		LONG IntervalRev;
+
+		/// <summary> The reverse movement number of triggers. </summary>
+		LONG PulseCountRev;
+
+		/// <summary> The pulse width in microseconds. </summary>
+		LONG PulseWidth;
+
+		/// <summary> The number of cycles. </summary>
+		LONG CycleCount;
+
+		/// <summary> reserved fieldss. </summary>
+		WORD Reserved[4];
+	} MOT_TriggerIOConfigParameters;
+
+	/// <summary> Structure representing a single aux port config for use in controller </summary>
+	/// <value> The Auxiliary Port  configuration parameters. </value>
+	typedef struct MOD_AuxIOPortConfigurationParameters
+	{
+		/// <summary> The Aux Port number . </summary>
+		WORD PortNo;
+
+		/// <summary> The Aux Port mode to use. </summary>
+		MOD_AuxIOPortMode Mode;
+
+		/// <summary> Software state of the port. </summary>
+		WORD SWState;
+	} MOD_AuxIOPortConfigurationParameters;
+
+	/// <summary> Structure containing the Auxiliary Port Configuration Parameters. </summary>
+	/// <value> The Auxiliary Port  configuration parameters. </value>
+	typedef struct MOD_AuxIOPortConfigurationSetParameters
+	{
+		/// <summary> The Aux Port numbers to set (a bitmask). </summary>
+		WORD PortNos;
+
+		/// <summary> The Aux Port mode to use . </summary>
+		MOD_AuxIOPortMode Mode;
+
+		/// <summary> Software state of the port. </summary>
+		WORD SWState;
+	} MOD_AuxIOPortConfigurationSetParameters;
+
+	/// <summary> Structure containing the Port Configuration Parameters. </summary>
+	/// <value> The Port  configuration parameters. </value>
+	typedef struct MOD_IOPortConfigurationParameters
+	{
+		/// <summary> The port identifier. </summary>
+		WORD PortNo;
+
+		/// <summary> The Port mode to use. </summary>
+		MOD_IOPortMode Mode;
+		/// <summary> The source if is port is configured as an output. </summary>
+		MOD_IOPortSource Source;
+	} MOD_IOPortConfigurationParameters;
+
+	/// <summary> Structure representing Analog Monitoring configuration parameters. </summary>
+	/// <value> The Analog Monitoring configuration parameters. </value>
+	typedef struct MOD_AnalogMonitorConfigurationParameters
+	{
+		/// <summary> The Monitor number . </summary>
+		WORD MonitorNo;
+
+		/// <summary> The Montor Channel number. </summary>
+		WORD MotorChannelNo;
+
+		/// <summary> The Monitor variable. </summary>
+		MOD_Monitor_Variable MonitorVar;
+
+		/// <summary> The scale factor for the monitor variable. </summary>
+		LONG Scale;
+
+		/// <summary> The offset for the monitor variable. </summary>
+		LONG Offset;
+	} MOD_AnalogMonitorConfigurationParameters;
+
+
+	/// <summary> Structure containing the raster scan axis parameters. </summary>
+	/// <value> Device raster scan axis parameters. </value>
+	typedef struct MOT_RasterScanMoveAxisParams
+	{
+		///<summary> The motor channel number. </summary>
+		WORD ChannelNo;
+		/// <summary> The start position. </summary>
+		LONG StartPos;
+		/// <summary> The relative distance. </summary>
+		LONG RelativeDistance;
+		/// <summary> The number of times the relative move is performed. </summary>
+		LONG CycleCount;
+		/// <summary> The dwell time in msec. </summary>
+		WORD DwellTime;
+
+	} MOT_RasterScanMoveAxisParams;
+
+	/// <summary> Structure containing the raster scan parameters. </summary>
+	/// <value> Device raster scan parameters. </value>
+	typedef struct MOT_RasterScanMoveParams
+	{
+		/// <summary> The raster scan pattern. </summary>
+		MOT_RasterScanMovePattern ScanPattern;
+		/// <summary> The source of the trigger for the scan. </summary>
+		MOT_TriggerInputSource TriggerSource;
+		/// <summary> The triggering mode. </summary>
+		MOT_RasterScanMoveTriggerMode TriggerMode;
+		/// <summary> The trigger polarity. </summary>
+		MOT_TriggerPolarity TriggerInPolarity;
+		/// <summary> The move axis parameters - x (0) and y (1) axis. </summary>
+		MOT_RasterScanMoveAxisParams AxisMovement[2];
+
+	} MOT_RasterScanMoveParams;
+
+
 	#pragma pack()
-    /// <summary> Build the DeviceList. </summary>
-    /// <remarks> This function builds an internal collection of all devices found on the USB that are not currently open. <br />
-    /// 		  NOTE, if a device is open, it will not appear in the list until the device has been closed. </remarks>
+	/// <summary> Build the DeviceList. </summary>
+	/// <remarks> This function builds an internal collection of all devices found on the USB that are not currently open. <br />
+	/// 		  NOTE, if a device is open, it will not appear in the list until the device has been closed. <br />
+	///			  If you are attempting to connect to a device using TCP/IP you will need to call this method twice
+	///			  with a delay of a few seconds between calls to give time for the list of TCP/IP connected devices to be built.
+	///</remarks>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
     /// 		  \include CodeSnippet_identification.cpp
 	/// <seealso cref="TLI_GetDeviceListSize()" />
@@ -648,6 +958,25 @@ extern "C"
 	/// <seealso cref="TLI_InitializeSimulations()" />
 	BRUSHLESSMOTOR_API void __cdecl TLI_UninitializeSimulations();
 
+	/// <summary>	Creates a manual device configuration entry. </summary>
+	/// <param name="comSpec">	A communications specification string describing the device. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API short __cdecl TLI_CreateManualDeviceEntry(char *comSpec);
+
+	/// <summary>	Deletes a manual device configuration entry. </summary>
+	/// <param name="comSpec">	A communications specification string describing the device. </param>
+	BRUSHLESSMOTOR_API short __cdecl TLI_DeleteManualDeviceEntry(char *comSpec);
+
+	/// <summary> Scans a range of addresses and returns a list of the ip addresses of Thorlabs devices found. </summary>
+	/// <param name="startIPAddress"> The start IP address. </param>
+	/// <param name="endIPAddress">	 The end IP address. </param>
+	/// <param name="portNo">	 The port no, usually 40303. </param>
+	/// <param name="openTimeout">	The timeout used when attempting to open a connection. </param>
+	/// <param name="foundAddressesBuffer">  The character array to receive a comma seperated list of Thorlabs IP adresses. </param>
+	/// <param name="sizeOfBuffer">  The size of the Buffer. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API short __cdecl TLI_ScanEthernetRange(char *startIPAddress, char *endIPAddress, int portNo, int openTimeout, char *foundAddressesBuffer, DWORD sizeOfBuffer);
+	
 	/// <summary> Open the device for communications. </summary>
 	/// <param name="serialNo">	The serial no of the controller to be connected. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
@@ -689,7 +1018,7 @@ extern "C"
 
 	/// <summary> Gets the hardware information from the device. </summary>
 	/// <param name="serialNo">		    The controller serial no. </param>
-	/// <param name="channel">		    The channel (1 to n). </param>
+	/// <param name="channel">		    The channel (1 to n) or 0 for motherboard. </param>
 	/// <param name="modelNo">		    Address of a buffer to receive the model number string. Minimum 8 characters </param>
 	/// <param name="sizeOfModelNo">	    The size of the model number buffer, minimum of 8 characters. </param>
 	/// <param name="type">		    Address of a WORD to receive the hardware type number. </param>
@@ -706,7 +1035,7 @@ extern "C"
 
 	/// <summary> Gets the hardware information in a block. </summary>
 	/// <param name="serialNo">	The controller serial no. </param>
-	/// <param name="channel">  The channel (1 to n). </param>
+	/// <param name="channel">  The channel (1 to n) or 0 for motherboard. </param>
 	/// <param name="hardwareInfo"> Address of a TLI_HardwareInformation structure to receive the hardware information. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
 	/// 		  \include CodeSnippet_identify.cpp
@@ -719,7 +1048,7 @@ extern "C"
 
 	/// <summary> Gets version number of the device firmware. </summary>
 	/// <param name="serialNo">	The controller serial no. </param>
-	/// <param name="channel">  The channel (1 to n). </param>
+	/// <param name="channel">  The channel (1 to n) or 0 for motherboard. </param>
 	/// <returns> The device firmware version number made up of 4 byte parts. </returns>
 	/// 		  \include CodeSnippet_identify.cpp
 	BRUSHLESSMOTOR_API DWORD __cdecl BMC_GetFirmwareVersion(char const * serialNo, short channel);
@@ -732,14 +1061,14 @@ extern "C"
 
 	/// <summary> Update device with stored settings. </summary>
 	/// <param name="serialNo"> The controller serial no. </param>
-	/// <param name="channel">  The channel (1 to n). </param>
+	/// <param name="channel">  The channel (1 to n) or 0 for motherboard. </param>
 	/// <returns> <c>true</c> if successful, false if not. </returns>
 	/// 		  \include CodeSnippet_connectionN.cpp
 	BRUSHLESSMOTOR_API bool __cdecl BMC_LoadSettings(char const * serialNo, short channel);
 
 	/// <summary> Update device with named settings. </summary>
 	/// <param name="serialNo"> The serial no. </param>
-	/// <param name="channel">  The channel. </param>
+	/// <param name="channel">  The channel (1 to n) or 0 for motherboard. </param>
 	/// <param name="settingsName"> Name of settings stored away from device. </param>
 	/// <returns> <c>true</c> if successful, false if not. </returns>
 	///             \include CodeSnippet_connection1.cpp
@@ -1068,8 +1397,13 @@ extern "C"
 	/// <param name="serialNo"> The controller serial no. </param>
 	/// <param name="channel"> The channel (1 to n). </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
-	/// <seealso cref="BMC_GetVelParams(char const * serialNo, short channel, int * acceleration, int * maxVelocity)" />
+	/// <seealso cref="BMC_GetVelParams(char const * serialNo, short channel, int * acceleration, int * maxVelocity))" />
+	/// <seealso cref="BMC_SetVelParams(char const * serialNo, short channel, int acceleration, int maxVelocity)" />
 	/// <seealso cref="BMC_GetVelParamsBlock(char const * serialNo, short channel, MOT_VelocityParameters  *velocityParams)" />
+	/// <seealso cref="BMC_SetVelParamsBlock(char const * serialNo, short channel, MOT_VelocityParameters *velocityParams)" />
+	/// <seealso cref="BMC_MoveToPosition(char const * serialNo, short channel, int index)" />
+	/// <seealso cref="BMC_MoveRelative(char const * serialNo, short channel, int displacement)" />
+	/// <seealso cref="BMC_MoveAtVelocity(char const * serialNo, short channel, MOT_TravelDirection direction)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestVelParams(char const * serialNo, short channel);
 
 	/// <summary> Gets the move velocity parameters. </summary>
@@ -1163,7 +1497,6 @@ extern "C"
 	/// <param name="serialNo">	The controller serial no. </param>
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <param name="reverse"> if  <c>true</c> then directions will be swapped on these moves. </param>
-	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
 	BRUSHLESSMOTOR_API short __cdecl BMC_SetDirection(char const * serialNo, short channel, bool reverse);
 
@@ -1576,7 +1909,7 @@ extern "C"
 	///					<item><term>Linear</term><term>1</term></item>
 	///					<item><term>Rotational</term><term>2</term></item>
 	/// 			</list> </returns>
-	/// <seealso cref="BMC_SetMotorTravelMode(char const * serialNo, short channel, int travelMode)" />
+	/// <seealso cref="BMC_SetMotorTravelMode(char const * serialNo, short channel, MOT_TravelModes travelMode)" />
 	BRUSHLESSMOTOR_API MOT_TravelModes __cdecl BMC_GetMotorTravelMode(char const * serialNo, short channel);
 
 	/// \deprecated
@@ -1610,7 +1943,7 @@ extern "C"
 	/// 							 The counts per unit is the conversion factor that converts \ref DeviceUnits_page to real units.<br />
 	/// 							 For example with a counts per unit of 1000, 1 device unit = 0.0001mm. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
-	/// <seealso cref="BMC_GetMotorParamsExt(char const * serialNo, short channel, long *countsPerUnit)" />
+	/// <seealso cref="BMC_GetMotorParamsExt(char const * serialNo, short channel, double *countsPerUnit)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_SetMotorParamsExt(char const * serialNo, short channel, double countsPerUnit);
 
 	/// <summary> Get the motor parameters for the Brushless Votor. </summary>
@@ -1756,8 +2089,8 @@ extern "C"
 	/// <param name="serialNo"> The controller serial no. </param>
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
-	/// <seealso cref="BMC_GetPosLoopParams(char const * serialNo, short channel, MOT_PosLoopParameters *PosLoopParams)" />
-	/// <seealso cref="BMC_SetPosLoopParams(char const * serialNo, short channel, MOT_PosLoopParameters *PosLoopParams)" />
+	/// <seealso cref="BMC_GetPosLoopParams(char const * serialNo, short channel, MOT_BrushlessPositionLoopParameters *positionLoopParams)" />
+	/// <seealso cref="BMC_SetPosLoopParams(char const * serialNo, short channel, MOT_BrushlessPositionLoopParameters *positionLoopParams)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestPosLoopParams(char const * serialNo, short channel);
 
 	/// <summary> Gets the position feedback loop parameters. </summary>
@@ -1808,8 +2141,8 @@ extern "C"
 	/// <param name="serialNo"> The controller serial no. </param>
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
-	/// <seealso cref="BMC_GetCurrentLoopParams(char const * serialNo, short channel, MOT_CurrentLoopParameters *CurrentLoopParams)" />
-	/// <seealso cref="BMC_SetCurrentLoopParams(char const * serialNo, short channel, MOT_CurrentLoopParameters *CurrentLoopParams)" />
+	/// <seealso cref="BMC_GetCurrentLoopParams(char const * serialNo, short channel, MOT_BrushlessCurrentLoopParameters *currentLoopParams)" />
+	/// <seealso cref="BMC_SetCurrentLoopParams(char const * serialNo, short channel, MOT_BrushlessCurrentLoopParameters *currentLoopParams)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestCurrentLoopParams(char const * serialNo, short channel);
 
 	/// <summary> Gets the current loop parameters for moving to required position. </summary>
@@ -1834,8 +2167,8 @@ extern "C"
 	/// <param name="serialNo"> The controller serial no. </param>
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
-	/// <seealso cref="BMC_GetSettledCurrentLoopParams(char const * serialNo, short channel, MOT_CurrentLoopParameters *SettledCurrentLoopParams)" />
-	/// <seealso cref="BMC_SetSettledCurrentLoopParams(char const * serialNo, short channel, MOT_CurrentLoopParameters *SettledCurrentLoopParams)" />
+	/// <seealso cref="BMC_GetSettledCurrentLoopParams(char const * serialNo, short channel, MOT_BrushlessCurrentLoopParameters *currentLoopParams)" />
+	/// <seealso cref="BMC_SetSettledCurrentLoopParams(char const * serialNo, short channel, MOT_BrushlessCurrentLoopParameters *currentLoopParams)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestSettledCurrentLoopParams(char const * serialNo, short channel);
 
 	/// <summary> Gets the settled current loop parameters for holding at required position. </summary>
@@ -1860,8 +2193,8 @@ extern "C"
 	/// <param name="serialNo"> The controller serial no. </param>
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
-	/// <seealso cref="BMC_GetElectricOutputParams(char const * serialNo, short channel, MOT_ElectricOutputParameters *ElectricOutputParams)" />
-	/// <seealso cref="BMC_SetElectricOutputParams(char const * serialNo, short channel, MOT_ElectricOutputParameters *ElectricOutputParams)" />
+	/// <seealso cref="BMC_GetElectricOutputParams(char const * serialNo, short channel, MOT_BrushlessElectricOutputParameters *electricOutputParams)" />
+	/// <seealso cref="BMC_SetElectricOutputParams(char const * serialNo, short channel, MOT_BrushlessElectricOutputParameters *electricOutputParams)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestElectricOutputParams(char const * serialNo, short channel);
 
 	/// <summary> Gets the electric output parameters. </summary>
@@ -1911,7 +2244,7 @@ extern "C"
 	/// <param name="serialNo">	The controller serial no. </param>
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
-	/// <seealso cref="BMC_SetDigitalOutputs(char const * serialNo, byte outputsBits, short channel)" />
+	/// <seealso cref="BMC_SetDigitalOutputs(char const * serialNo, short channel, byte outputsBits)" />
 	/// <seealso cref="BMC_GetDigitalOutputs(char const * serialNo, short channel)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestDigitalOutputs(char const * serialNo, short channel);
 
@@ -1919,7 +2252,7 @@ extern "C"
 	/// <param name="serialNo">	The controller serial no. </param>
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <returns> Bit mask of states of the 4 digital output pins. </returns>
-	/// <seealso cref="BMC_SetDigitalOutputs(char const * serialNo, byte outputsBits, short channel)" />
+	/// <seealso cref="BMC_SetDigitalOutputs(char const * serialNo, short channel, byte outputsBits)" />
 	/// <seealso cref="BMC_RequestDigitalOutputs(char const * serialNo, short channel)" />
 	BRUSHLESSMOTOR_API byte __cdecl BMC_GetDigitalOutputs(char const * serialNo, short channel);
 
@@ -1965,6 +2298,230 @@ extern "C"
 	/// <returns> The status bits including 4 with one per electronic input pin. </returns>
 	/// <seealso cref="BMC_RequestRackStatusBits(char const * serialNo)" />
 	BRUSHLESSMOTOR_API DWORD __cdecl BMC_GetRackStatusBits(char const * serialNo);
+
+	/// <summary> Requests the LCD Parameters for the Benchtop Display Interface. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_GetLCDParams(char const * serialNo, __int16 *JSsensitivity, __int16 *displayIntensity, __int16 *displayTimeout, __int16 *displayDimIntensity)" />
+	/// <seealso cref="BMC_GetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestLCDParams(char const * serialNo);
+
+	/// <summary> Get the LCD Parameters for the Benchtop Display Interface. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="JSsensitivity">	    The LCD control knob direction sense and scaling factor (0 to 65535). </param>
+	/// <param name="displayIntensity">	    The display intensity, range 0 to 100%. </param>
+	/// <param name="displayTimeout">	    The display timeout, range 0 to 480 in minutes (0 is off, otherwise the inactivity period before dimming the display). </param>
+	/// <param name="displayDimIntensity">	The display dimmed intensity, range 0 to display intensity (after the timeout period the device display will dim). </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDParams(char const * serialNo)" />
+	/// <seealso cref="BMC_SetLCDParams(char const * serialNo, __int16 JSsensitivity, __int16 displayIntensity, __int16 displayTimeout, __int16 displayDimIntensity)" />
+	/// <seealso cref="BMC_SetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams)" />
+	/// <seealso cref="BMC_GetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams)" />
+	BRUSHLESSMOTOR_API  short __cdecl BMC_GetLCDParams(char const * serialNo, __int16 *JSsensitivity, __int16 *displayIntensity, __int16 *displayTimeout, __int16 *displayDimIntensity);
+
+	/// <summary> Set the LCD Parameters for the Benchtop Display Interface. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="JSsensitivity">	    The LCD control knob direction sense and scaling factor (0 to 65535). </param>
+	/// <param name="displayIntensity">	    The display intensity, range 0 to 100%. </param>
+	/// <param name="displayTimeout">	    The display timeout, range 0 to 480 in minutes (0 is off, otherwise the inactivity period before dimming the display). </param>
+	/// <param name="displayDimIntensity">	The display dimmed intensity, range 0 to display intensity (after the timeout period the device display will dim). </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDParams(char const * serialNo)" />
+	/// <seealso cref="BMC_GetLCDParams(char const * serialNo, __int16 *JSsensitivity, __int16 *displayIntensity, __int16 *displayTimeout, __int16 *displayDimIntensity)" />
+	/// <seealso cref="BMC_SetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams)" />
+	/// <seealso cref="BMC_GetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetLCDParams(char const * serialNo, __int16 JSsensitivity, __int16 displayIntensity, __int16 displayTimeout, __int16 displayDimIntensity);
+
+	/// <summary> Gets the LCD parameters for the device. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="LCDParams"> Options for controlling the LCD. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDParams(char const * serialNo)" />
+	/// <seealso cref="BMC_GetLCDParams(char const * serialNo, __int16 *JSsensitivity, __int16 *displayIntensity, __int16 *displayTimeout, __int16 *displayDimIntensity)" />
+	/// <seealso cref="BMC_SetLCDParams(char const * serialNo, __int16 JSsensitivity, __int16 displayIntensity, __int16 displayTimeout, __int16 displayDimIntensity)" />
+	/// <seealso cref="BMC_SetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams)" />
+	BRUSHLESSMOTOR_API short BMC_GetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams);
+
+	/// <summary> Sets the LCD parameters for the device. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="LCDParams"> Options for controlling the LCD. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDParams(char const * serialNo)" />
+	/// <seealso cref="BMC_GetLCDParams(char const * serialNo, __int16 *JSsensitivity, __int16 *displayIntensity, __int16 *displayTimeout, __int16 *displayDimIntensity)" />
+	/// <seealso cref="BMC_SetLCDParams(char const * serialNo, __int16 JSsensitivity, __int16 displayIntensity, __int16 displayTimeout, __int16 displayDimIntensity)" />
+	/// <seealso cref="BMC_GetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams)" />
+	BRUSHLESSMOTOR_API short BMC_SetLCDParamsBlock(char const * serialNo, MOT_LCDParams *LCDParams);
+
+	/// <summary> Requests the Parameters for Motion from the LCD Display Interface. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="channel">		  The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_SetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes knobMode, __int32 jogStepSize, __int32 jogAcceleration, __int32 jogMaxVelocity, MOT_StopModes stopMode, __int32 presetPosition1, __int32 presetPosition2, __int32 presetPosition3) " />
+	/// <seealso cref="BMC_SetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />
+	/// <seealso cref="BMC_GetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />
+	/// <seealso cref="BMC_GetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes *knobMode, __int32 *jogStepSize, __int32 *jogAcceleration,__int32 *jogMaxVelocity, MOT_StopModes *stopMode, __int32 *presetPosition1, __int32 *presetPosition2, __int32 *presetPosition3)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestLCDMoveParams(char const * serialNo, short channel);
+
+	/// <summary> Get the Parameters for Motion from the LCD Display Interface. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">		  The channel. </param>
+	/// <param name="knobMode">	LCD knob control mode.
+	/// 					<list type=table>
+	///							<item><term>1</term><term>Constant Velocity<br />The device will continue moving until the end stop is reached or the duration of the knob action</term></item>
+	///							<item><term>2</term><term>Jog<br />The device will jog forward or backward according to the knob action.<br />
+	///								  The device will jog according to the jog parameters</term></item>
+	/// 					</list> </param>
+	/// <param name="jogStepSize"> The jog step in \ref DeviceUnits_page. </param>
+	/// <param name="jogAcceleration"> The jog acceleration in \ref DeviceUnits_page. </param>
+	/// <param name="jogMaxVelocity">  The jog maximum velocity in \ref DeviceUnits_page. </param>
+	/// <param name="stopMode">	    The stop mode.
+	///			 		  <list type=table>
+	///							<item><term>1</term><term>Immediate Stop</term></item>
+	///							<item><term>2</term><term>Profiled Stop</term></item>
+	///					  </list> </param>
+	/// <param name="presetPosition1">	    The first preset position in \ref DeviceUnits_page. </param>
+	/// <param name="presetPosition2">	    The second preset position in \ref DeviceUnits_page. </param>
+	/// <param name="presetPosition3">	    The third preset position in \ref DeviceUnits_page. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDMoveParams(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_SetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes knobMode, __int32 jogStepSize, __int32 jogAcceleration, __int32 jogMaxVelocity, MOT_StopModes stopMode, __int32 presetPosition1, __int32 presetPosition2, __int32 presetPosition3) " />
+	/// <seealso cref="BMC_SetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />
+	/// <seealso cref="BMC_GetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />
+	BRUSHLESSMOTOR_API  short __cdecl BMC_GetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes *knobMode, __int32 *jogStepSize, __int32 *jogAcceleration,
+															__int32 *jogMaxVelocity, MOT_StopModes *stopMode, __int32 *presetPosition1, __int32 *presetPosition2, __int32 *presetPosition3);
+
+	/// <summary> Set the Parameters for Motion from the LCD Display Interface. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">		  The channel. </param>
+	/// <param name="knobMode">	LCD knob control mode.
+	/// 					<list type=table>
+	///							<item><term>1</term><term>Constant Velocity<br />The device will continue moving until the end stop is reached or the duration of the knob action</term></item>
+	///							<item><term>2</term><term>Jog<br />The device will jog forward or backward according to the knob action.<br />
+	///								  The device will jog according to the jog parameters</term></item>
+	/// 					</list> </param>
+	/// <param name="jogStepSize"> The jog step in \ref DeviceUnits_page. </param>
+	/// <param name="jogAcceleration"> The jog acceleration in \ref DeviceUnits_page. </param>
+	/// <param name="jogMaxVelocity">  The jog maximum velocity in \ref DeviceUnits_page. </param>
+	/// <param name="stopMode">	    The stop mode.
+	///			 		  <list type=table>
+	///							<item><term>1</term><term>Immediate Stop</term></item>
+	///							<item><term>2</term><term>Profiled Stop</term></item>
+	///					  </list> </param>
+	/// <param name="presetPosition1">	    The first preset position in \ref DeviceUnits_page. </param>
+	/// <param name="presetPosition2">	    The second preset position in \ref DeviceUnits_page. </param>
+	/// <param name="presetPosition3">	    The third preset position in \ref DeviceUnits_page. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDMoveParams(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes *knobMode, __int32 *jogStepSize, __int32 *jogAcceleration, __int32 *jogMaxVelocity, MOT_StopModes *stopMode, __int32 *presetPosition1, __int32 *presetPosition2, __int32 *presetPosition3)" />
+	/// <seealso cref="BMC_SetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />
+	/// <seealso cref="BMC_GetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes knobMode, __int32 jogStepSize, __int32 jogAcceleration, 
+															__int32 jogMaxVelocity, MOT_StopModes stopMode, __int32 presetPosition1, __int32 presetPosition2, __int32 presetPosition3);
+
+	/// <summary> Gets the LCD parameters for the device. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">		  The channel. </param>
+	/// <param name="LCDParams"> Options for controlling motion from the LCD. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDMoveParams(char const * serialNo, short channel)" />	
+	/// <seealso cref="BMC_SetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes knobMode, __int32 jogStepSize, __int32 jogAcceleration, __int32 jogMaxVelocity, MOT_StopModes stopMode, __int32 presetPosition1, __int32 presetPosition2, __int32 presetPosition3) " />
+	/// <seealso cref="BMC_SetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />	
+	/// <seealso cref="BMC_GetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes *knobMode, __int32 *jogStepSize, __int32 *jogAcceleration,__int32 *jogMaxVelocity, MOT_StopModes *stopMode, __int32 *presetPosition1, __int32 *presetPosition2, __int32 *presetPosition3)" />
+	BRUSHLESSMOTOR_API short BMC_GetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams);
+
+	/// <summary> Sets the LCD parameters for the device. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">		  The channel. </param>
+	/// <param name="LCDParams"> Options for controlling motion from the LCD. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestLCDMoveParams(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes *knobMode, __int32 *jogStepSize, __int32 *jogAcceleration, __int32 *jogMaxVelocity, MOT_StopModes *stopMode, __int32 *presetPosition1, __int32 *presetPosition2, __int32 *presetPosition3)" />
+	/// <seealso cref="BMC_GetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams)" />
+	/// <seealso cref="BMC_SetLCDMoveParams(char const * serialNo, short channel, MOT_JogModes knobMode, __int32 jogStepSize, __int32 jogAcceleration, __int32 jogMaxVelocity, MOT_StopModes stopMode, __int32 presetPosition1, __int32 presetPosition2, __int32 presetPosition3)" />
+	BRUSHLESSMOTOR_API short BMC_SetLCDMoveParamsBlock(char const * serialNo, short channel, MOT_LCDMoveParams *LCDParams);
+	
+	/// <summary> Move selected channels to the specified positions synchronously. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I> The motors may need to be \ref C_MOTOR_sec10 "Homed" before a position can be set<br />
+	/// 		  see \ref C_MOTOR_sec11 "Positioning" for more detail. </remarks>
+	/// <param name="serialNo">	The controller serial no. </param>
+	/// <param name="channelTargets">  Address of the first of the MOT_ChannelPosition structures defining target positions for channels. </param>
+	/// <param name="numChannelTargets">   	The number of channels involved. </param>
+	/// <param name="acceleration"> The new acceleration value in \ref DeviceUnits_page. </param>
+	/// <param name="maxVelocity"> The new maximum velocity value in \ref DeviceUnits_page. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if move successfully started. </returns>
+	/// <seealso cref="BMC_RegisterSynchronizedMoveCompleteCallback(char const * serialNo, void(__stdcall *functionPointer)(void *, unsigned __int64))" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_VectorMoveToPosition(char const * serialNo, MOT_ChannelPosition * channelTargets, int numChannelTargets, int acceleration, int maxVelocity);
+
+	/// <summary> Registers a callback in the event of synchronized move ending. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The controller serial no. </param>
+	/// <param name="functionPointer"> A function pointer to be called when synchronized move completes. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_VectorMoveToPosition(char const * serialNo, MOT_ChannelPosition * channelTargets, int numChannelTargets, int acceleration, int maxVelocity)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RegisterSynchronizedMoveCompleteCallback(char const * serialNo, void(__stdcall *functionPointer)(void *, unsigned __int64));
+
+	/// <summary> Sets parameters for array of synchronized moves. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo">	The device serial no. </param>
+	/// <param name="arrayID"> The unique ID number of the array. </param>
+	/// <param name="cycleStartIndex"> The index of start of cycle. </param>
+	/// <param name="cycleEndIndex"> The index of end of cycle. </param>
+	/// <param name="repeatCount"> The repeat count. </param>
+	/// <param name="endIndex"> The index of end. </param>
+	/// <param name="deceleration"> The deceleration time as number of servo update intervals (one is 0.1024ms). </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_SetMultiChannelMoveArraySection(char const * serialNo, WORD arrayID, WORD channelsMask, WORD numberOfPoints, WORD startIndex, LONG * timePositions)" />
+	/// <seealso cref="BMC_StartMultiChannelMoveArray(char const * serialNo, WORD arrayID, DWORD channelsMask)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetMultiChannelMoveArrayParams(char const * serialNo, WORD arrayID, WORD cycleStartIndex, WORD cycleEndIndex, WORD repeatCount, WORD endIndex, DWORD deceleration);
+
+	/// <summary> Sets section of array of synchronized moves. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo">	The device serial no. </param>
+	/// <param name="arrayID"> The unique ID number of the array. </param>
+	/// <param name="channelsMask"> The channels mask. </param>
+	/// <param name="numberOfPoints"> The number of points. </param>
+	/// <param name="startIndex"> The index of the start. </param>
+	/// <param name="timePositions"> Array of positions at different times. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_SetMultiChannelMoveArrayParams(char const * serialNo, WORD arrayID, WORD cycleStartIndex, WORD cycleEndIndex, WORD repeatCount, WORD endIndex, DWORD deceleration)" />
+	/// <seealso cref="BMC_StartMultiChannelMoveArray(char const * serialNo, WORD arrayID, DWORD channelsMask)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetMultiChannelMoveArraySection(char const * serialNo, WORD arrayID, WORD channelsMask, WORD numberOfPoints, WORD startIndex, LONG * timePositions);
+
+	/// <summary> Starts array of synchronized moves. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo">	The device serial no. </param>
+	/// <param name="arrayID"> The unique ID number of the array. </param>
+	/// <param name="channelsMask"> The channels mask. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_SetMultiChannelMoveArrayParams(char const * serialNo, WORD arrayID, WORD cycleStartIndex, WORD cycleEndIndex, WORD repeatCount, WORD endIndex, DWORD deceleration)" />
+	/// <seealso cref="BMC_SetMultiChannelMoveArraySection(char const * serialNo, WORD arrayID, WORD channelsMask, WORD numberOfPoints, WORD startIndex, LONG * timePositions)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_StartMultiChannelMoveArray(char const * serialNo, WORD arrayID, DWORD channelsMask);
+
+	/// <summary> Stop the current vector move immediately (with risk of losing track of position). </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo">	The controller serial no. </param>
+	/// <param name="channelsMask">  The channels mask. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_StopProfiledSynchronously(char const * serialNo, DWORD channelsMask)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_StopImmediateSynchronously(char const * serialNo, DWORD channelsMask);
+
+	/// <summary> Stop the current vector move using the current velocity profile. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo">	The controller serial no. </param>
+	/// <param name="channelsMask">  The channels mask. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_StopImmediateSynchronously(char const * serialNo, DWORD channelsMask)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_StopProfiledSynchronously(char const * serialNo, DWORD channelsMask);
 
 	/// <summary> Suspend automatic messages at ends of moves. </summary>
 	/// <remarks> Useful to speed up part of real-time system with lots of short moves. </remarks>
@@ -2110,7 +2667,7 @@ extern "C"
 	/// <summary> Requests that all settings are download from device. </summary>
 	/// <remarks> This function requests that the device upload all it's settings to the DLL.</remarks>
 	/// <param name="serialNo">	The controller serial no. </param>
-	/// <param name="channel">  The channel (1 to n). </param>
+	/// <param name="channel">  The channel (1 to n) or 0 for motherboard. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successfully requested. </returns>
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestSettings(char const * serialNo, short channel);
 
@@ -2119,6 +2676,332 @@ extern "C"
 	/// <param name="channel">  The channel (1 to n). </param>
 	/// <returns> <c>true</c> if successful, false if not. </returns>
 	BRUSHLESSMOTOR_API short __cdecl BMC_ResetStageToDefaults(char const * serialNo, short channel);
+
+	/// <summary> Requests the Parameters for IO config Trigger. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_GetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes * triggerInMode, MOT_TriggerPolarity * triggerInPolarity, MOT_TriggerInputSource * inputSource, MOT_TriggerOutputConfigModes * triggerOutMode, MOT_TriggerPolarity * triggerOutPolarity, long * startPositionFwd, long * intervalFwd, long * pulseCountFwd, long * startPositionRev, long * intervalRev, long * pulseCountRev, long * pulseWidth, long * cycleCount)" />
+	/// <seealso cref="BMC_GetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	/// <seealso cref="BMC_SetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes triggerInMode, MOT_TriggerPolarity triggerInPolarity, MOT_TriggerInputSource inputSource, MOT_TriggerOutputConfigModes triggerOutMode, MOT_TriggerPolarity triggerOutPolarity, long startPositionFwd, long intervalFwd, long pulseCountFwd, long startPositionRev, long intervalRev, long pulseCountRev, long pulseWidth, long cycleCount)" />
+	/// <seealso cref="BMC_SetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestTriggerIOConfigParams(char const * serialNo, short channel);
+
+	/// <summary> Gets the IO Trigger Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerInMode"> The trigger mode to use. </param>
+	/// <param name="triggerInPolarity"> The trigger polarity. </param>
+	/// <param name="inputSource"> The port to use as an input trigger. </param>
+	/// <param name="triggerOutMode"> The trigger mode to use. </param>
+	/// <param name="triggerOutPolarity"> The trigger polarity. </param>
+	/// <param name="startPositionFwd"> The forward movement trigger start position. </param>
+	/// <param name="intervalFwd"> The forward movement position interval between triggers. </param>
+	/// <param name="pulseCountFwd"> The forward movement number of triggers. </param>
+	/// <param name="startPositionRev"> The reverse movement trigger start position. </param>
+	/// <param name="intervalRev"> The reverse movement position interval between triggers. </param>
+	/// <param name="pulseCountRev"> The reverse movement number of triggers. </param>
+	/// <param name="pulseWidth"> The pulse width in microseconds. </param>
+	/// <param name="cycleCount"> The number of cycles. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestTriggerIOConfigParams(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	/// <seealso cref="BMC_SetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes triggerInMode, MOT_TriggerPolarity triggerInPolarity, MOT_TriggerInputSource inputSource, MOT_TriggerOutputConfigModes triggerOutMode, MOT_TriggerPolarity triggerOutPolarity, long startPositionFwd, long intervalFwd, long pulseCountFwd, long startPositionRev, long intervalRev, long pulseCountRev, long pulseWidth, long cycleCount)" />
+	/// <seealso cref="BMC_SetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes * triggerInMode, MOT_TriggerPolarity * triggerInPolarity, MOT_TriggerInputSource * inputSource, MOT_TriggerOutputConfigModes * triggerOutMode, MOT_TriggerPolarity * triggerOutPolarity, long * startPositionFwd, long * intervalFwd, long * pulseCountFwd, long * startPositionRev, long * intervalRev, long * pulseCountRev, long * pulseWidth, long * cycleCount);
+
+	/// <summary> Gets the IO Trigger Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="TriggerIOConfigParameters"> The trigger IO config parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestTriggerIOConfigParams(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes * triggerInMode, MOT_TriggerPolarity * triggerInPolarity, MOT_TriggerInputSource * inputSource, MOT_TriggerOutputConfigModes * triggerOutMode, MOT_TriggerPolarity * triggerOutPolarity, long * startPositionFwd, long * intervalFwd, long * pulseCountFwd, long * startPositionRev, long * intervalRev, long * pulseCountRev, long * pulseWidth, long * cycleCount)" />	
+	/// <seealso cref="BMC_SetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes triggerInMode, MOT_TriggerPolarity triggerInPolarity, MOT_TriggerInputSource inputSource, MOT_TriggerOutputConfigModes triggerOutMode, MOT_TriggerPolarity triggerOutPolarity, long startPositionFwd, long intervalFwd, long pulseCountFwd, long startPositionRev, long intervalRev, long pulseCountRev, long pulseWidth, long cycleCount)" />
+	/// <seealso cref="BMC_SetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters);
+
+	/// <summary> Sets the IO Trigger Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerInMode"> The trigger mode to use. </param>
+	/// <param name="triggerInPolarity"> The trigger polarity. </param>
+	/// <param name="inputSource"> The port to use as an input trigger. </param>
+	/// <param name="triggerOutMode"> The trigger mode to use. </param>
+	/// <param name="triggerOutPolarity"> The trigger polarity. </param>
+	/// <param name="startPositionFwd"> The forward movement trigger start position. </param>
+	/// <param name="intervalFwd"> The forward movement position interval between triggers. </param>
+	/// <param name="pulseCountFwd"> The forward movement number of triggers. </param>
+	/// <param name="startPositionRev"> The reverse movement trigger start position. </param>
+	/// <param name="intervalRev"> The reverse movement position interval between triggers. </param>
+	/// <param name="pulseCountRev"> The reverse movement number of triggers. </param>
+	/// <param name="pulseWidth"> The pulse width in microseconds. </param>
+	/// <param name="cycleCount"> The number of cycles. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestTriggerIOConfigParams(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes * triggerInMode, MOT_TriggerPolarity * triggerInPolarity, MOT_TriggerInputSource * inputSource, MOT_TriggerOutputConfigModes * triggerOutMode, MOT_TriggerPolarity * triggerOutPolarity, long * startPositionFwd, long * intervalFwd, long * pulseCountFwd, long * startPositionRev, long * intervalRev, long * pulseCountRev, long * pulseWidth, long * cycleCount)" />
+	/// <seealso cref="BMC_GetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	/// <seealso cref="BMC_SetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes triggerInMode, MOT_TriggerPolarity triggerInPolarity, MOT_TriggerInputSource inputSource, MOT_TriggerOutputConfigModes triggerOutMode, MOT_TriggerPolarity triggerOutPolarity, long startPositionFwd, long intervalFwd, long pulseCountFwd, long startPositionRev, long intervalRev, long pulseCountRev, long pulseWidth, long cycleCount);
+
+	/// <summary> Sets the IO Trigger Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="TriggerIOConfigParameters"> The trigger IO config parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestTriggerIOConfigParams(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes * triggerInMode, MOT_TriggerPolarity * triggerInPolarity, MOT_TriggerInputSource * inputSource, MOT_TriggerOutputConfigModes * triggerOutMode, MOT_TriggerPolarity * triggerOutPolarity, long * startPositionFwd, long * intervalFwd, long * pulseCountFwd, long * startPositionRev, long * intervalRev, long * pulseCountRev, long * pulseWidth, long * cycleCount)" />
+	/// <seealso cref="BMC_GetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters)" />
+	/// <seealso cref="BMC_SetTriggerIOConfigParams(char const * serialNo, short channel, MOT_TriggerInputConfigModes triggerInMode, MOT_TriggerPolarity triggerInPolarity, MOT_TriggerInputSource inputSource, MOT_TriggerOutputConfigModes triggerOutMode, MOT_TriggerPolarity triggerOutPolarity, long startPositionFwd, long intervalFwd, long pulseCountFwd, long startPositionRev, long intervalRev, long pulseCountRev, long pulseWidth, long cycleCount)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetTriggerIOConfigParamsBlock(char const * serialNo, short channel, MOT_TriggerIOConfigParameters *TriggerIOConfigParameters);
+
+	/// <summary> Requests the Parameters for Aux IO Port config. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="portNo">	The Aux Port number. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_GetAuxIOPortConfigParams(char const * serialNo, byte portNo, MOD_AuxIOPortMode * mode, WORD * sWState)" />
+	/// <seealso cref="BMC_GetAuxIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_AuxIOPortConfigurationParameters *AuxIOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParams(char const * serialNo, WORD portNos, MOD_AuxIOPortMode mode, WORD sWState)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParamsBlock(char const * serialNo, MOD_AuxIOPortConfigurationSetParameters *AuxIOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestAuxIOPortConfigParams(char const * serialNo, byte portNo);
+
+	/// <summary> Gets the Aux IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="portNo">	The Aux Port number. </param>
+	/// <param name="mode">	The Aux Port mode to use. </param>
+	/// <param name="sWState"> Software state of the port. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAuxIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetAuxIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_AuxIOPortConfigurationParameters *AuxIOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParams(char const * serialNo, WORD portNos, MOD_AuxIOPortMode mode, WORD sWState)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParamsBlock(char const * serialNo, MOD_AuxIOPortConfigurationSetParameters *AuxIOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetAuxIOPortConfigParams(char const * serialNo, byte portNo, MOD_AuxIOPortMode * mode, WORD * sWState);
+
+	/// <summary> Gets the Aux IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="portNo">	The Aux Port number. </param>
+	/// <param name="AuxIOPortConfigurationParams">	 The Aux Port configuration parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAuxIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetAuxIOPortConfigParams(char const * serialNo, byte portNo, MOD_AuxIOPortMode * mode, WORD * sWState)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParams(char const * serialNo, WORD portNos, MOD_AuxIOPortMode mode, WORD sWState)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParamsBlock(char const * serialNo, MOD_AuxIOPortConfigurationSetParameters *AuxIOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetAuxIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_AuxIOPortConfigurationParameters *AuxIOPortConfigurationParams);
+
+	/// <summary> Sets the IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="portNos"> The Aux Port number. </param>
+	/// <param name="mode">	The Aux Port mode to use. </param>
+	/// <param name="sWState"> Software state of the port. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAuxIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetAuxIOPortConfigParams(char const * serialNo, byte portNo, MOD_AuxIOPortMode * mode, WORD * sWState)" />
+	/// <seealso cref="BMC_GetAuxIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_AuxIOPortConfigurationParameters *AuxIOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParamsBlock(char const * serialNo, MOD_AuxIOPortConfigurationSetParameters *AuxIOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetAuxIOPortConfigParams(char const * serialNo, WORD portNos, MOD_AuxIOPortMode mode, WORD sWState);
+
+	/// <summary> Sets the IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="AuxIOPortConfigurationParams"> The Aux Port  configuration parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAuxIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetAuxIOPortConfigParams(char const * serialNo, byte portNo, MOD_AuxIOPortMode * mode, WORD * sWState)" />
+	/// <seealso cref="BMC_GetAuxIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_AuxIOPortConfigurationParameters *AuxIOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetAuxIOPortConfigParams(char const * serialNo, WORD portNos, MOD_AuxIOPortMode mode, WORD sWState)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetAuxIOPortConfigParamsBlock(char const * serialNo, MOD_AuxIOPortConfigurationSetParameters *AuxIOPortConfigurationParams);
+
+	/// <summary> Requests the Parameters for IO Port config. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="portNo">	The Aux Port number. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_GetIOPortConfigParams(char const * serialNo, byte portNo, MOD_IOPortMode * mode, MOD_IOPortSource * source)" />
+	/// <seealso cref="BMC_GetIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetIOPortConfigParams(char const * serialNo, WORD portNo, MOD_IOPortMode mode, MOD_IOPortSource source)" />
+	/// <seealso cref="BMC_SetIOPortConfigParamsBlock(char const * serialNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestIOPortConfigParams(char const * serialNo, byte portNo);
+
+	/// <summary> Gets the IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="portNo">	The Aux Port number. </param>
+	/// <param name="mode">	The Aux Port mode to use. </param>
+	/// <param name="source"> The source if is port is configured as an output. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetIOPortConfigParams(char const * serialNo, WORD portNo, MOD_IOPortMode mode, MOD_IOPortSource source)" />
+	/// <seealso cref="BMC_SetIOPortConfigParamsBlock(char const * serialNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetIOPortConfigParams(char const * serialNo, byte portNo, MOD_IOPortMode * mode, MOD_IOPortSource * source);
+
+	/// <summary> Gets the IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="portNo">	The Aux Port number. </param>
+	/// <param name="IOPortConfigurationParams"> The Port  configuration parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetIOPortConfigParams(char const * serialNo, byte portNo, MOD_IOPortMode * mode, MOD_IOPortSource * source)" />
+	/// <seealso cref="BMC_SetIOPortConfigParams(char const * serialNo, WORD portNo, MOD_IOPortMode mode, MOD_IOPortSource source)" />
+	/// <seealso cref="BMC_SetIOPortConfigParamsBlock(char const * serialNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams);
+
+	/// <summary> Sets the IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="portNo"> The port identifier. </param>
+	/// <param name="mode"> The Port mode to use. </param>
+	/// <param name="source"> The source if is port is configured as an output. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetIOPortConfigParams(char const * serialNo, byte portNo, MOD_IOPortMode * mode, MOD_IOPortSource * source)" />
+	/// <seealso cref="BMC_GetIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetIOPortConfigParamsBlock(char const * serialNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetIOPortConfigParams(char const * serialNo, WORD portNo, MOD_IOPortMode mode, MOD_IOPortSource source);
+
+	/// <summary> Sets the IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="IOPortConfigurationParams"> The Port  configuration parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestIOPortConfigParams(char const * serialNo, byte portNo)" />
+	/// <seealso cref="BMC_GetIOPortConfigParams(char const * serialNo, byte portNo, MOD_IOPortMode * mode, MOD_IOPortSource * source)" />
+	/// <seealso cref="BMC_GetIOPortConfigParamsBlock(char const * serialNo, byte portNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams)" />
+	/// <seealso cref="BMC_SetIOPortConfigParams(char const * serialNo, WORD portNo, MOD_IOPortMode mode, MOD_IOPortSource source)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetIOPortConfigParamsBlock(char const * serialNo, MOD_IOPortConfigurationParameters *IOPortConfigurationParams);
+
+	/// <summary> Requests the Parameters for Analog Monitor config. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="monitorNo"> The Monitor number. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParams(char const * serialNo, byte monitorNo, WORD * motorChannelNo, MOD_Monitor_Variable * monitorVar, long * scale, long * offset)" />
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParamsBlock(char const * serialNo, byte monitorNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigParams)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParams(char const * serialNo, WORD monitorNo, WORD motorChannelNo, MOD_Monitor_Variable monitorVar, long scale, long offset)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParamsBlock(char const * serialNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigurationParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestAnalogMonitorConfigParams(char const * serialNo, byte monitorNo);
+
+	/// <summary> Gets the Analog Monitor Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="monitorNo"> The Monitor number. </param>
+	/// <param name="motorChannelNo"> The Montor Channel number. </param>
+	/// <param name="monitorVar"> The Monitor variable. </param>
+	/// <param name="scale"> The scale factor for the monitor variable. </param>
+	/// <param name="offset"> The offset for the monitor variable. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAnalogMonitorConfigParams(char const * serialNo, byte monitorNo)" />
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParamsBlock(char const * serialNo, byte monitorNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigParams)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParams(char const * serialNo, WORD monitorNo, WORD motorChannelNo, MOD_Monitor_Variable monitorVar, long scale, long offset)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParamsBlock(char const * serialNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigurationParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetAnalogMonitorConfigParams(char const * serialNo, byte monitorNo, WORD * motorChannelNo, MOD_Monitor_Variable * monitorVar, long * scale, long * offset);
+
+	/// <summary> Gets the Analog Monitor Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="monitorNo"> The Monitor number. </param>
+	/// <param name="AnalogMonitorConfigParams"> The Analog Monitoring configuration parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAnalogMonitorConfigParams(char const * serialNo, byte monitorNo)" />
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParams(char const * serialNo, byte monitorNo, WORD * motorChannelNo, MOD_Monitor_Variable * monitorVar, long * scale, long * offset)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParams(char const * serialNo, WORD monitorNo, WORD motorChannelNo, MOD_Monitor_Variable monitorVar, long scale, long offset)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParamsBlock(char const * serialNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigurationParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetAnalogMonitorConfigParamsBlock(char const * serialNo, byte monitorNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigParams);
+
+	/// <summary> Sets the Analog Monitor Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="monitorNo"> The Monitor number. </param>
+	/// <param name="motorChannelNo"> The Montor Channel number. </param>
+	/// <param name="monitorVar"> The Monitor variable. </param>
+	/// <param name="scale"> The scale factor for the monitor variable. </param>
+	/// <param name="offset"> The offset for the monitor variable. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAnalogMonitorConfigParams(char const * serialNo, byte monitorNo)" />
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParams(char const * serialNo, byte monitorNo, WORD * motorChannelNo, MOD_Monitor_Variable * monitorVar, long * scale, long * offset)" />
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParamsBlock(char const * serialNo, byte monitorNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigParams)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParamsBlock(char const * serialNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigurationParameters)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetAnalogMonitorConfigParams(char const * serialNo, WORD monitorNo, WORD motorChannelNo, MOD_Monitor_Variable monitorVar, long scale, long offset);
+
+	/// <summary> Sets the IO Port Config Parameters. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="AnalogMonitorConfigParams"> The Analog Monitoring configuration parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestAnalogMonitorConfigParams(char const * serialNo, byte monitorNo)" />
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParams(char const * serialNo, byte monitorNo, WORD * motorChannelNo, MOD_Monitor_Variable * monitorVar, long * scale, long * offset)" />
+	/// <seealso cref="BMC_GetAnalogMonitorConfigParamsBlock(char const * serialNo, byte monitorNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigParams)" />
+	/// <seealso cref="BMC_SetAnalogMonitorConfigParams(char const * serialNo, WORD monitorNo, WORD motorChannelNo, MOD_Monitor_Variable monitorVar, long scale, long offset)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetAnalogMonitorConfigParamsBlock(char const * serialNo, MOD_AnalogMonitorConfigurationParameters *AnalogMonitorConfigurationParameters);
+
+	/// <summary> Requests the Parameters for Position Trigger state. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestPositionTriggerState(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState)" />
+	/// <seealso cref="BMC_SetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestPositionTriggerState(char const * serialNo, short channel);
+
+	/// <summary> Gets the Position Trigger state. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="TriggerState"> The trigger state. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestPositionTriggerState(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState)" />
+	/// <seealso cref="BMC_SetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState);
+
+	/// <summary> Sets the Position Trigger state. </summary>
+	/// <remarks> <I>Applies to BBD30X controllers only.</I></remarks>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="TriggerState"> The trigger state. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BMC_RequestPositionTriggerState(char const * serialNo, short channel)" />
+	/// <seealso cref="BMC_GetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState)" />
+	/// <seealso cref="BMC_SetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState)" />
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetPositionTriggerState(char const * serialNo, short channel, MOT_TriggerState *TriggerState);
+
+	/// <summary> requests the Raster Scan Move Parameters. </summary>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API short __cdecl BMC_RequestRasterScanMoveParams(char const * serialNo);
+
+	/// <summary> Get the Raster Scan Move Parameters . </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="rasterScanMove"> The Raster Scan Move parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API short __cdecl BMC_GetRasterScanMoveParams(char const * serialNo, MOT_RasterScanMoveParams * rasterScanMove);
+
+	/// <summary> Set the Raster Scan Move Parameters . </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="rasterScanMove"> The Raster Scan Move parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API short __cdecl BMC_SetRasterScanMoveParams(char const * serialNo, MOT_RasterScanMoveParams * rasterScanMove);
+
+	/// <summary> Starts a Raster Scan Move. </summary>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="moveCmd"> The Move Command <list type=table>
+	///								<item><term>Start</term><term>1</term></item>
+	///								<item><term>Pause</term><term>2</term></item>
+	///								<item><term>Stop/Disable</term><term>3</term></item>
+	/// 						  </list></param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API short __cdecl BMC_RasterScanMove(char const * serialNo, MOT_RasterScanMoveCmd moveCmd);
 }
 
 /** @} */ // BenchtopBrushlessMotor

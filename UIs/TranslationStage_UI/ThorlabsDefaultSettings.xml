@@ -2,7 +2,7 @@
 <SettingsCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
   <!--NOTE the version number for the settings file needs to be the Major.Minor.Build.SettingsRevision  
   where the Settings Revision is an incremental value used to identify different settings version within the same build-->
-  <Info Date="12 January 2021" Version="1.14.25.1" />
+  <Info Version="1.14.50.1" />
 
   <Devices>
     <DeviceType ID="40" Name="BSC101">
@@ -84,10 +84,17 @@
         <DeviceSettingsType Name="FW103 Filter Wheel" PartNumber="FW103" HardwareRevision="1" />
         <DeviceSettingsType Name="FW103/M Filter Wheel" PartNumber="FW103/M" HardwareRevision="1" Settings="FW103 Filter Wheel"/>
         <DeviceSettingsType Name="DRV001 8mm" PartNumber="DRV001" HardwareRevision="1"/>
-
-        <DeviceSettingsType Name="HS NanoMax 300 X Axis" PartNumber="MAX343" HardwareRevision="3" />
-        <DeviceSettingsType Name="HS NanoMax 300 Y Axis" PartNumber="MAX343" HardwareRevision="3" />
-        <DeviceSettingsType Name="HS NanoMax 300 Z Axis" PartNumber="MAX343" HardwareRevision="3" />
+        
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true"/>
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true" />
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 X Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 Y Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 Z Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
+        
         <DeviceSettingsType Name="HS NanoMax 600 X Axis (17DRV001)" PartNumber="MAX604" HardwareRevision="3" />
         <DeviceSettingsType Name="HS NanoMax 600 Y Axis (17DRV001)" PartNumber="MAX604" HardwareRevision="3" />
         <DeviceSettingsType Name="HS NanoMax 600 Z Axis (17DRV001)" PartNumber="MAX604" HardwareRevision="3" />
@@ -203,10 +210,16 @@
         <DeviceSettingsType Name="FW103 Filter Wheel" PartNumber="FW103" HardwareRevision="1" />
         <DeviceSettingsType Name="FW103/M Filter Wheel" PartNumber="FW103/M" HardwareRevision="1" Settings="FW103 Filter Wheel"/>
         <DeviceSettingsType Name="DRV001 8mm"  PartNumber="DRV001" HardwareRevision="1"/>
-
-        <DeviceSettingsType Name="HS NanoMax 300 X Axis" PartNumber="MAX343" HardwareRevision="3" />
-        <DeviceSettingsType Name="HS NanoMax 300 Y Axis" PartNumber="MAX343" HardwareRevision="3" />
-        <DeviceSettingsType Name="HS NanoMax 300 Z Axis" PartNumber="MAX343" HardwareRevision="3" />
+        
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true"/>
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true" />
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 X Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 Y Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 Z Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
 
         <DeviceSettingsType Name="HS NanoMax 600 X Axis (17DRV001)" PartNumber="MAX604" HardwareRevision="3" />
         <DeviceSettingsType Name="HS NanoMax 600 Y Axis (17DRV001)" PartNumber="MAX604" HardwareRevision="3" />
@@ -239,6 +252,7 @@
         <DeviceSettingsType Name="LNR502E/M" HardwareRevision="3" PartNumber="LNR502E/M" Settings="LNR502E" />
         <DeviceSettingsType Name="HDR50" PartNumber="HDR50" HardwareRevision="3" />
         <DeviceSettingsType Name="HDR50/M" PartNumber="HDR50/M" HardwareRevision="3" Settings="HDR50"/>
+
       </DeviceSettings>
     </DeviceType>
     <DeviceType ID="70" Name="BSC10x">
@@ -321,10 +335,16 @@
         <DeviceSettingsType Name="FW103 Filter Wheel" PartNumber="FW103" HardwareRevision="1" />
         <DeviceSettingsType Name="FW103/M Filter Wheel" PartNumber="FW103/M" HardwareRevision="1" Settings="FW103 Filter Wheel"/>
         <DeviceSettingsType Name="DRV001 8mm"  PartNumber="DRV001" HardwareRevision="1"/>
-
-        <DeviceSettingsType Name="HS NanoMax 300 X Axis" PartNumber="MAX343" HardwareRevision="3" />
-        <DeviceSettingsType Name="HS NanoMax 300 Y Axis" PartNumber="MAX343" HardwareRevision="3" />
-        <DeviceSettingsType Name="HS NanoMax 300 Z Axis" PartNumber="MAX343" HardwareRevision="3" />
+        
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true"/>
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis" PartNumber="MAX343" HardwareRevision="3" Legacy="true" />
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 X Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 Y Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis (DRV001)" PartNumber="MAX343" HardwareRevision="3" Settings="HS NanoMax 300 Z Axis" />
+        <DeviceSettingsType Name="HS NanoMax 300 X Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
+        <DeviceSettingsType Name="HS NanoMax 300 Y Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
+        <DeviceSettingsType Name="HS NanoMax 300 Z Axis (DRV208)" PartNumber="MAX343" HardwareRevision="3" />
 
         <DeviceSettingsType Name="HS NanoMax 600 X Axis (17DRV001)" PartNumber="MAX604" HardwareRevision="3" />
         <DeviceSettingsType Name="HS NanoMax 600 Y Axis (17DRV001)" PartNumber="MAX604" HardwareRevision="3" />
@@ -361,6 +381,8 @@
         <DeviceSettingsType Name="LNR502E/M" HardwareRevision="3" PartNumber="LNR502E/M" Settings="LNR502E" />
         <DeviceSettingsType Name="HDR50" PartNumber="HDR50" HardwareRevision="3" />
         <DeviceSettingsType Name="HDR50/M" PartNumber="HDR50/M" HardwareRevision="3" Settings="HDR50"/>
+        <DeviceSettingsType Name="LPXY1 X Axis" PartNumber="LPXY1-X" HardwareRevision="3" Settings="LPXY1-X"/>
+        <DeviceSettingsType Name="LPXY1 Y Axis" PartNumber="LPXY1-Y" HardwareRevision="3" Settings="LPXY1-Y"/>
       </DeviceSettings>
     </DeviceType>
     <DeviceType ID="26" Name="KST101">
@@ -386,6 +408,8 @@
         <DeviceSettingsType Name="HS ZFS25B" PartNumber="ZFS25B" HardwareRevision="3" Settings="HS ZFS25(B)" StageIDs="66" />
         <DeviceSettingsType Name="HS TST DRV013 25mm" PartNumber="DRV013" HardwareRevision="3" StageIDs="80" />
         <DeviceSettingsType Name="HS TST DRV014 50mm" PartNumber="DRV014" HardwareRevision="3" StageIDs="81" />
+        <DeviceSettingsType Name="DRV225 (KST)" PartNumber="DRV225" HardwareRevision="4" StageIDs="176" />
+        <DeviceSettingsType Name="DRV250 (KST)" PartNumber="DRV250" HardwareRevision="4" StageIDs="177" />
         <DeviceSettingsType Name="HS TST NR360S" PartNumber="NR360S" HardwareRevision="3" StageIDs="112" />
         <DeviceSettingsType Name="HS TST NR360S/M" PartNumber="NR360S/M" HardwareRevision="3" Settings="HS TST NR360S" StageIDs="112"/>
         <DeviceSettingsType Name="HS TST FW103 Filter Wheel" PartNumber="FW103" HardwareRevision="3" StageIDs="117" />
@@ -472,12 +496,18 @@
         <DeviceSettingsType Name="Z825" PartNumber="Z825B" StageIDs="9" />
         <DeviceSettingsType Name="Z825B" PartNumber="Z825B" Settings="Z825" StageIDs="9"/>
         <DeviceSettingsType Name="Z825V"  PartNumber="Z825BV" StageIDs="9"/>
+        <DeviceSettingsType Name="Z825BV" PartNumber="Z825BV" Settings="Z825V" StageIDs="9"/>
 
         <DeviceSettingsType Name="Z906" PartNumber="Z906" StageIDs="11,21" />
+        <DeviceSettingsType Name="Z906V" PartNumber="Z906V" Settings="Z906"  StageIDs="11,21"/>
         <DeviceSettingsType Name="Z912" PartNumber="Z912" StageIDs="10,22" />
+        <DeviceSettingsType Name="Z912V" PartNumber="Z912V" Settings="Z912" StageIDs="10,22" />
         <DeviceSettingsType Name="Z912B" PartNumber="Z912B" Settings="Z912" StageIDs="10,22" />
+        <DeviceSettingsType Name="Z912BV" PartNumber="Z912BV" Settings="Z912" StageIDs="10,22" />
         <DeviceSettingsType Name="Z925" PartNumber="Z925B" StageIDs="9,23" />
-        <DeviceSettingsType Name="Z925B" PartNumber="Z925B" Settings="Z925" StageIDs="9,23"/>
+        <DeviceSettingsType Name="Z925B" PartNumber="Z925B" Settings="Z925" StageIDs="9,23" />
+        <DeviceSettingsType Name="Z925V" PartNumber="Z925BV" Settings="Z925" StageIDs="9,23" />
+        <DeviceSettingsType Name="Z925BV" PartNumber="Z925BV" Settings="Z925" StageIDs="9,23" />
 
         <DeviceSettingsType Name="GNL10-Z8" PartNumber="GNL10-Z8" StageIDs="10,16" />
         <DeviceSettingsType Name="GNL10-Z8/M" PartNumber="GNL10/M-Z8" Settings="GNL10-Z8" StageIDs="10,16"/>
@@ -526,12 +556,22 @@
         <DeviceSettingsType Name="Z825" PartNumber="Z825B" StageIDs="9" />
         <DeviceSettingsType Name="Z825B" PartNumber="Z825B" Settings="Z825" StageIDs="9"/>
         <DeviceSettingsType Name="Z825V"  PartNumber="Z825BV" StageIDs="9"/>
+        <DeviceSettingsType Name="Z825BV" PartNumber="Z825BV" Settings="Z825V" StageIDs="9"/>
 
         <DeviceSettingsType Name="Z906" PartNumber="Z906" StageIDs="21" />
+        <DeviceSettingsType Name="Z906V" PartNumber="Z906V" Settings="Z906"  StageIDs="21"/>
         <DeviceSettingsType Name="Z912" PartNumber="Z912" StageIDs="22" />
+        <DeviceSettingsType Name="Z912V" PartNumber="Z912V" Settings="Z912" StageIDs="22" />
         <DeviceSettingsType Name="Z912B" PartNumber="Z912B" Settings="Z912" StageIDs="22" />
+        <DeviceSettingsType Name="Z912BV" PartNumber="Z912BV" Settings="Z912" StageIDs="22" />
         <DeviceSettingsType Name="Z925" PartNumber="Z925B" StageIDs="23" />
-        <DeviceSettingsType Name="Z925B" PartNumber="Z925B" Settings="Z925" StageIDs="23"/>
+        <DeviceSettingsType Name="Z925B" PartNumber="Z925B" Settings="Z925" StageIDs="23" />
+        <DeviceSettingsType Name="Z925V" PartNumber="Z925BV" Settings="Z925" StageIDs="23" />
+        <DeviceSettingsType Name="Z925BV" PartNumber="Z925BV" Settings="Z925" StageIDs="23" />
+        <DeviceSettingsType Name="PY004Z9 Yaw" PartNumber="PY004Z9" StageIDs="22,14" />
+        <DeviceSettingsType Name="PY004Z9/M Yaw" PartNumber="PY004Z9/M" StageIDs="22,14" Settings="PY004Z9 Yaw" />
+        <DeviceSettingsType Name="PY004Z9 Pitch" PartNumber="PY004Z9" StageIDs="22,15" />
+        <DeviceSettingsType Name="PY004Z9/M Pitch" PartNumber="PY004Z9/M" StageIDs="22,15" Settings="PY004Z9 Pitch" />
 
         <DeviceSettingsType Name="GNL10-Z8" PartNumber="GNL10-Z8" StageIDs="10,16" />
         <DeviceSettingsType Name="GNL10-Z8/M" PartNumber="GNL10/M-Z8" Settings="GNL10-Z8" StageIDs="10,16"/>
@@ -566,7 +606,7 @@
     </DeviceType>
     <DeviceType ID="105" Name="M30X">
       <DeviceSettings>
-        <DeviceSettingsType Name="M30 Series" PartNumber="M30 Series" />
+        <DeviceSettingsType Name="M30X" PartNumber="M30X" />
       </DeviceSettings>
     </DeviceType>
     <DeviceType ID="79" Name="BDC101">
@@ -602,6 +642,10 @@
         <DeviceSettingsType Name="HS LTS150/M 150mm Stage" PartNumber="LTS150/M" HardwareRevision="3" Settings="HS LTS150 150mm Stage" />
         <DeviceSettingsType Name="HS LTS300 300mm Stage" PartNumber="LTS300" HardwareRevision="3" />
         <DeviceSettingsType Name="HS LTS300/M 300mm Stage" PartNumber="LTS300/M" HardwareRevision="3" Settings="HS LTS300 300mm Stage" />
+        <DeviceSettingsType Name="HS LTS150C 150mm Stage" PartNumber="LTS150C" HardwareRevision="4" />
+        <DeviceSettingsType Name="HS LTS150C/M 150mm Stage" PartNumber="LTS150C/M" HardwareRevision="4" Settings="HS LTS150C 150mm Stage" />
+        <DeviceSettingsType Name="HS LTS300C 300mm Stage" PartNumber="LTS300C" HardwareRevision="4" />
+        <DeviceSettingsType Name="HS LTS300C/M 300mm Stage" PartNumber="LTS300C/M" HardwareRevision="4" Settings="HS LTS300C 300mm Stage" />
       </DeviceSettings>
     </DeviceType>
     <DeviceType ID="46" Name="Labjack">
@@ -615,12 +659,16 @@
         <DeviceSettingsType Name="MLJ050/M Labjack" PartNumber="MLJ050/M" StageIDs="50" HardwareRevision="3" Settings="MLJ050 Labjack"/>
         <DeviceSettingsType Name="MLJ150 Labjack" PartNumber="MLJ150" StageIDs="150" HardwareRevision="3" />
         <DeviceSettingsType Name="MLJ150/M Labjack" PartNumber="MLJ150/M" StageIDs="150" HardwareRevision="3" Settings="MLJ150 Labjack"/>
+        <DeviceSettingsType Name="MLJ250 Labjack" PartNumber="MLJ250" StageIDs="250" HardwareRevision="4" />
+        <DeviceSettingsType Name="MLJ250/M Labjack" PartNumber="MLJ250/M" StageIDs="250" HardwareRevision="4" Settings="MLJ250 Labjack"/>
       </DeviceSettings>
     </DeviceType>
     <DeviceType ID="55" Name="Cage Rotator">
       <DeviceSettings>
-        <DeviceSettingsType Name="K10CR1 Rotation Stage" PartNumber="K10CR1" HardwareRevision="3"/>
-        <DeviceSettingsType Name="K10CR1/M Rotation Stage" PartNumber="K10CR1/M" HardwareRevision="3" Settings="K10CR1 Rotation Stage"/>
+        <DeviceSettingsType Name="K10CR1 Rotation Stage" PartNumber="K10CR1" HardwareRevision="3" />
+        <DeviceSettingsType Name="K10CR1/M Rotation Stage" PartNumber="K10CR1/M" HardwareRevision="3" Settings="K10CR1 Rotation Stage" />
+        <DeviceSettingsType Name="K10CR2 Rotation Stage" PartNumber="K10CR2" HardwareRevision="4" />
+        <DeviceSettingsType Name="K10CR2/M Rotation Stage" PartNumber="K10CR2/M" HardwareRevision="4" Settings="K10CR2 Rotation Stage" />
       </DeviceSettings>
     </DeviceType>
     <DeviceType ID="24" Name="Vertical Stage">
@@ -632,6 +680,22 @@
     <DeviceType ID="39" Name="Default">
       <DeviceSettings>
         <DeviceSettingsType Name="KCubeLiquidCrystal" Default="True" />
+      </DeviceSettings>
+    </DeviceType>
+    <DeviceType ID="1000103" Name="Default">
+      <DeviceSettings>
+        <DeviceSettingsType Name="BBD30XMotherboard" PartNumber="BBD30XMotherboard" />
+      </DeviceSettings>
+    </DeviceType>
+    <DeviceType ID="111" Name="PositionReadoutEncoder">
+      <DeviceSettings>
+        <DeviceSettingsType Name="PositionReadoutEncoder" PartNumber="ENC" />
+      </DeviceSettings>
+    </DeviceType>
+    <DeviceType ID="115" Name="Goniometer">
+      <DeviceSettings>
+        <DeviceSettingsType Name="GNM1 Goniometer" PartNumber="GNM1" StageIDs="2" HardwareRevision="3" />
+        <DeviceSettingsType Name="GNM1/M Goniometer" PartNumber="GNM1/M" StageIDs="2" HardwareRevision="3" Settings="GNM1 Goniometer" />
       </DeviceSettings>
     </DeviceType>
   </Devices>
@@ -782,6 +846,10 @@
       <StageID>2</StageID>
       <AxisID>19</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -829,6 +897,10 @@
       <StageID>2</StageID>
       <AxisID>20</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -876,6 +948,10 @@
       <StageID>2</StageID>
       <AxisID>21</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1064,6 +1140,10 @@
       <StageID>3</StageID>
       <AxisID>19</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1111,6 +1191,10 @@
       <StageID>3</StageID>
       <AxisID>20</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1158,6 +1242,10 @@
       <StageID>3</StageID>
       <AxisID>21</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1722,6 +1810,10 @@
       <StageID>48</StageID>
       <AxisID>19</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1737,7 +1829,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -1769,6 +1861,10 @@
       <StageID>48</StageID>
       <AxisID>20</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1784,7 +1880,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -1816,6 +1912,10 @@
       <StageID>21</StageID>
       <AxisID>16</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1831,7 +1931,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -1957,6 +2057,10 @@
       <StageID>48</StageID>
       <AxisID>2</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -1972,7 +2076,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -2004,6 +2108,10 @@
       <StageID>48</StageID>
       <AxisID>2</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -2019,7 +2127,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -4033,6 +4141,10 @@
       <StageID>101</StageID>
       <AxisID>2</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <DCServo>
         <DCServo>1</DCServo>
         <DCProp>1129</DCProp>
@@ -4173,6 +4285,10 @@
       <StageID>101</StageID>
       <AxisID>33</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <DCServo>
         <DCServo>1</DCServo>
         <DCProp>817</DCProp>
@@ -4243,6 +4359,10 @@
       <StageID>101</StageID>
       <AxisID>33</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <DCServo>
         <DCServo>1</DCServo>
         <DCProp>817</DCProp>
@@ -4383,6 +4503,10 @@
       <StageID>80</StageID>
       <AxisID>3</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -4430,6 +4554,10 @@
       <StageID>80</StageID>
       <AxisID>3</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -4949,10 +5077,10 @@
       <EncoderFitted>false</EncoderFitted>
       <DCServo>
         <DCServo>1</DCServo>
-        <DCProp>435</DCProp>
-        <DCInt>195</DCInt>
-        <DCDiff>993</DCDiff>
-        <DCIntLim>195</DCIntLim>
+        <DCProp>200</DCProp>
+        <DCInt>155</DCInt>
+        <DCDiff>900</DCDiff>
+        <DCIntLim>400</DCIntLim>
       </DCServo>
       <Home>
         <HomeDir>2</HomeDir>
@@ -4965,7 +5093,7 @@
         <JogStepSize>0.5</JogStepSize>
         <JogMinVel>0.0</JogMinVel>
         <JogAccn>4.0</JogAccn>
-        <JogMaxVel>4.0</JogMaxVel>
+        <JogMaxVel>2.6</JogMaxVel>
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
@@ -4992,7 +5120,61 @@
         <DefMaxVel>2.3</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0</BacklashDist>
+        <MoveFactor>100</MoveFactor>
+        <RestFactor>20</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="M30X">
+      <StageID>99</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <DCServo>
+        <DCServo>1</DCServo>
+        <DCProp>200</DCProp>
+        <DCInt>155</DCInt>
+        <DCDiff>900</DCDiff>
+        <DCIntLim>400</DCIntLim>
+      </DCServo>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>1</HomeVel>
+        <HomeZeroOffset>15.5</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.5</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>4.0</JogAccn>
+        <JogMaxVel>2.6</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1</Pitch>
+        <StepsPerRev>10000</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>-15</MinPos>
+        <MaxPos>15.00</MaxPos>
+        <MaxAccn>5.0</MaxAccn>
+        <MaxVel>2.6</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>5.0</DefAccn>
+        <DefMaxVel>2.3</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -5410,7 +5592,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>6.00</MaxPos>
@@ -5430,7 +5612,7 @@
         <DefMaxVel>2.3</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0.3</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -5480,7 +5662,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>12.00</MaxPos>
@@ -5500,7 +5682,7 @@
         <DefMaxVel>2.3</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0.3</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -5550,7 +5732,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>25.00</MaxPos>
@@ -5570,7 +5752,7 @@
         <DefMaxVel>2.2</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0.3</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -5620,7 +5802,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>6.00</MaxPos>
@@ -5640,7 +5822,7 @@
         <DefMaxVel>2.3</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0.3</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -5690,7 +5872,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>12.00</MaxPos>
@@ -5710,7 +5892,7 @@
         <DefMaxVel>2.3</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0.3</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -5760,7 +5942,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>25.00</MaxPos>
@@ -5780,7 +5962,7 @@
         <DefMaxVel>2.2</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0.3</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -5978,6 +6160,10 @@
       <StageID>101</StageID>
       <AxisID>33</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <DCServo>
         <DCServo>1</DCServo>
         <DCProp>817</DCProp>
@@ -6048,6 +6234,10 @@
       <StageID>101</StageID>
       <AxisID>33</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <DCServo>
         <DCServo>1</DCServo>
         <DCProp>817</DCProp>
@@ -6299,7 +6489,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>25.00</MaxPos>
@@ -6369,7 +6559,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>50.00</MaxPos>
@@ -6439,7 +6629,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>25.00</MaxPos>
@@ -6459,7 +6649,7 @@
         <DefMaxVel>2.3</DefMaxVel>
       </Control>
       <Misc>
-        <BacklashDist>0.025</BacklashDist>
+        <BacklashDist>0.3</BacklashDist>
         <MoveFactor>100</MoveFactor>
         <RestFactor>20</RestFactor>
       </Misc>
@@ -6617,7 +6807,7 @@
         <Units>1</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>67</GearboxRatio>
+        <GearboxRatio>67.49016</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>12.00</MaxPos>
@@ -6737,6 +6927,54 @@
       </Misc>
     </DeviceSettingsDefinition>
     <DeviceSettingsDefinition Name="MLJ150 Labjack">
+      <StageID>1</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <CanUseCalibrationData>true</CanUseCalibrationData>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>1.0</HomeVel>
+        <HomeZeroOffset>0.1</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.5</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>1.0</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>3</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>50.00</MaxPos>
+        <MaxAccn>10.0</MaxAccn>
+        <MaxVel>5.0</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>3</CWHardLimit>
+        <CCWHardLimit>3</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>8.0</DefAccn>
+        <DefMaxVel>3.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.075</BacklashDist>
+        <MoveFactor>60</MoveFactor>
+        <RestFactor>15</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="MLJ250 Labjack">
       <StageID>1</StageID>
       <AxisID>2</AxisID>
       <EncoderFitted>false</EncoderFitted>
@@ -7117,6 +7355,10 @@
       <StageID>48</StageID>
       <AxisID>19</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -7132,7 +7374,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -7164,6 +7406,10 @@
       <StageID>48</StageID>
       <AxisID>20</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -7179,7 +7425,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -7211,6 +7457,10 @@
       <StageID>21</StageID>
       <AxisID>16</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -7226,7 +7476,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -8430,7 +8680,138 @@
         <RestFactor>5</RestFactor>
       </Misc>
     </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="HS LTS150C 150mm Stage">
+      <StageID>1</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <CanUseCalibrationData>true</CanUseCalibrationData>
+      <Potentiometer>
+        <FPControls>true</FPControls>
+        <PotZeroWnd>1</PotZeroWnd>
+        <PotVel1>5.0</PotVel1>
+        <PotWnd1>50</PotWnd1>
+        <PotVel2>10.0</PotVel2>
+        <PotWnd2>80</PotWnd2>
+        <PotVel3>15.0</PotVel3>
+        <PotWnd3>100</PotWnd3>
+        <PotVel4>20.0</PotVel4>
+      </Potentiometer>
+      <Buttons>
+        <ButtonMode>1</ButtonMode>
+        <ButtonPos1>0</ButtonPos1>
+        <ButtonPos2>75</ButtonPos2>
+      </Buttons>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>2</HomeVel>
+        <HomeZeroOffset>0.5</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>5.0</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>10.0</JogAccn>
+        <JogMaxVel>10.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <TSTStageID>34</TSTStageID>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>150.00</MaxPos>
+        <MaxAccn>50.0</MaxAccn>
+        <MaxVel>50.0</MaxVel>
+        <MaxContinuousVel>40.0</MaxContinuousVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>20.0</DefAccn>
+        <DefMaxVel>20.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.05</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>5</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
     <DeviceSettingsDefinition Name="HS LTS300 300mm Stage">
+      <StageID>1</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <CanUseCalibrationData>true</CanUseCalibrationData>
+      <Potentiometer>
+        <FPControls>true</FPControls>
+        <PotZeroWnd>1</PotZeroWnd>
+        <PotVel1>5.0</PotVel1>
+        <PotWnd1>50</PotWnd1>
+        <PotVel2>10.0</PotVel2>
+        <PotWnd2>80</PotWnd2>
+        <PotVel3>15.0</PotVel3>
+        <PotWnd3>100</PotWnd3>
+        <PotVel4>20.0</PotVel4>
+      </Potentiometer>
+      <Buttons>
+        <ButtonMode>1</ButtonMode>
+        <ButtonPos1>10.0</ButtonPos1>
+        <ButtonPos2>20.0</ButtonPos2>
+      </Buttons>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>2</HomeVel>
+        <HomeZeroOffset>0.5</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>5.0</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>10.0</JogAccn>
+        <JogMaxVel>10.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>300.00</MaxPos>
+        <MaxAccn>50.0</MaxAccn>
+        <MaxVel>50.0</MaxVel>
+        <MaxContinuousVel>40.0</MaxContinuousVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>20.0</DefAccn>
+        <DefMaxVel>20.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.05</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>5</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="HS LTS300C 300mm Stage">
       <StageID>1</StageID>
       <AxisID>2</AxisID>
       <EncoderFitted>false</EncoderFitted>
@@ -9319,6 +9700,53 @@
         <RestFactor>10</RestFactor>
       </Misc>
     </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="K10CR2 Rotation Stage">
+      <StageID>116</StageID>
+      <AxisID>3</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>10.0</HomeVel>
+        <HomeZeroOffset>4.0</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>5.0</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>15.0</JogAccn>
+        <JogMaxVel>15.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>2</Units>
+        <Pitch>360.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>120</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>360.00</MaxPos>
+        <MaxAccn>25.0</MaxAccn>
+        <MaxVel>25.0</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>4</CWHardLimit>
+        <CCWHardLimit>1</CCWHardLimit>
+        <CWSoftLimit>1.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>10.0</DefAccn>
+        <DefMaxVel>10.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>1.0</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>10</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
     <DeviceSettingsDefinition Name="HS TST NR360S">
       <StageID>80</StageID>
       <AxisID>3</AxisID>
@@ -9406,15 +9834,15 @@
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
-        <HomeVel>60.0</HomeVel>
+        <HomeVel>200.0</HomeVel>
         <HomeZeroOffset>50.0062</HomeZeroOffset>
       </Home>
       <Jog>
         <JogMode>2</JogMode>
         <JogStepSize>60.0</JogStepSize>
         <JogMinVel>0.0</JogMinVel>
-        <JogAccn>2000.0</JogAccn>
-        <JogMaxVel>2000.0</JogMaxVel>
+        <JogAccn>25000.0</JogAccn>
+        <JogMaxVel>1260.0</JogMaxVel>
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
@@ -9426,7 +9854,7 @@
         <DirSense>1</DirSense>
         <MinPos>0.00</MinPos>
         <MaxPos>360.00</MaxPos>
-        <MaxAccn>3600.0</MaxAccn>
+        <MaxAccn>100000.0</MaxAccn>
         <MaxVel>3600.0</MaxVel>
       </Physical>
       <Limits>
@@ -9438,8 +9866,8 @@
       </Limits>
       <Control>
         <DefMinVel>0.0</DefMinVel>
-        <DefAccn>2000.0</DefAccn>
-        <DefMaxVel>2000.0</DefMaxVel>
+        <DefAccn>25000.0</DefAccn>
+        <DefMaxVel>1260.0</DefMaxVel>
       </Control>
       <Misc>
         <BacklashDist>0.0</BacklashDist>
@@ -9496,7 +9924,7 @@
         <Units>2</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>134.4825</GearboxRatio>
+        <GearboxRatio>135.4664</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>-2.5</MinPos>
         <MaxPos>2.5</MaxPos>
@@ -9570,7 +9998,155 @@
         <Units>2</Units>
         <Pitch>1.0</Pitch>
         <StepsPerRev>512</StepsPerRev>
-        <GearboxRatio>75.258</GearboxRatio>
+        <GearboxRatio>75.8086</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>-4.01</MinPos>
+        <MaxPos>4.01</MaxPos>
+        <MaxAccn>1.0</MaxAccn>
+        <MaxVel>1.0</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>1</DefAccn>
+        <DefMaxVel>1</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.025</BacklashDist>
+        <MoveFactor>100</MoveFactor>
+        <RestFactor>20</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="PY004Z9 Pitch">
+      <StageID>99</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
+      <DCServo>
+        <DCServo>1</DCServo>
+        <DCProp>435</DCProp>
+        <DCInt>195</DCInt>
+        <DCDiff>993</DCDiff>
+        <DCIntLim>195</DCIntLim>
+      </DCServo>
+      <Potentiometer>
+        <FPControls>true</FPControls>
+        <PotZeroWnd>20</PotZeroWnd>
+        <PotVel1>0.2</PotVel1>
+        <PotWnd1>50</PotWnd1>
+        <PotVel2>0.4</PotVel2>
+        <PotWnd2>80</PotWnd2>
+        <PotVel3>1.0</PotVel3>
+        <PotWnd3>100</PotWnd3>
+        <PotVel4>1.5</PotVel4>
+      </Potentiometer>
+      <Buttons>
+        <ButtonMode>1</ButtonMode>
+        <ButtonPos1>0.5</ButtonPos1>
+        <ButtonPos2>2.0</ButtonPos2>
+      </Buttons>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>0.5</HomeVel>
+        <HomeZeroOffset>3.722</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.1</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>1</JogAccn>
+        <JogMaxVel>0.5</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>2</Units>
+        <Pitch>1.0</Pitch>
+        <StepsPerRev>512</StepsPerRev>
+        <GearboxRatio>135.4664</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>-2.5</MinPos>
+        <MaxPos>2.5</MaxPos>
+        <MaxAccn>1</MaxAccn>
+        <MaxVel>1</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>1</DefAccn>
+        <DefMaxVel>1</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.025</BacklashDist>
+        <MoveFactor>100</MoveFactor>
+        <RestFactor>20</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="PY004Z9 Yaw">
+      <StageID>99</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
+      <DCServo>
+        <DCServo>1</DCServo>
+        <DCProp>435</DCProp>
+        <DCInt>195</DCInt>
+        <DCDiff>993</DCDiff>
+        <DCIntLim>195</DCIntLim>
+      </DCServo>
+      <Potentiometer>
+        <FPControls>true</FPControls>
+        <PotZeroWnd>20</PotZeroWnd>
+        <PotVel1>0.5</PotVel1>
+        <PotWnd1>50</PotWnd1>
+        <PotVel2>1.0</PotVel2>
+        <PotWnd2>80</PotWnd2>
+        <PotVel3>2.0</PotVel3>
+        <PotWnd3>100</PotWnd3>
+        <PotVel4>2.5</PotVel4>
+      </Potentiometer>
+      <Buttons>
+        <ButtonMode>1</ButtonMode>
+        <ButtonPos1>1.0</ButtonPos1>
+        <ButtonPos2>5.0</ButtonPos2>
+      </Buttons>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>0.5</HomeVel>
+        <HomeZeroOffset>7.238</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.1</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>1.0</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>2</Units>
+        <Pitch>1.0</Pitch>
+        <StepsPerRev>512</StepsPerRev>
+        <GearboxRatio>75.8086</GearboxRatio>
         <DirSense>1</DirSense>
         <MinPos>-4.01</MinPos>
         <MaxPos>4.01</MaxPos>
@@ -9745,6 +10321,16 @@
       <StageID>67</StageID>
       <AxisID>2</AxisID>
       <EncoderFitted>true</EncoderFitted>
+      <Encoder>
+        <EncoderCalib>10000</EncoderCalib>
+        <EncoderSetpointWnd>1</EncoderSetpointWnd>
+        <Encoder1uStepWnd>10</Encoder1uStepWnd>
+        <EncoderStopShort>4000</EncoderStopShort>
+        <EncoderCorrMove>100</EncoderCorrMove>
+        <EncoderCalibStep>0.2</EncoderCalibStep>
+        <EncoderCalibDwell>50</EncoderCalibDwell>
+        <EncoderQEPSense>-1</EncoderQEPSense>
+      </Encoder>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -10050,9 +10636,197 @@
         <RestFactor>15</RestFactor>
       </Misc>
     </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="DRV225 (KST)">
+      <StageID>66</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>1</HomeVel>
+        <HomeZeroOffset>0.5</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.1</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>0.5</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>25.00</MaxPos>
+        <MaxAccn>30.0</MaxAccn>
+        <MaxVel>30.0</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>20.0</DefAccn>
+        <DefMaxVel>20.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.01</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>15</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="DRV250 (KST)">
+      <StageID>67</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>1</HomeVel>
+        <HomeZeroOffset>0.1</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.5</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>0.5</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>50.00</MaxPos>
+        <MaxAccn>30.0</MaxAccn>
+        <MaxVel>30.0</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>20.0</DefAccn>
+        <DefMaxVel>20.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.01</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>15</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
     <DeviceSettingsDefinition Name="HS NanoMax 300 X Axis (DRV208)">
       <StageID>16</StageID>
       <AxisID>16</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>1.0</HomeVel>
+        <HomeZeroOffset>3.0</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.05</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>0.5</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>0.5</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>4.00</MaxPos>
+        <MaxAccn>5.0</MaxAccn>
+        <MaxVel>2.5</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>1</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>4.0</DefAccn>
+        <DefMaxVel>2.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.01</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>15</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="HS NanoMax 300 Y Axis (DRV208)">
+      <StageID>16</StageID>
+      <AxisID>17</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>1.0</HomeVel>
+        <HomeZeroOffset>3.0</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.05</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>0.5</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>0.5</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>4.00</MaxPos>
+        <MaxAccn>5.0</MaxAccn>
+        <MaxVel>2.5</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>1</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>4.0</DefAccn>
+        <DefMaxVel>2.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.01</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>15</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="HS NanoMax 300 Z Axis (DRV208)">
+      <StageID>16</StageID>
+      <AxisID>18</AxisID>
       <EncoderFitted>false</EncoderFitted>
       <Home>
         <HomeDir>2</HomeDir>
@@ -10101,6 +10875,10 @@
       <StageID>48</StageID>
       <AxisID>19</AxisID>
       <EncoderFitted>false</EncoderFitted>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -10116,7 +10894,7 @@
         <JogStopMode>2</JogStopMode>
       </Jog>
       <Physical>
-        <Units>1</Units>
+        <Units>2</Units>
         <Pitch>0.5</Pitch>
         <StepsPerRev>200</StepsPerRev>
         <GearboxRatio>1</GearboxRatio>
@@ -10148,6 +10926,16 @@
       <StageID>67</StageID>
       <AxisID>2</AxisID>
       <EncoderFitted>true</EncoderFitted>
+      <Encoder>
+        <EncoderCalib>10000</EncoderCalib>
+        <EncoderSetpointWnd>1</EncoderSetpointWnd>
+        <Encoder1uStepWnd>10</Encoder1uStepWnd>
+        <EncoderStopShort>4000</EncoderStopShort>
+        <EncoderCorrMove>100</EncoderCorrMove>
+        <EncoderCalibStep>0.2</EncoderCalibStep>
+        <EncoderCalibDwell>50</EncoderCalibDwell>
+        <EncoderQEPSense>-1</EncoderQEPSense>
+      </Encoder>
       <Home>
         <HomeDir>2</HomeDir>
         <HomeLimitSwitch>1</HomeLimitSwitch>
@@ -10441,12 +11229,12 @@
       </IOSettings>
       <PIDConstantsSets>
         <PIDConstSettings>
-        <PIDConstsP>72</PIDConstsP>
-        <PIDConstsI>22</PIDConstsI>
-        <PIDConstsD>7</PIDConstsD>
-        <PIDConstsDFc>0</PIDConstsDFc>
-        <PIDDerivFilterOn>2</PIDDerivFilterOn>
-        <PIDConstsIndex>0</PIDConstsIndex>
+          <PIDConstsP>72</PIDConstsP>
+          <PIDConstsI>22</PIDConstsI>
+          <PIDConstsD>7</PIDConstsD>
+          <PIDConstsDFc>0</PIDConstsDFc>
+          <PIDDerivFilterOn>2</PIDDerivFilterOn>
+          <PIDConstsIndex>0</PIDConstsIndex>
         </PIDConstSettings>
         <PIDConstSettings>
           <PIDConstsP>0</PIDConstsP>
@@ -10462,9 +11250,309 @@
           <CriteriaID>64</CriteriaID>
           <PIDConstIndex>1</PIDConstIndex>
           <Priority>0</Priority>
-          <TargetErrorWindow>10</TargetErrorWindow>          
+          <TargetErrorWindow>10</TargetErrorWindow>
         </PIDCriteria>
       </PIDCriteriaSets>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="LPXY1-X">
+      <StageID>0</StageID>
+      <AxisID>0</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>10</HomeVel>
+        <HomeZeroOffset>0.5</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.5</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>0.5</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1.27</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>110</MaxPos>
+        <MaxAccn>400</MaxAccn>
+        <MaxVel>25</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>2.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>100</DefAccn>
+        <DefMaxVel>10</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.01</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>10</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="LPXY1-Y">
+      <StageID>0</StageID>
+      <AxisID>0</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>10</HomeVel>
+        <HomeZeroOffset>0.5</HomeZeroOffset>
+      </Home>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>0.5</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>0.5</JogAccn>
+        <JogMaxVel>1.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>1</Units>
+        <Pitch>1.27</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>1</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>0.00</MinPos>
+        <MaxPos>75</MaxPos>
+        <MaxAccn>400</MaxAccn>
+        <MaxVel>25</MaxVel>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>2.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>100</DefAccn>
+        <DefMaxVel>10</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.01</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>10</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="BBD30XMotherboard">
+      <LCD>
+        <JSSensitivity>32767</JSSensitivity>
+        <DisplayIntensity>100</DisplayIntensity>
+        <DisplayTimeout>0</DisplayTimeout>
+        <DisplayDimIntensity>33</DisplayDimIntensity>
+      </LCD>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="PositionReadoutEncoder">
+      <DisplaySettings>
+        <DisplayBacklight>0</DisplayBacklight>
+        <DirectionalSense>0</DirectionalSense>
+        <DisplayOrientation>0</DisplayOrientation>
+        <DisplayUnits>0</DisplayUnits>
+      </DisplaySettings>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="GNM1 Goniometer">
+      <StageID>101</StageID>
+      <AxisID>33</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>10.0</HomeVel>
+        <HomeZeroOffset>30.5</HomeZeroOffset>
+      </Home>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>5.0</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>15.0</JogAccn>
+        <JogMaxVel>15.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>2</Units>
+        <Pitch>360.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>60</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>-30.00</MinPos>
+        <MaxPos>30.00</MaxPos>
+        <MaxAccn>25.0</MaxAccn>
+        <MaxVel>25.0</MaxVel>
+        <DisplayDP>3</DisplayDP>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>10.0</DefAccn>
+        <DefMaxVel>10.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.0</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>10</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="GNM2 Goniometer">
+      <StageID>1</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Potentiometer>
+        <FPControls>true</FPControls>
+        <PotZeroWnd>1</PotZeroWnd>
+        <PotVel1>5.0</PotVel1>
+        <PotWnd1>50</PotWnd1>
+        <PotVel2>10.0</PotVel2>
+        <PotWnd2>80</PotWnd2>
+        <PotVel3>15.0</PotVel3>
+        <PotWnd3>100</PotWnd3>
+        <PotVel4>20.0</PotVel4>
+      </Potentiometer>
+      <Buttons>
+        <ButtonMode>1</ButtonMode>
+        <ButtonPos1>10.0</ButtonPos1>
+        <ButtonPos2>20.0</ButtonPos2>
+      </Buttons>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>2</HomeVel>
+        <HomeZeroOffset>50.5</HomeZeroOffset>
+      </Home>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>5.0</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>10.0</JogAccn>
+        <JogMaxVel>10.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>2</Units>
+        <Pitch>360.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>65</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>-50.00</MinPos>
+        <MaxPos>50.00</MaxPos>
+        <MaxAccn>50.0</MaxAccn>
+        <MaxVel>50.0</MaxVel>
+        <MaxContinuousVel>40.0</MaxContinuousVel>
+        <DisplayDP>3</DisplayDP>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>20.0</DefAccn>
+        <DefMaxVel>20.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.0</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>5</RestFactor>
+      </Misc>
+    </DeviceSettingsDefinition>
+    <DeviceSettingsDefinition Name="GNM3 Goniometer">
+      <StageID>1</StageID>
+      <AxisID>2</AxisID>
+      <EncoderFitted>false</EncoderFitted>
+      <Potentiometer>
+        <FPControls>true</FPControls>
+        <PotZeroWnd>1</PotZeroWnd>
+        <PotVel1>5.0</PotVel1>
+        <PotWnd1>50</PotWnd1>
+        <PotVel2>10.0</PotVel2>
+        <PotWnd2>80</PotWnd2>
+        <PotVel3>15.0</PotVel3>
+        <PotWnd3>100</PotWnd3>
+        <PotVel4>20.0</PotVel4>
+      </Potentiometer>
+      <Buttons>
+        <ButtonMode>1</ButtonMode>
+        <ButtonPos1>10.0</ButtonPos1>
+        <ButtonPos2>20.0</ButtonPos2>
+      </Buttons>
+      <Home>
+        <HomeDir>2</HomeDir>
+        <HomeLimitSwitch>1</HomeLimitSwitch>
+        <HomeVel>2</HomeVel>
+        <HomeZeroOffset>50.5</HomeZeroOffset>
+      </Home>
+      <Rotational>
+        <MovementMode>0</MovementMode>
+        <MovementDirection>0</MovementDirection>
+      </Rotational>
+      <Jog>
+        <JogMode>2</JogMode>
+        <JogStepSize>5.0</JogStepSize>
+        <JogMinVel>0.0</JogMinVel>
+        <JogAccn>10.0</JogAccn>
+        <JogMaxVel>10.0</JogMaxVel>
+        <JogStopMode>2</JogStopMode>
+      </Jog>
+      <Physical>
+        <Units>2</Units>
+        <Pitch>360.0</Pitch>
+        <StepsPerRev>200</StepsPerRev>
+        <GearboxRatio>106</GearboxRatio>
+        <DirSense>1</DirSense>
+        <MinPos>-50.00</MinPos>
+        <MaxPos>50.00</MaxPos>
+        <MaxAccn>50.0</MaxAccn>
+        <MaxVel>50.0</MaxVel>
+        <MaxContinuousVel>40.0</MaxContinuousVel>
+        <DisplayDP>3</DisplayDP>
+      </Physical>
+      <Limits>
+        <CWHardLimit>2</CWHardLimit>
+        <CCWHardLimit>2</CCWHardLimit>
+        <CWSoftLimit>3.0</CWSoftLimit>
+        <CCWSoftLimit>1.0</CCWSoftLimit>
+        <SoftLimitMode>1</SoftLimitMode>
+      </Limits>
+      <Control>
+        <DefMinVel>0.0</DefMinVel>
+        <DefAccn>20.0</DefAccn>
+        <DefMaxVel>20.0</DefMaxVel>
+      </Control>
+      <Misc>
+        <BacklashDist>0.0</BacklashDist>
+        <MoveFactor>30</MoveFactor>
+        <RestFactor>5</RestFactor>
+      </Misc>
     </DeviceSettingsDefinition>
   </DeviceSettingsList>
 </SettingsCollection>

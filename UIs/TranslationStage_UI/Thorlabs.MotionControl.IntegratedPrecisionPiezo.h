@@ -11,7 +11,7 @@
 
 /*FOR C API */
 /** @defgroup IntegratedPrecisionPiezo Integrated Precision Piezo
- *  This section details the Structures and Functions relavent to the  @ref PCS12_page "Integrated Precision Piezo"<br />
+ *  This section details the Structures and Functions relavent to the  @ref CT1P_page "Integrated Precision Piezo"<br />
  *  For an example of how to connect to the device and perform simple operations use the following links:
  *  <list type=bullet>
  *    <item> \ref namespaces_ipp_ex_1 "Example of using the Thorlabs.MotionControl.IntegratedPrecisionPiezo.DLL from a C or C++ project."<br />
@@ -102,8 +102,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -277,6 +277,28 @@ extern "C"
 		byte PIDIndex;
 	} PPC_PIDConsts;
 
+	/// <summary> Ppc PID criteria. </summary>
+	struct PPC_PIDCriteria
+	{
+		/// <summary> The criteria ID, has to be byte to work with request . </summary>
+		uint8_t criteriaID;
+		/// <summary> unused byte. </summary>
+		uint8_t unusedByte;
+		/// <summary> The index of the PID constants  to apply for this critera. </summary>
+		uint16_t PIDConstIndex;
+		/// <summary> The priority of this PID criteria, 0 is highest. </summary>
+		uint16_t priority;
+		/// <summary> The target error window specified as % 0 full scale (32k = +/- 100% ), or encoder counts (device dependent). </summary>
+		uint16_t targetErrorWindow;
+		/// <summary> not used. </summary>
+		WORD wReservedPar1;
+		/// <summary> not used. </summary>
+		WORD wReservedPar2;
+		/// <summary> not used. </summary>
+		WORD wReservedPar3;
+
+	};
+
 	/// <summary> PPC notch filter parameters. </summary>
 	typedef struct PPC_NotchParams
 	{
@@ -443,6 +465,37 @@ extern "C"
 		/// <summary> reserved fields. </summary>
 		__int16 reserved[6];
 	} KSG_TriggerConfig;
+	
+	/// <summary> Values that represent Joystick Mode. </summary>
+	enum KPZ_WheelMode : __int16
+	{
+		/// <summary> An enum constant representing the kmot js voltage option. </summary>
+		KPZ_WM_MoveAtVoltage = 0x01,
+		/// <summary> An enum constant representing the kmot js jog option. </summary>
+		KPZ_WM_JogVoltage = 0x02,
+		/// <summary> An enum constant representing the kmot js move absolute option. </summary>
+		KPZ_WM_SetVoltage = 0x03,
+	};
+
+	/// <summary> Values that represent Joystich Rate of Change. </summary>
+	enum KPZ_WheelChangeRate : __int16
+	{
+		/// <summary> An enum constant representing the kmot js high option. </summary>
+		KPZ_WM_High = 0x01,
+		/// <summary> An enum constant representing the kmot js medium option. </summary>
+		KPZ_WM_Medium = 0x02,
+		/// <summary> An enum constant representing the kmot js low option. </summary>
+		KPZ_WM_Low = 0x03,
+	};
+
+	/// <summary> Values that represent wheel Direction. </summary>
+	enum KPZ_WheelDirectionSense : __int16
+	{
+		/// <summary> An enum constant representing the positive direction option. </summary>
+		KPZ_WM_Positive = 0x01,
+		/// <summary> An enum constant representing the negative direction option. </summary>
+		KPZ_WM_Negative = 0x02,
+	};
 
 #pragma pack()
 
@@ -942,9 +995,10 @@ extern "C"
 	/// <param name="serialNo">	The device serial no. </param>
 	/// <returns>	True if it succeeds, false if it fails. </returns>
 	/// <seealso cref="IPP_GetPosition(char const * serialNo)" />
+	/// <seealso cref="IPP_SetPosition(char const * serialNo, short position)" />
 	INTEGRATEDPRECISIONPIEZO_API bool __cdecl IPP_RequestPosition(char const * serialNo);
 
-	/// <summary> Gets the current position.
+	/// <summary> Gets the current  position 
 	/// Please note this is non linear</summary>
 	/// <param name="serialNo">	The device serial no. </param>
 	/// <returns>	The closed loop position as ,<br />
@@ -952,9 +1006,130 @@ extern "C"
 	///		  0-32768 <Br/>
 	/// Please note this is non linear</returns>
 	/// <seealso cref="IPP_RequestPosition(char const * serialNo)" />
+	/// <seealso cref="IPP_SetPosition(char const * serialNo, short position)" />
 	INTEGRATEDPRECISIONPIEZO_API short __cdecl  IPP_GetPosition(char const * serialNo);
 
+
+	/// <summary> Sets the position when in closed loop mode. </summary>
+	/// <remarks> The command is ignored if not in closed loop mode</remarks>
+	/// <param name="serialNo">	The device serial no. </param>
+	/// <param name="position"> The position as a percentage of maximum travel,<br />
+	/// 		  range 0 to 32767, equivalent to 0 to 100%. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_RequestPosition(char const * serialNo)" />
+	/// <seealso cref="IPP_GetPosition(char const * serialNo)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_SetPosition(char const * serialNo, short position);
+
+	/// <summary> Requests the PID Constants. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="index"> The index of the PID set </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_GetPIDConsts(const char * serialNo, byte index, PPC_PIDConsts *pidConsts)" />
+	/// <seealso cref="IPP_SetPIDConsts(const char * serialNo, PPC_PIDConsts *pidConsts)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_RequestPIDConsts(const char * serialNo, byte index);
+
+	/// <summary> Gets the PPC PID Constants. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="index"> The index of the PID set </param>
+	/// <param name="pidConsts"> The PID consts <see cref="PPC_PIDConsts"/>. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_RequestPIDConsts(const char * serialNo, byte index)" />
+	/// <seealso cref="IPP_SetPIDConsts(const char * serialNo, PPC_PIDConsts *pidConsts)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_GetPIDConsts(const char * serialNo, byte index, PPC_PIDConsts *pidConsts);
+
+	/// <summary> Sets the PPC PID Constants. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="pidConsts"> The PPC PID Constants. <see cref="PPC_PIDConsts"/>. </returns> </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_RequestPIDConsts(const char * serialNo, byte index)" />
+	/// <seealso cref="IPP_GetPIDConsts(const char * serialNo, PPC_PIDConsts *pidConsts)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_SetPIDConsts(const char * serialNo, PPC_PIDConsts *pidConsts);
+
+
+
+	/// <summary> Requests the PID Criteria. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="criteriaID"> The criteria ID. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_GetPIDCriteria(const char * serialNo, byte criteriaID, PPC_PIDCriteria *pidCriteria)" />
+	/// <seealso cref="IPP_SetPIDCriteria(const char * serialNo, PPC_PIDCriteria *pidCriteria)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_RequestPIDCriteria(const char * serialNo, byte criteriaID);
+
+	/// <summary> Gets the PID Criteria. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="criteriaID"> The criteria ID. </param>
+	/// <param name="pidCriteria"> The PID criteria. <see cref="PPC_PIDriteria"/>. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_RequestPIDCriteria(const char * serialNo, byte criteriaID)" />
+	/// <seealso cref="IPP_SetPIDCriteria(const char * serialNo, PPC_PIDCriteria *pidCriteria)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_GetPIDCriteria(const char * serialNo, byte criteriaID, PPC_PIDCriteria *pidCriteria);
+
+	/// <summary> Sets the PID Criteria. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="pidCriteria"> The PID criteria. <see cref="PPC_PIDConsts"/>. </returns> </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_RequestPIDCriteria(const char * serialNo, byte criteriaID)" />
+	/// <seealso cref="IPP_GetPIDCriteria(const char * serialNo, byte criteriaID, PPC_PIDCriteria *pidCriteria)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_SetPIDCriteria(const char * serialNo, PPC_PIDCriteria *pidCriteria);
+
+
+	/// <summary> Request that the MMI Parameters for the Integrated Precision Piezo be read from the device. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <returns>	True if it succeeds, false if it fails. </returns>
+	INTEGRATEDPRECISIONPIEZO_API  bool __cdecl IPP_RequestMMIParams(char const * serialNo);
+
+	/// <summary> Get the MMI Parameters for the Integrated Precision Piezo. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="wheelMode">	Not currently settable in this device </param>
+	/// <param name="voltageAdjustRate">  The voltage knob gearing.
+	/// 					<list type=table>
+	///							<item><term>1</term><term>Fast</term></item>
+	///							<item><term>2</term><term>Medium</item>
+	///							<item><term>3</term><term>Slow</term></item>
+	/// 					</list> </param>
+	/// <param name="voltageStep"> Not currently settable in this device </param>
+	/// <param name="directionSense">Not currently settable in this device </param>
+	/// <param name="presetVoltage1">Not currently settable in this device </param>
+	/// <param name="presetVoltage2">	Not currently settable in this device</param>
+	/// <param name="displayIntensity">	    Not currently settable in this device</param>
+	/// <param name="displayTimeout">	    The display timeout, in seconds. </param>
+	/// <param name="displayDimIntensity">	Not currently settable in this device </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_SetMMIParams(char const * serialNo, KPZ_WheelMode wheelMode, KPZ_WheelChangeRate voltageAdjustRate, __int32 voltageStep, KPZ_WheelDirectionSense directionSense, __int32 presetVoltage1, __int32 presetVoltage2, __int16 displayIntensity)" />
+	/// <seealso cref="IPP_SetMMIParamsBlock(const char * serialNo, KPZ_MMIParams *mmiParams)" />
+	/// <seealso cref="IPP_GetMMIParamsBlock(const char * serialNo, KPZ_MMIParams *mmiParams)" />
+	INTEGRATEDPRECISIONPIEZO_API  short __cdecl IPP_GetMMIParams(char const * serialNo, KPZ_WheelMode *wheelMode, KPZ_WheelChangeRate *voltageAdjustRate, __int32 *voltageStep, KPZ_WheelDirectionSense *directionSense,
+		__int32 *presetVoltage1, __int32 *presetVoltage2, __int16 *displayIntensity, __int16 *displayTimeout, __int16 *displayDimIntensity);
+
+
+	/// <summary> Set the MMI Parameters for the Integrated PrecisionPiezo. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="wheelMode">	Not currently settable in this device 
+	/// 					 </param>
+	/// <param name="voltageAdjustRate">  The voltage knob gearing.
+	/// 					<list type=table>
+	///							<item><term>1</term><term>Fast</term></item>
+	///							<item><term>2</term><term>Medium</item>
+	///							<item><term>3</term><term>Slow</term></item>
+	/// 					</list> </param>
+	/// <param name="voltageStep"> Not currently settable in this device  </param>
+	/// <param name="directionSense">	   Not currently settable in this device  </param>
+	/// <param name="presetVoltage1">	   Not currently settable in this device  </param>
+	/// <param name="presetVoltage2">	 Not currently settable in this device . </param>
+	/// <param name="displayIntensity">	    Not currently settable in this device  </param>
+	/// <param name="displayTimeout">	   The display timeout, in seconds. </param>
+	/// <param name="displayDimIntensity">	Not currently settable in this device </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="IPP_GetMMIParamsExt(char const * serialNo, KPZ_WheelMode *wheelMode, KPZ_WheelChangeRate *voltageAdjustRate, __int32 *voltageStep, KPZ_WheelDirectionSense *directionSense, __int32 *presetVoltage1, __int32 *presetVoltage2, __int16 *displayIntensity)" />
+	/// <seealso cref="IPP_SetMMIParamsBlock(const char * serialNo, KPZ_MMIParams *mmiParams)" />
+	/// <seealso cref="IPP_GetMMIParamsBlock(const char * serialNo, KPZ_MMIParams *mmiParams)" />
+	INTEGRATEDPRECISIONPIEZO_API short __cdecl IPP_SetMMIParams(char const * serialNo, KPZ_WheelMode wheelMode, KPZ_WheelChangeRate voltageAdjustRate, __int32 voltageStep, KPZ_WheelDirectionSense directionSense,
+		__int32 presetVoltage1, __int32 presetVoltage2, __int16 displayIntensity, __int16 displayTimeout, __int16 displayDimIntensity);
+
+
+
 	/// <summary> Performs a Set Zero operation. </summary>
+	/// <param name="serialNo">	The device serial no. </param>
 	/// <remarks>This operation performs will zero the output and set the position to zero</remarks>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
 	INTEGRATEDPRECISIONPIEZO_API short __cdecl  IPP_SetZero(char const * serialNo);

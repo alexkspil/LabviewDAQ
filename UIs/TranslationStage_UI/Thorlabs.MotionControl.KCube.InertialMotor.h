@@ -394,8 +394,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -632,17 +632,38 @@ extern "C"
 	KCUBEINERTIALMOTOR_API bool __cdecl KIM_PersistSettings(char const * serialNumber);
 
 	/// <summary> Disable cube. </summary>
-
 	/// <param name="serialNumber">	The device serial number. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
 	/// <seealso cref="KIM_Enable(char const * serialNumber)" />
+	/// <seealso cref="KIM_EnableChannel(char const * serialNumber, KIM_Channels channel)" />
+	/// <seealso cref="KIM_DisableChannel(char const * serialNumber, KIM_Channels channel)" />
 	KCUBEINERTIALMOTOR_API short __cdecl KIM_Disable(char const * serialNumber);
+
+	/// <summary> Disable a channel. </summary>
+	/// <param name="serialNumber">	The device serial number. </param>
+	/// <param name="channel">		The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="KIM_EnableChannel(char const * serialNumber, KIM_Channels channel)" />
+	/// <seealso cref="KIM_Enable(char const * serialNumber)" />
+	/// <seealso cref="KIM_Disable(char const * serialNumber)" />
+	KCUBEINERTIALMOTOR_API short __cdecl KIM_DisableChannel(char const * serialNumber, KIM_Channels channel);
 
 	/// <summary> Enable cube for computer control. </summary>
 	/// <param name="serialNumber">	The device serial number. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
 	/// <seealso cref="KIM_Disable(char const * serialNumber)" />
+	/// <seealso cref="KIM_EnableChannel(char const * serialNumber, KIM_Channels channel)" />
+	/// <seealso cref="KIM_DisableChannel(char const * serialNumber, KIM_Channels channel)" />
 	KCUBEINERTIALMOTOR_API short __cdecl KIM_Enable(char const * serialNumber);
+
+	/// <summary> Enable a channel. </summary>
+	/// <param name="serialNumber">	The device serial number. </param>
+	/// <param name="channel">		The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="KIM_DisableChannel(char const * serialNumber, KIM_Channels channel)" />
+	/// <seealso cref="KIM_Enable(char const * serialNumber)" />
+	/// <seealso cref="KIM_Disable(char const * serialNumber)" />
+	KCUBEINERTIALMOTOR_API short __cdecl KIM_EnableChannel(char const * serialNumber, KIM_Channels channel);
 
 	/// <summary> Determine if the device front panel can be locked. </summary>
 	/// <param name="serialNumber">	The device serial number. </param>

@@ -108,8 +108,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -331,7 +331,7 @@ extern "C"
 	/// <summary> Initialize a connection to the Simulation Manager, which must already be running. </summary>
 	/// <remarks> Call TLI_InitializeSimulations before TLI_BuildDeviceList at the start of the program to make a connection to the simulation manager.<Br />
 	/// 		  Any devices configured in the simulation manager will become visible TLI_BuildDeviceList is called and can be accessed using TLI_GetDeviceList.<Br />
-	/// 		  Call TLI_InitializeSimulations at the end of the program to release the simulator.  </remarks>
+	/// 		  Call TLI_UninitializeSimulations at the end of the program to release the simulator.  </remarks>
 	/// <seealso cref="TLI_UninitializeSimulations()" />
 	/// <seealso cref="TLI_BuildDeviceList()" />
 	/// <seealso cref="TLI_GetDeviceList(SAFEARRAY** stringsReceiver)" />

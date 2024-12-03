@@ -170,6 +170,8 @@ extern "C"
 		KMOT_TrigIn_AbsoluteMove = 0x03,///< Move absolute using absolute move parameters
 		KMOT_TrigIn_Home = 0x04,///< Perform a Home action
 		KMOT_TrigIn_Stop = 0x05,///< Perform a Stop Immediate action
+		KMOT_TrigIn_StartScan = 0x06,///< Perform a Scan Start (on supported devices)
+		KMOT_TrigIn_ShuttleMove = 0x07,///< Move shuttle using absolute move parameters (on supported devices)
 		KMOT_TrigOut_GPO = 0x0A,///< General purpose output (<see cref="KVS_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)
 		KMOT_TrigOut_InMotion = 0x0B,///< Set when device moving
 		KMOT_TrigOut_AtMaxVelocity = 0x0C,///< Set when at max velocity
@@ -232,8 +234,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -452,6 +454,9 @@ extern "C"
 		///				<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
 		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
 		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+		///				<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action.<Br />Currently only supported on KST101</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
 		///				<item><term>10</term><term>Trigger Output - General purpose output (<see cref="KVS_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
 		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
 		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
@@ -476,6 +481,9 @@ extern "C"
 		///				<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
 		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
 		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+		///				<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action.<Br />Currently only supported on KST101</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
 		///				<item><term>10</term><term>Trigger Output - General purpose output (<see cref="KVS_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
 		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
 		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
@@ -518,6 +526,22 @@ extern "C"
 		/// <summary> reserved fields. </summary>
 		__int32 reserved[6];
 	} KMOT_TriggerParams;
+
+	/// <summary> structure containing the encoder resolution parameters. </summary>
+	/// <value> The encoder parameters. </value>
+	typedef struct MOT_EncoderResolutionParams
+	{
+		/// <summary> Endcoder resolution whole number part. </summary>
+		DWORD encoderResolutionWholeNumber;
+		/// <summary> Endcoder resolution fractional part. </summary>
+		WORD encoderResolutionFraction;
+		/// <summary> Reserved for future use. </summary>
+		WORD unused1;
+		/// <summary> Reserved for future use. </summary>
+		WORD unused2;
+		/// <summary> Reserved for future use. </summary>
+		WORD unused3;
+	} MOT_EncoderResolutionParams;
 
 	#pragma pack()
 
@@ -653,7 +677,7 @@ extern "C"
 	/// <summary> Initialize a connection to the Simulation Manager, which must already be running. </summary>
 	/// <remarks> Call TLI_InitializeSimulations before TLI_BuildDeviceList at the start of the program to make a connection to the simulation manager.<Br />
 	/// 		  Any devices configured in the simulation manager will become visible TLI_BuildDeviceList is called and can be accessed using TLI_GetDeviceList.<Br />
-	/// 		  Call TLI_InitializeSimulations at the end of the program to release the simulator.  </remarks>
+	/// 		  Call TLI_UninitializeSimulations at the end of the program to release the simulator.  </remarks>
 	/// <seealso cref="TLI_UninitializeSimulations()" />
 	/// <seealso cref="TLI_BuildDeviceList()" />
 	/// <seealso cref="TLI_GetDeviceList(SAFEARRAY** stringsReceiver)" />
@@ -1979,6 +2003,19 @@ extern "C"
 	/// <returns>	Success. </returns>
 	/// <seealso cref="KVS_GetRealValueFromDeviceUnit(char const * serialNo, int device_unit, double *real_unit, int unitType)" />
 	VERTICALSTAGE_API short __cdecl KVS_GetDeviceUnitFromRealValue(char const * serialNo, double real_unit, int *device_unit, int unitType);
+
+	/// <summary> Requests the encoder resolution parameters. </summary>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="KVS_GetEncoderResolutionParams(char const * serialNo, MOT_EncoderResolutionParams * resolutionParams)" />
+	VERTICALSTAGE_API short __cdecl KVS_RequestEncoderResolutionParams(char const * serialNo);
+
+	/// <summary> Get the encoder resolution parameters. </summary>
+	/// <param name="serialNo">	The device serial no. </param>
+	/// <param name="resolutionParams"> The resolution parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="KVS_RequestEncoderResolutionParams(char const * serialNo)" />
+	VERTICALSTAGE_API short __cdecl KVS_GetEncoderResolutionParams(char const * serialNo, MOT_EncoderResolutionParams * resolutionParams);
 
 	/// <summary> Requests the digital output bits. </summary>
 	/// <param name="serialNo">	The device serial no. </param>

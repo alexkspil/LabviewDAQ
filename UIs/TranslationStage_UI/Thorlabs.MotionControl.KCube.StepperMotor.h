@@ -193,6 +193,8 @@ extern "C"
 		KMOT_TrigIn_AbsoluteMove = 0x03,///< Move absolute using absolute move parameters
 		KMOT_TrigIn_Home = 0x04,///< Perform a Home action
 		KMOT_TrigIn_Stop = 0x05,///< Perform a Stop Immediate action
+		KMOT_TrigIn_StartScan = 0x06,///< Perform a Scan Start (on supported devices)
+		KMOT_TrigIn_ShuttleMove = 0x07,///< Move shuttle using absolute move parameters (on supported devices)
 		KMOT_TrigOut_GPO = 0x0A,///< General purpose output (<see cref="SCC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)
 		KMOT_TrigOut_InMotion = 0x0B,///< Set when device moving
 		KMOT_TrigOut_AtMaxVelocity = 0x0C,///< Set when at max velocity
@@ -278,8 +280,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -470,6 +472,8 @@ extern "C"
 		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
 		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
 		///				<item><term>5</term><term>Trigger Input - Perform a Stop action.<Br />Currently only supported on KST101</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
 		///				<item><term>10</term><term>Trigger Output - General purpose output (<see cref="SCC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
 		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
 		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
@@ -495,6 +499,8 @@ extern "C"
 		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
 		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
 		///				<item><term>5</term><term>Trigger Input - Perform a Stop action.<Br />Currently only supported on KST101</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
 		///				<item><term>10</term><term>Trigger Output - General purpose output (<see cref="SCC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
 		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
 		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>

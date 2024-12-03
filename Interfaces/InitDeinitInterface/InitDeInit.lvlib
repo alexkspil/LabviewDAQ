@@ -4,6 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="InitDeInit Messages" Type="Folder">
 		<Item Name="DeInit Msg.lvclass" Type="LVClass" URL="../InitDeinit Messages/DeInit Msg/DeInit Msg.lvclass"/>
 		<Item Name="Disconnect Msg.lvclass" Type="LVClass" URL="../InitDeinit Messages/Disconnect Msg/Disconnect Msg.lvclass"/>
@@ -16,6 +17,6 @@
 		<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../InitDeinitComm Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
 		<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
 	</Item>
-	<Item Name="InitDeinit.lvclass" Type="LVClass" URL="../InitDeinit/InitDeinit.lvclass"/>
 	<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../InitDeinitComm/InitDeinitComm.lvclass"/>
+	<Item Name="InitDeinit.lvclass" Type="LVClass" URL="../InitDeinit/InitDeinit.lvclass"/>
 </Library>

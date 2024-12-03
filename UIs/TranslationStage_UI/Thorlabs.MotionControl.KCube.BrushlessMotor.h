@@ -143,7 +143,6 @@ extern "C"
 		MOT_LimitSwitchStopProfiled_Rotational=0x83,///<Stop profiled when hitting limit switch (rotational stage)
 	} MOT_LimitSwitchSWModes;
 
-
 	/// <summary> Values that represent MOT_LimitsSoftwareApproachPolicy. </summary>
 	typedef enum MOT_LimitsSoftwareApproachPolicy : __int16
 	{
@@ -184,6 +183,8 @@ extern "C"
 		KMOT_TrigIn_AbsoluteMove = 0x03,///< Move absolute using absolute move parameters
 		KMOT_TrigIn_Home = 0x04,///< Perform a Home action
 		KMOT_TrigIn_Stop = 0x05,///< Perform a Stop Immediate action
+		KMOT_TrigIn_StartScan = 0x06,///< Perform a Scan Start (on supported devices)
+		KMOT_TrigIn_ShuttleMove = 0x07,///< Move shuttle using absolute move parameters (on supported devices)
 		KMOT_TrigOut_GPO = 0x0A,///< General purpose output (<see cref="BMC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)
 		KMOT_TrigOut_InMotion = 0x0B,///< Set when device moving
 		KMOT_TrigOut_AtMaxVelocity = 0x0C,///< Set when at max velocity
@@ -213,6 +214,45 @@ extern "C"
 		Forwards = 0x01,///< Only rotate in a forward direction
 		Reverse = 0x02,///< Only rotate in a backward direction
 	} MOT_MovementDirections;
+
+	/// <summary> Values that represent scan movement pattern options. </summary>
+	typedef enum MOT_ScanMovePattern : unsigned short
+	{
+		MOT_ScanMovePattern_NotSpecified = 0x00,
+		MOT_ScanMovePattern_Sine = 0x01,
+		MOT_ScanMovePattern_Triangle = 0x02
+	};
+
+	/// <summary> Values that represent scan movement trigger options. </summary>
+	typedef enum MOT_ScanMoveTrigger : unsigned short
+	{
+		MOT_ScanMoveTrigger_NotSpecified = 0x00,
+		MOT_ScanMoveTrigger_Software = 0x01, ///< Software trigger, scan move starts immediately on recept of scan start
+		MOT_ScanMoveTrigger_Hardware = 0x02 ///< Hardware trigger, scan move starts when trigger condition met
+	};
+
+	/// <summary> Values that represent scan movement commands options. </summary>
+	typedef enum MOT_ScanMoveCommands : short
+	{
+		MOT_SCAN_MOVE_START = 0x01, ///< Start scan move
+		MOT_SCAN_MOVE_PAUSE = 0x02, ///< Pause scan move
+		MOT_SCAN_MOVE_STOP = 0x03, ///< Stop scan move
+	};
+
+	/// <summary> Values that represent analogue input modes. </summary>
+	typedef enum MOT_AnalogInputMode : unsigned short
+	{
+		MOT_ANALOG_IP_DISABLED = 0x00,
+		MOT_ANALOG_IP_POSCONTROL = 0x01 ///< Position control mode
+	};
+
+	/// <summary> Values that represent monitor output modes. </summary>
+	typedef enum MOT_MonitorOutputMode : unsigned short
+	{
+		MOT_MON_OP_SOFTWARE = 0x00,
+		MOT_MON_OP_POSITION = 0x01 ///< Position control mode
+	};
+
 /// \endcond
 
 	/// <summary> Information about the device generated from serial number. </summary>
@@ -261,8 +301,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -554,6 +594,8 @@ extern "C"
 		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
 		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
 		///				<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
 		///				<item><term>10</term><term>Trigger Output - General purpose output (<see cref="BMC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
 		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
 		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
@@ -579,6 +621,8 @@ extern "C"
 		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
 		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
 		///				<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
 		///				<item><term>10</term><term>Trigger Output - General purpose output (<see cref="BMC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
 		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
 		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
@@ -621,6 +665,68 @@ extern "C"
 		/// <summary> reserved fields. </summary>
 		__int32 reserved[6];
 	} KMOT_TriggerParams;
+
+	/// <summary> KCube scan move configuration. </summary>
+	typedef struct MOT_ScanMoveParams
+	{
+		/// <summary> The start position in device units. </summary>
+		long StartPosition;
+		/// <summary> The distance to move from start position in device units. </summary>
+		long Amplitude;
+		/// <summary> The frequency (angular velocity) in machine units. </summary>
+		long Frequency;
+		/// <summary> The angular acceleration in machine units. </summary>
+		long AngularAcceleration;
+		/// <summary> The number of Cycles. A value of 0 results in continuous movement. </summary>
+		long NumberOfCycles;
+		/// <summary> The scan pattern. Sinusoidal or triangular.</summary>
+		MOT_ScanMovePattern ScanPattern;
+		/// <summary> The trigger mode. Software or hardware.</summary>
+		MOT_ScanMoveTrigger TriggerMode;
+
+	} MOT_ScanMoveParams;
+
+	/// <summary> KCube analog IO configuration. </summary>
+	typedef struct MOT_AnalogIOConfigParams
+	{
+		/// <summary> External analogue input mode.</summary>
+		MOT_AnalogInputMode ExternalInputMode;
+		/// <summary> External input voltage corresponding to the minimum position (±32767 corresponding to ±10V).</summary> 
+		short ExternalInputMinPositionVoltage;
+		/// <summary> External input voltage corresponding to the maximum position (±32767 corresponding to ±10V).</summary>
+		short ExternalInputMaxPositionVoltage;
+		/// <summary> Minimum position for the external input, in encoder counts.</summary>
+		LONG ExternalInputMinPosition;
+		/// <summary> Maximum position for the external input, in encoder counts.</summary>
+		LONG ExternalInputMaxPosition;
+		/// <summary> External input filter frequency in Hz, or zero to turn filter off.</summary>
+		WORD ExternalInputFilterFrequency;
+		/// <summary> Monitor output SMA signal function (see #defines below)..</summary>
+		MOT_MonitorOutputMode MonitorOutputMode;
+		/// <summary> Monitor output software defined value (±32767 corresponding to ±10V).</summary>
+		WORD MonitorOutputSoftwareValue;
+		/// <summary> Monitor output voltage corresponding to the minimum position (±32767 corresponding to ±10V).</summary>
+		short MonitorOutputMinPositionVoltage;
+		/// <summary> Monitor output voltage corresponding to the maximum position (±32767 corresponding to ±10V).</summary>
+		short MonitorOutputMaxPositionVoltage;
+		/// <summary> Minimum position for monitor output, in encoder counts.</summary>
+		LONG MonitorOutputMinPosition;
+		/// <summary> Maximum position for monitor output, in encoder counts.</summary>
+		LONG MonitorOutputMaxPosition;
+		/// <summary> Reserved for future use.</summary>
+		WORD Reserved[4];
+	} MOT_AnalogIOConfigParams;
+
+	/// <summary> KCube analog input configuration. </summary>
+	typedef struct MOT_AnalogInputParams
+	{
+		/// <summary> External analogue input mode.</summary>
+		MOT_AnalogInputMode ExternalInputMode;
+		/// <summary> External input voltage corresponding to the minimum position (±32767 corresponding to ±10V).</summary> 
+		short ExternalInputReading;
+		/// <summary> Reserved for future use.</summary>
+		short wReserved[4];
+	} MOT_AnalogInputParams;
 
 	#pragma pack()
 
@@ -2153,6 +2259,7 @@ extern "C"
 	BRUSHLESSMOTOR_API short __cdecl BMC_SetTrackSettleParams(const char * serialNo, MOT_BrushlessTrackSettleParameters *settleParams);
 
 	/// <summary> Requests the current loop parameters for moving to required position. </summary>
+	/// <remarks> Not supported by KVC type controller.</remarks>
 	/// <param name="serialNo"> The serial no. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
 	/// <seealso cref="BMC_GetCurrentLoopParams(const char * serialNo, MOT_CurrentLoopParameters *CurrentLoopParams)" />
@@ -2160,6 +2267,7 @@ extern "C"
 	BRUSHLESSMOTOR_API short __cdecl BMC_RequestCurrentLoopParams(char const * serialNo);
 
 	/// <summary> Gets the current loop parameters for moving to required position. </summary>
+	/// <remarks> Not supported by KVC type controller.</remarks>
 	/// <param name="serialNo"> The device serial no. </param>
 	/// <param name="currentLoopParams"> The address of the MOT_BrushlessCurrentLoopParameters parameter to receive the current loop parameters. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
@@ -2168,6 +2276,7 @@ extern "C"
 	BRUSHLESSMOTOR_API short __cdecl BMC_GetCurrentLoopParams(const char * serialNo, MOT_BrushlessCurrentLoopParameters *currentLoopParams);
 
 	/// <summary> Sets the current loop parameters for moving to required position. </summary>
+	/// <remarks> Not supported by KVC type controller.</remarks>
 	/// <param name="serialNo"> The device serial no. </param>
 	/// <param name="currentLoopParams"> The address of the MOT_BrushlessCurrentLoopParameters containing the new current loop parameters. </param>
 	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
@@ -2374,5 +2483,78 @@ extern "C"
 	/// <seealso cref="BMC_GetDigitalOutputs(char const * serialNo)" />
 	/// <seealso cref="BMC_RequestDigitalOutputs(char const * serialNo)" />
 	BRUSHLESSMOTOR_API short __cdecl BMC_SetDigitalOutputs(char const * serialNo, byte outputsBits);
+
+	/// <summary> Requests the scan move parameters. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_RequestScanMoveParams(char const* serialNo);
+
+	/// <summary> Gets the scan move parameters </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <param name="scanMoveParams"> [in,out] the scan move parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_GetScanMoveParams(const char* serialNo, MOT_ScanMoveParams& scanMoveParams);
+
+	/// <summary> Sets the scan move parameters. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <param name="scanMoveParams"> [in,out] the scan move parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_SetScanMoveParams(const char* serialNo, MOT_ScanMoveParams& scanMoveParams);
+
+	/// <summary> Start the scan move. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_StartScanMove(const char* serialNo);
+
+	/// <summary> Stop the scan move. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_StopScanMove(const char* serialNo);
+
+
+	/// <summary> Requests the Analog IO config parameters. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_RequestAnalogIOConfigParams(char const* serialNo);
+
+	/// <summary> Gets the Analog IO config parameters </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <param name="AnalogIOConfigParams"> [in,out] the Analog IO config parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_GetAnalogIOConfigParams(const char* serialNo, MOT_AnalogIOConfigParams& AnalogIOConfigParams);
+
+	/// <summary> Sets the Analog IO config parameters. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <param name="AnalogIOConfigParams"> [in,out] the Analog IO config parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_SetAnalogIOConfigParams(const char* serialNo, MOT_AnalogIOConfigParams& AnalogIOConfigParams);
+
+	/// <summary> Sets the Analog Input config mode. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <param name="modes"> The Analog Input Mode. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_SetAnalogInputMode(const char* serialNo, MOT_AnalogInputMode mode);
+
+	/// <summary> Requests the Analog input parameters. </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_RequestAnalogInputParams(char const* serialNo);
+
+	/// <summary> Gets the Analog input parameters </summary>
+	/// <remarks> Only supported by KVC type controller currently.</remarks>
+	/// <param name="serialNo">    The serial no. </param>
+	/// <param name="AnalogInputParams"> [in,out] the Analog input parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	BRUSHLESSMOTOR_API  short __cdecl BMC_GetAnalogInputParams(const char* serialNo, MOT_AnalogInputParams& AnalogInputParams);
 }
 /** @} */ // KCubeBrushlessMotor

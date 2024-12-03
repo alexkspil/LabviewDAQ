@@ -176,6 +176,35 @@ extern "C"
 		Forwards = 0x01,///< Only rotate in a forward direction
 		Reverse = 0x02,///< Only rotate in a backward direction
 	} MOT_MovementDirections;
+
+	/// <summary> Values that represent Trigger Port Mode. </summary>
+	typedef enum KMOT_TriggerPortMode
+	{
+		KMOT_TrigDisabled = 0x00,///< Trigger Disabled
+		KMOT_TrigIn_GPI = 0x01,///< General purpose logic input
+		KMOT_TrigIn_RelativeMove = 0x02,///< Move relative using relative move parameters
+		KMOT_TrigIn_AbsoluteMove = 0x03,///< Move absolute using absolute move parameters
+		KMOT_TrigIn_Home = 0x04,///< Perform a Home action
+		KMOT_TrigIn_Stop = 0x05,///< Perform a Stop Immediate action
+		KMOT_TrigIn_StartScan = 0x06,///< Perform a Scan Start (on supported devices)
+		KMOT_TrigIn_ShuttleMove = 0x07,///< Move shuttle using absolute move parameters (on supported devices)
+		KMOT_TrigOut_GPO = 0x0A,///< General purpose output (set using MOT_SET_DIGOUTPUTS)
+		KMOT_TrigOut_InMotion = 0x0B,///< Set when device moving
+		KMOT_TrigOut_AtMaxVelocity = 0x0C,///< Set when at max velocity
+		KMOT_TrigOut_AtPositionStepFwd = 0x0D,///< Set when at predefine position steps, Forward,<br />Set using wTrigStartPos, wTrigInterval, wTrigNumPulses,wTrigPulseWidth
+		KMOT_TrigOut_AtPositionStepRev = 0x0E,///< Set when at predefine position steps, Reverse,<br />Set using wTrigStartPos, wTrigInterval, wTrigNumPulses,wTrigPulseWidth
+		KMOT_TrigOut_AtPositionStepBoth = 0x0F,///< Set when at predefine position steps, Both,<br />Set using wTrigStartPos, wTrigInterval, wTrigNumPulses,wTrigPulseWidth
+		KMOT_TrigOut_AtFwdLimit = 0x10,///< Set when forward limit switch is active
+		KMOT_TrigOut_AtBwdLimit = 0x11,///< Set when backward limit switch is active
+		KMOT_TrigOut_AtLimit = 0x12,///< Set when either limit switch is active
+	} KMOT_TriggerPortMode;
+
+	/// <summary> Values that represent Trigger Port Polarity. </summary>
+	typedef enum KMOT_TriggerPortPolarity
+	{
+		KMOT_TrigPolarityHigh = 0x01,///< Trigger Polarity high
+		KMOT_TrigPolarityLow = 0x02,///< Trigger Polarity Low
+	} KMOT_TriggerPortPolarity;
 /// \endcond
 
 	/// <summary> Information about the device generated from serial number. </summary>
@@ -224,8 +253,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;
@@ -411,6 +440,102 @@ extern "C"
 		/// 		  </list> </remarks>
 		WORD parameterFilter;
 	} MOT_DC_PIDParameters;
+
+	/// <summary> Motor trigger configuration. </summary>
+	typedef struct KMOT_TriggerConfig
+	{
+		/// <summary> The trigger 1 mode. </summary>
+		/// <remarks> The trigger 1 operating mode:
+		/// 		  <list type=table>
+		///				<item><term>0</term><term>Trigger disabled</term></item>
+		///				<item><term>1</term><term>Trigger Input - General purpose logic input</term></item>
+		///				<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
+		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
+		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+		///				<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action.<Br />Currently only supported on KST101</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
+		///				<item><term>10</term><term>Trigger Output - General purpose output (set using MOT_SET_DIGOUTPUTS)</term></item>
+		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
+		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
+		///				<item><term>13</term><term>Trigger Output - Set when at predefine position steps</term></item>
+		///				<item><term>14</term><term>Trigger Output - TBD mode</term></item>
+		/// 		  </list>
+		/// 		  </remarks>
+		KMOT_TriggerPortMode Trigger1Mode;
+		/// <summary> The trigger 1 polarity. </summary>
+		/// <remarks> The trigger 1 output polaritye:
+		/// 		  <list type=table>
+		///				<item><term>1</term><term>Output high when set</term></item>
+		///				<item><term>2</term><term>Output low when set</term></item>
+		/// 		  </list>
+		/// 		  </remarks>
+		KMOT_TriggerPortPolarity Trigger1Polarity;
+		/// <summary> The trigger 2 mode. </summary>
+		/// <remarks> The trigger 2 operating mode:
+		/// 		  <list type=table>
+		///				<item><term>0</term><term>Trigger disabled</term></item>
+		///				<item><term>1</term><term>Trigger Input - General purpose logic input</term></item>
+		///				<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
+		///				<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
+		///				<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+		///				<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action.<Br />Currently only supported on KST101</term></item>
+		/// 			<item><term>6</term><term>Trigger Input - Perform a Start scan move</term></item>
+		/// 			<item><term>7</term><term>Trigger Input - Move shuttle using absolute move parameters</term></item>
+		///				<item><term>10</term><term>Trigger Output - General purpose output (set using MOT_SET_DIGOUTPUTS)</term></item>
+		///				<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
+		///				<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
+		///				<item><term>13</term><term>Trigger Output - Set when at predefine position steps</term></item>
+		///				<item><term>14</term><term>Trigger Output - TBD mode</term></item>
+		/// 		  </list>
+		/// 		  </remarks>
+		KMOT_TriggerPortMode Trigger2Mode;
+		/// <summary> The trigger 2 polarity. </summary>
+		/// <remarks> The trigger 2 output polarity:
+		/// 		  <list type=table>
+		///				<item><term>1</term><term>Output high when set</term></item>
+		///				<item><term>2</term><term>Output low when set</term></item>
+		/// 		  </list>
+		/// 		  </remarks>
+		KMOT_TriggerPortPolarity Trigger2Polarity;
+	} KMOT_TriggerConfig;
+
+	/// <summary> structure containing the   encoder resolution parameters. </summary>
+	/// <value> The encoder parameters. </value>
+	typedef struct MOT_EncoderResolutionParams
+	{
+		/// <summary> Endcoder resolution whole number part. </summary>
+		DWORD encoderResolutionWholeNumber;
+		/// <summary> Endcoder resolution fractional part. </summary>
+		WORD encoderResolutionFraction;
+		/// <summary> Reserved for future use. </summary>
+		WORD unused1;
+		/// <summary> Reserved for future use. </summary>
+		WORD unused2;
+		/// <summary> Reserved for future use. </summary>
+		WORD unused3;
+	} MOT_EncoderResolutionParams;
+
+	/// <summary> Motor trigger output configuration. </summary>
+	typedef struct KMOT_TriggerParams
+	{
+		/// <summary> The trigger output start position in encoder units. </summary>
+		__int32 TriggerStartPositionFwd;
+		/// <summary> The trigger interval in encoder units. </summary>
+		__int32 TriggerIntervalFwd;
+		/// <summary> Number of trigger pulses. </summary>
+		__int32 TriggerPulseCountFwd;
+		/// <summary> The trigger output start position in encoder units. </summary>
+		__int32 TriggerStartPositionRev;
+		/// <summary> The trigger interval in encoder units. </summary>
+		__int32 TriggerIntervalRev;
+		/// <summary> Number of trigger pulses. </summary>
+		__int32 TriggerPulseCountRev;
+		/// <summary> Width of the trigger pulse in encoder units. </summary>
+		__int32 TriggerPulseWidth;
+		/// <summary> Number of cycles. </summary>
+		__int32 CycleCount;
+	} KMOT_TriggerParams;
 #pragma pack()
 
     /// <summary> Build the DeviceList. </summary>
@@ -1956,5 +2081,211 @@ extern "C"
 	/// <returns>	Success. </returns>
 	/// <seealso cref="BDC_GetRealValueFromDeviceUnit(char const * serialNo, short channel, int device_unit, double *real_unit, int unitType)" />
 	BENCHTOPDCSERVO_API short __cdecl BDC_GetDeviceUnitFromRealValue(char const * serialNo, short channel, double real_unit, int *device_unit, int unitType);
+	
+	/// <summary> Requests the encoder resolution parameters. </summary>
+	/// <remarks> For devices that have an encoder, the current encoder resolution can be read. </remarks>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="channel"> The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetEncoderResolutionParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_RequestEncoderResolutionParams(char const * serialNo, short channel);
+
+	/// <summary> Get the encoder resolution parameters. </summary>
+	/// <remarks> For devices that have an encoder, the current encoder resolution can be read. </remarks>
+	/// <param name="serialNo">	The device serial no. </param>
+	/// <param name="channel">  The channel. </param>
+	/// <param name="resolutionParams"> Options for controlling the resolution parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_RequestEncoderResolutionParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_GetEncoderResolutionParams(char const * serialNo, short channel, MOT_EncoderResolutionParams * resolutionParams);
+
+	/// <summary>Requests the trigger parameters. </summary>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode *trigger1Mode, KMOT_TriggerPortPolarity *trigger1Polarity, KMOT_TriggerPortMode *trigger2Mode, KMOT_TriggerPortPolarity *trigger2Polarity)" />
+	/// <seealso cref="BDC_GetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	/// <seealso cref="BDC_SetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode trigger1Mode, KMOT_TriggerPortPolarity trigger1Polarity, KMOT_TriggerPortMode trigger2Mode, KMOT_TriggerPortPolarity trigger2Polarity)" />
+	/// <seealso cref="BDC_SetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_RequestTriggerConfigParams(char const * serialNo, short channel);
+
+	/// <summary> Gets the trigger configuration parameters. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="trigger1Mode">	    The trigger 1 mode.<list type=table>
+	///						<item><term>0</term><term>Trigger disabled</term></item>
+	///						<item><term>1</term><term>Trigger Input - General purpose logic input (<see cref="BMC_GetStatusBits(const char * serialNo)"> GetStatusBits</see>)</term></item>
+	///						<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
+	///						<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
+	///						<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+	///						<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action</term></item>
+	///						<item><term>10</term><term>Trigger Output - General purpose output (<see cref="BMC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
+	///						<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
+	///						<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
+	///						<item><term>13</term><term>Trigger Output - Set when at predefine position steps</term></item>
+	///						<item><term>14</term><term>Trigger Output - TBD mode</term></item>
+	///		 		  </list></param>
+	/// <param name="trigger1Polarity"> The trigger 1 polarity.<list type=table>
+	///						<item><term>1</term><term>Output high when set</term></item>
+	///						<item><term>2</term><term>Output low when set</term></item>
+	///		 		  </list> </param>
+	/// <param name="trigger2Mode">	    The trigger 2 mode.<list type=table>
+	///						<item><term>0</term><term>Trigger disabled</term></item>
+	///						<item><term>1</term><term>Trigger Input - General purpose logic input (<see cref="BMC_GetStatusBits(const char * serialNo)"> GetStatusBits</see>)</term></item>
+	///						<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
+	///						<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
+	///						<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+	///						<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action</term></item>
+	///						<item><term>10</term><term>Trigger Output - General purpose output (<see cref="BMC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
+	///						<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
+	///						<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
+	///						<item><term>13</term><term>Trigger Output - Set when at predefine position steps</term></item>
+	///						<item><term>14</term><term>Trigger Output - TBD mode</term></item>
+	///		 		  </list></param>
+	/// <param name="trigger2Polarity"> The trigger 2 polarity.<list type=table>
+	///						<item><term>1</term><term>Output high when set</term></item>
+	///						<item><term>2</term><term>Output low when set</term></item>
+	///		 		  </list> </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	/// <seealso cref="BDC_SetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode trigger1Mode, KMOT_TriggerPortPolarity trigger1Polarity, KMOT_TriggerPortMode trigger2Mode, KMOT_TriggerPortPolarity trigger2Polarity)" />
+	/// <seealso cref="BDC_SetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	/// <seealso cref="BDC_RequestTriggerConfigParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_GetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode *trigger1Mode, KMOT_TriggerPortPolarity *trigger1Polarity, KMOT_TriggerPortMode *trigger2Mode, KMOT_TriggerPortPolarity *trigger2Polarity);
+
+	/// <summary> Gets the trigger configuration parameters block. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerConfigParams"> Options for controlling the trigger configuration. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode *trigger1Mode, KMOT_TriggerPortPolarity *trigger1Polarity, KMOT_TriggerPortMode *trigger2Mode, KMOT_TriggerPortPolarity *trigger2Polarity)" />
+	/// <seealso cref="BDC_SetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode trigger1Mode, KMOT_TriggerPortPolarity trigger1Polarity, KMOT_TriggerPortMode trigger2Mode, KMOT_TriggerPortPolarity trigger2Polarity)" />
+	/// <seealso cref="BDC_SetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	/// <seealso cref="BDC_RequestTriggerConfigParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_GetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams);
+
+	/// <summary> Sets the trigger configuration parameters. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="trigger1Mode">	    The trigger 1 mode.<list type=table>
+	///						<item><term>0</term><term>Trigger disabled</term></item>
+	///						<item><term>1</term><term>Trigger Input - General purpose logic input (<see cref="BMC_GetStatusBits(const char * serialNo)"> GetStatusBits</see>)</term></item>
+	///						<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
+	///						<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
+	///						<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+	///						<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action</term></item>
+	///						<item><term>10</term><term>Trigger Output - General purpose output (<see cref="BMC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
+	///						<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
+	///						<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
+	///						<item><term>13</term><term>Trigger Output - Set when at predefine position steps</term></item>
+	///						<item><term>14</term><term>Trigger Output - TBD mode</term></item>
+	///		 		  </list></param>
+	/// <param name="trigger1Polarity"> The trigger 1 polarity.<list type=table>
+	///						<item><term>1</term><term>Output high when set</term></item>
+	///						<item><term>2</term><term>Output low when set</term></item>
+	///		 		  </list> </param>
+	/// <param name="trigger2Mode">	    The trigger 2 mode.<list type=table>
+	///						<item><term>0</term><term>Trigger disabled</term></item>
+	///						<item><term>1</term><term>Trigger Input - General purpose logic input (<see cref="BMC_GetStatusBits(const char * serialNo)"> GetStatusBits</see>)</term></item>
+	///						<item><term>2</term><term>Trigger Input - Move relative using relative move parameters</term></item>
+	///						<item><term>3</term><term>Trigger Input - Move absolute using absolute move parameters</term></item>
+	///						<item><term>4</term><term>Trigger Input - Perform a Home action</term></item>
+	///						<item><term>5</term><term>Trigger Input - Perform a Stop Immediate action</term></item>
+	///						<item><term>10</term><term>Trigger Output - General purpose output (<see cref="BMC_SetDigitalOutputs(const char * serialNo, byte outputBits)"> SetDigitalOutputs</see>)</term></item>
+	///						<item><term>11</term><term>Trigger Output - Set when device moving</term></item>
+	///						<item><term>12</term><term>Trigger Output - Set when at max velocity</term></item>
+	///						<item><term>13</term><term>Trigger Output - Set when at predefine position steps</term></item>
+	///						<item><term>14</term><term>Trigger Output - TBD mode</term></item>
+	///		 		  </list></param>
+	/// <param name="trigger2Polarity"> The trigger 2 polarity.<list type=table>
+	///						<item><term>1</term><term>Output high when set</term></item>
+	///						<item><term>2</term><term>Output low when set</term></item>
+	///		 		  </list> </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode *trigger1Mode, KMOT_TriggerPortPolarity *trigger1Polarity, KMOT_TriggerPortMode *trigger2Mode, KMOT_TriggerPortPolarity *trigger2Polarity)" />
+	/// <seealso cref="BDC_GetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	/// <seealso cref="BDC_SetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	/// <seealso cref="BDC_RequestTriggerConfigParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_SetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode trigger1Mode, KMOT_TriggerPortPolarity trigger1Polarity, KMOT_TriggerPortMode trigger2Mode, KMOT_TriggerPortPolarity trigger2Polarity);
+
+	/// <summary> Sets the trigger configuration parameters block. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerConfigParams"> Options for controlling the trigger configuration. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode *trigger1Mode, KMOT_TriggerPortPolarity *trigger1Polarity, KMOT_TriggerPortMode *trigger2Mode, KMOT_TriggerPortPolarity *trigger2Polarity)" />
+	/// <seealso cref="BDC_GetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams)" />
+	/// <seealso cref="BDC_SetTriggerConfigParams(char const * serialNo, short channel, KMOT_TriggerPortMode trigger1Mode, KMOT_TriggerPortPolarity trigger1Polarity, KMOT_TriggerPortMode trigger2Mode, KMOT_TriggerPortPolarity trigger2Polarity)" />
+	/// <seealso cref="BDC_RequestTriggerConfigParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_SetTriggerConfigParamsBlock(char const * serialNo, short channel, KMOT_TriggerConfig *triggerConfigParams);
+
+	/// <summary>Requests the trigger parameters. </summary>
+	/// <param name="serialNo"> The serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerParams(char const * serialNo, short channel, __int32 *triggerStartPositionFwd, __int32 *triggerIntervalFwd, __int32 *triggerPulseCountFwd, __int32 *triggerStartPositionRev, __int32 *triggerIntervalRev, __int32 *triggerPulseCountRev, __int32 *triggerPulseWidth, __int32 *cycleCount)" />
+	/// <seealso cref="BDC_GetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	/// <seealso cref="BDC_SetTriggerParams(char const * serialNo, short channel, __int32 triggerStartPositionFwd, __int32 triggerIntervalFwd, __int32 triggerPulseCountFwd, __int32 triggerStartPositionRev, __int32 triggerIntervalRev, __int32 triggerPulseCountRev, __int32 triggerPulseWidth, __int32 cycleCount)" />
+	/// <seealso cref="BDC_SetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_RequestTriggerParams(char const * serialNo, short channel);
+
+	/// <summary> Gets the trigger parameters. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerStartPositionFwd"> The trigger start position in \ref DeviceUnits_page. </param>
+	/// <param name="triggerIntervalFwd">	    The trigger interval in \ref DeviceUnits_page. </param>
+	/// <param name="triggerPulseCountFwd">    Number of trigger pulses. </param>
+	/// <param name="triggerStartPositionRev"> The trigger start position in \ref DeviceUnits_page. </param>
+	/// <param name="triggerIntervalRev">	    The trigger interval in \ref DeviceUnits_page. </param>
+	/// <param name="triggerPulseCountRev">    Number of trigger pulses. </param>
+	/// <param name="triggerPulseWidth">    Width of the trigger pulse in milliseconds, range 1 (1us) to 1000000 (1s). </param>
+	/// <param name="cycleCount">   Number of cycles to perform triggering. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	/// <seealso cref="BDC_SetTriggerParams(char const * serialNo, short channel, __int32 triggerStartPositionFwd, __int32 triggerIntervalFwd, __int32 triggerPulseCountFwd, __int32 triggerStartPositionRev, __int32 triggerIntervalRev, __int32 triggerPulseCountRev, __int32 triggerPulseWidth, __int32 cycleCount)" />
+	/// <seealso cref="BDC_SetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	/// <seealso cref="BDC_RequestTriggerParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_GetTriggerParams(char const * serialNo, short channel, __int32 *triggerStartPositionFwd, __int32 *triggerIntervalFwd, __int32 *triggerPulseCountFwd, __int32 *triggerStartPositionRev, __int32 *triggerIntervalRev, __int32 *triggerPulseCountRev, __int32 *triggerPulseWidth, __int32 *cycleCount);
+
+	/// <summary> Gets the trigger parameters block. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerParams"> Options for controlling the trigger parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerParams(char const * serialNo, short channel, __int32 *triggerStartPositionFwd, __int32 *triggerIntervalFwd, __int32 *triggerPulseCountFwd, __int32 *triggerStartPositionRev, __int32 *triggerIntervalRev, __int32 *triggerPulseCountRev, __int32 *triggerPulseWidth, __int32 *cycleCount)" />
+	/// <seealso cref="BDC_SetTriggerParams(char const * serialNo, short channel, __int32 triggerStartPositionFwd, __int32 triggerIntervalFwd, __int32 triggerPulseCountFwd, __int32 triggerStartPositionRev, __int32 triggerIntervalRev, __int32 triggerPulseCountRev, __int32 triggerPulseWidth, __int32 cycleCount)" />
+	/// <seealso cref="BDC_SetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	/// <seealso cref="BDC_RequestTriggerParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_GetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams);
+
+	/// <summary> Sets the trigger parameters. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerStartPositionFwd"> The trigger start position in \ref DeviceUnits_page. </param>
+	/// <param name="triggerIntervalFwd">	    The trigger interval in \ref DeviceUnits_page. </param>
+	/// <param name="triggerPulseCountFwd">    Number of trigger pulses. </param>
+	/// <param name="triggerStartPositionRev"> The trigger start position in \ref DeviceUnits_page. </param>
+	/// <param name="triggerIntervalRev">	    The trigger interval in \ref DeviceUnits_page. </param>
+	/// <param name="triggerPulseCountRev">    Number of trigger pulses. </param>
+	/// <param name="triggerPulseWidth">    Width of the trigger pulse in milliseconds, range 1 (1us) to 1000000 (1s). </param>
+	/// <param name="cycleCount">   Number of cycles to perform triggering. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerParams(char const * serialNo, short channel, __int32 *triggerStartPositionFwd, __int32 *triggerIntervalFwd, __int32 *triggerPulseCountFwd, __int32 *triggerStartPositionRev, __int32 *triggerIntervalRev, __int32 *triggerPulseCountRev, __int32 *triggerPulseWidth, __int32 *cycleCount)" />
+	/// <seealso cref="BDC_GetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	/// <seealso cref="BDC_SetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	/// <seealso cref="BDC_RequestTriggerParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_SetTriggerParams(char const * serialNo, short channel, __int32 triggerStartPositionFwd, __int32 triggerIntervalFwd, __int32 triggerPulseCountFwd, __int32 triggerStartPositionRev, __int32 triggerIntervalRev, __int32 triggerPulseCountRev, __int32 triggerPulseWidth, __int32 cycleCount);
+
+	/// <summary> Sets the trigger parameters block. </summary>
+	/// <param name="serialNo"> The device serial no. </param>
+	/// <param name="channel">	The channel. </param>
+	/// <param name="triggerParams"> Options for controlling the trigger parameters. </param>
+	/// <returns> The error code (see \ref C_DLL_ERRORCODES_page "Error Codes") or zero if successful. </returns>
+	/// <seealso cref="BDC_GetTriggerParams(char const * serialNo, short channel, __int32 *triggerStartPositionFwd, __int32 *triggerIntervalFwd, __int32 *triggerPulseCountFwd, __int32 *triggerStartPositionRev, __int32 *triggerIntervalRev, __int32 *triggerPulseCountRev, __int32 *triggerPulseWidth, __int32 *cycleCount)" />
+	/// <seealso cref="BDC_GetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams)" />
+	/// <seealso cref="BDC_SetTriggerParams(char const * serialNo, short channel, __int32 triggerStartPositionFwd, __int32 triggerIntervalFwd, __int32 triggerPulseCountFwd, __int32 triggerStartPositionRev, __int32 triggerIntervalRev, __int32 triggerPulseCountRev, __int32 triggerPulseWidth, __int32 cycleCount)" />
+	/// <seealso cref="BDC_RequestTriggerParams(char const * serialNo, short channel)" />
+	BENCHTOPDCSERVO_API short __cdecl BDC_SetTriggerParamsBlock(char const * serialNo, short channel, KMOT_TriggerParams *triggerParams);
+
 }
 /** @} */ // BenchtopDCServo
