@@ -4,6 +4,9 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="Messages for this Actor" Type="Folder"/>
+	<Item Name="Messages for this Actor" Type="Folder">
+		<Item Name="Scan Done Msg.lvclass" Type="LVClass" URL="../SLM_Controller Messages/Scan Done Msg/Scan Done Msg.lvclass"/>
+		<Item Name="Upload Next Msg.lvclass" Type="LVClass" URL="../SLM_Controller Messages/Upload Next Msg/Upload Next Msg.lvclass"/>
+	</Item>
 	<Item Name="SLM_Controller.lvclass" Type="LVClass" URL="../SLM_Controller/SLM_Controller.lvclass"/>
 </Library>

@@ -6,13 +6,18 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="SubVIs" Type="Folder">
 		<Item Name="Enumerate_Cameras.vi" Type="VI" URL="../Camera_Controller/SubVIs/Enumerate_Cameras.vi"/>
+		<Item Name="Find_Cameras.vi" Type="VI" URL="../Camera_Controller/SubVIs/Find_Cameras.vi"/>
 		<Item Name="Image_Processing.vi" Type="VI" URL="../Camera_Controller/SubVIs/Image_Processing.vi"/>
 		<Item Name="Init_Horizontal_ROI.vi" Type="VI" URL="../Camera_Controller/SubVIs/Init_Horizontal_ROI.vi"/>
+		<Item Name="Init_Images.vi" Type="VI" URL="../Camera_Controller/SubVIs/Init_Images.vi"/>
 		<Item Name="LimitLUTMax.vi" Type="VI" URL="../Camera_Controller/SubVIs/LimitLUTMax.vi"/>
+		<Item Name="Read_Camera_Variant.vi" Type="VI" URL="../Camera_Controller/SubVIs/Read_Camera_Variant.vi"/>
 		<Item Name="Register_For_Events.vi" Type="VI" URL="../Camera_Controller/SubVIs/Register_For_Events.vi"/>
 		<Item Name="ROI_Processing.vi" Type="VI" URL="../Camera_Controller/SubVIs/ROI_Processing.vi"/>
+		<Item Name="Save_Image.vi" Type="VI" URL="../Camera_Controller/SubVIs/Save_Image.vi"/>
 		<Item Name="Set_Horizontal_ROI.vi" Type="VI" URL="../Camera_Controller/SubVIs/Set_Horizontal_ROI.vi"/>
 		<Item Name="Set_Image_Size.vi" Type="VI" URL="../Camera_Controller/SubVIs/Set_Image_Size.vi"/>
 	</Item>
 	<Item Name="Camera_Controller.lvclass" Type="LVClass" URL="../Camera_Controller/Camera_Controller.lvclass"/>
+	<Item Name="External_Acq Msg.lvclass" Type="LVClass" URL="../Camera_Controller Messages/External_Acq Msg/External_Acq Msg.lvclass"/>
 </Library>
