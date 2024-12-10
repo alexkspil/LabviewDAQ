@@ -167,7 +167,6 @@
 				<Item Name="Write Delimited Spreadsheet (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (DBL).vi"/>
 				<Item Name="Write Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet.vi"/>
 				<Item Name="MB Master.lvlib" Type="Library" URL="/&lt;vilib&gt;/Plasmionique/MB Master/MB Master.lvlib"/>
-				<Item Name="MB_VISA_Lock.lvlib" Type="Library" URL="/&lt;vilib&gt;/Plasmionique/MB Master/MB_VISA_Lock/MB_VISA_Lock.lvlib"/>
 				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 				<Item Name="System Directory Type.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/System Directory Type.ctl"/>
 				<Item Name="Get System Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/Get System Directory.vi"/>
@@ -175,6 +174,15 @@
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="NI_Data Type.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/Data Type/NI_Data Type.lvlib"/>
+				<Item Name="Get LV Class Default Value By Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value By Name.vi"/>
+				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
+				<Item Name="LVDateTimeRec.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVDateTimeRec.ctl"/>
+				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
+				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
+			</Item>
+			<Item Name="user.lib" Type="Folder">
+				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
+				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
 			</Item>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
@@ -183,10 +191,31 @@
 			</Item>
 			<Item Name="JX_MoveBySteps.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller/JX_MoveBySteps.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
-			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="JX_SetHome Msg.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_SetHome Msg/JX_SetHome Msg.lvclass"/>
-			<Item Name="JX_GoHome Msg.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_GoHome Msg/JX_GoHome Msg.lvclass"/>
-			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
+			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../TranslationStage_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
+			<Item Name="MH_SetInputChannelOffset.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputChannelOffset.vi"/>
+			<Item Name="MH_SetInputDeadTime.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputDeadTime.vi"/>
+			<Item Name="MH_SetInputEdgeTrg.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputEdgeTrg.vi"/>
+			<Item Name="MH_GetLibraryVersion.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetLibraryVersion.vi"/>
+			<Item Name="MH_OpenDevice.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_OpenDevice.vi"/>
+			<Item Name="MH_Initialize.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_Initialize.vi"/>
+			<Item Name="MH_GetHardwareInfo.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetHardwareInfo.vi"/>
+			<Item Name="MH_GetFeatures.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetFeatures.vi"/>
+			<Item Name="MH_GetNumOfInputChannels.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetNumOfInputChannels.vi"/>
+			<Item Name="MH_GetBaseResolution.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetBaseResolution.vi"/>
+			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../../TranslationStage_UI/Thorlabs.MotionControl.Controls.dll"/>
+			<Item Name="EnableControls.vi" Type="VI" URL="../../../SubVIs/EnableControls.vi"/>
+			<Item Name="TranslationStagesInterface Messages.lvlib" Type="Library" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesInterface Messages/TranslationStagesInterface Messages.lvlib"/>
+			<Item Name="BPC30x.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/BPC301/BPC30x.lvlib"/>
+			<Item Name="Thorlabs.MotionControl.Benchtop.PiezoCLI.dll" Type="Document" URL="../../TranslationStage_UI/Thorlabs.MotionControl.Benchtop.PiezoCLI.dll"/>
+			<Item Name="Read_Stage_Variant.vi" Type="VI" URL="../../TranslationStage_UI/Read_Stage_Variant.vi"/>
+			<Item Name="MH_SetBinning.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetBinning.vi"/>
+			<Item Name="MH_SetOffset.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetOffset.vi"/>
+			<Item Name="MH_SetHistoLen.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetHistoLen.vi"/>
+			<Item Name="MH_CTCStatus.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_CTCStatus.vi"/>
+			<Item Name="MH_CloseDevice.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_CloseDevice.vi"/>
+			<Item Name="MH_GetAllCountRates.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetAllCountRates.vi"/>
+			<Item Name="MH_GetAllHistograms.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetAllHistograms.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

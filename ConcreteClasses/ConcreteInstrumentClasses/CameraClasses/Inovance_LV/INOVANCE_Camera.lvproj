@@ -91,6 +91,20 @@
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
 				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
 				<Item Name="Create File with Incrementing Suffix.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Create File with Incrementing Suffix.vi"/>
+				<Item Name="Get LV Class Default Value By Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value By Name.vi"/>
+				<Item Name="NI_Data Type.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/Data Type/NI_Data Type.lvlib"/>
+				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
+				<Item Name="LVDateTimeRec.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVDateTimeRec.ctl"/>
+				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
+				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
+				<Item Name="IMAQ ArrayToImage" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ArrayToImage"/>
+				<Item Name="LVMinMaxIncTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMinMaxIncTypeDef.ctl"/>
+				<Item Name="IMAQ Overlay Oval" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay Oval"/>
+				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
+			</Item>
+			<Item Name="user.lib" Type="Folder">
+				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
+				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
 			</Item>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="AddressType.ctl" Type="VI" URL="../../../../../typedefs/AddressType.ctl"/>
@@ -110,7 +124,26 @@
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../../../../UIs/SinglePhotonUI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
+			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../../KIM101/KIM_dll/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
+			<Item Name="Hamamatsu_Camera.lvlib" Type="Library" URL="../../Hama_LV/Hamamatsu_Camera.lvlib"/>
+			<Item Name="tm_closecamera_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_closecamera_40.vi"/>
+			<Item Name="tmcamcon.dll" Type="Document" URL="tmcamcon.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="tm_errorreport.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_errorreport.vi"/>
+			<Item Name="tm_deinitialize_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_deinitialize_40.vi"/>
+			<Item Name="tm_initialize_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_initialize_40.vi"/>
+			<Item Name="tm_waitnextframe_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_waitnextframe_40.vi"/>
+			<Item Name="tm_getframe16_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_getframe16_40.vi"/>
+			<Item Name="tm_opencamera_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_opencamera_40.vi"/>
+			<Item Name="tm_getparameter_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_getparameter_40.vi"/>
+			<Item Name="tm_setparameter_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_setparameter_40.vi"/>
+			<Item Name="tm_setinputtrigger_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/trigger/tm_setinputtrigger_40.vi"/>
+			<Item Name="tm_sensorcooler_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/advanced/tm_sensorcooler_40.vi"/>
+			<Item Name="tm_preparecapture_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_preparecapture_40.vi"/>
+			<Item Name="tm_startcapture_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_startcapture_40.vi"/>
+			<Item Name="tm_stopcapture_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_stopcapture_40.vi"/>
+			<Item Name="tm_unpreparecapture_40.vi" Type="VI" URL="../../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_unpreparecapture_40.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

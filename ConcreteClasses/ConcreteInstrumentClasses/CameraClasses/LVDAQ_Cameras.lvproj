@@ -106,9 +106,9 @@
 				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
 				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
 				<Item Name="IMAQ Rounding Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Rounding Mode.ctl"/>
+				<Item Name="IMAQ Overlay Oval" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay Oval"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
-				<Item Name="tm_errorreport.vi" Type="VI" URL="/&lt;userlib&gt;/Hamamatsu Video Capture/tm_errorreport.vi"/>
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
 			</Item>
@@ -130,7 +130,6 @@
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../../../UIs/SinglePhotonUI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="tm_errorreport.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_errorreport.vi"/>
 			<Item Name="tm_initialize_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_initialize_40.vi"/>
 			<Item Name="tmcamcon.dll" Type="Document" URL="tmcamcon.dll">
@@ -147,6 +146,7 @@
 			<Item Name="tm_getframe16_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_getframe16_40.vi"/>
 			<Item Name="tm_waitnextframe_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_waitnextframe_40.vi"/>
 			<Item Name="tm_preparecapture_40.vi" Type="VI" URL="../Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_preparecapture_40.vi"/>
+			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../../../UIs/TranslationStage_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

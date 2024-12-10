@@ -104,7 +104,6 @@
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../SinglePhotonUI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="typedefs.lvlib" Type="Library" URL="../../../typedefs/typedefs.lvlib"/>
 			<Item Name="MH_UIThread_Data_SPI.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_UIThread_Data_SPI.ctl"/>
 			<Item Name="MH_InputChannel.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_InputChannel.ctl"/>
@@ -121,36 +120,19 @@
 			<Item Name="MH_GetErrorString.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetErrorString.vi"/>
 			<Item Name="CalcRate.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/CalcRate.vi"/>
 			<Item Name="Multiharp.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Multiharp.lvlib"/>
-			<Item Name="MH_CTCStatus.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_CTCStatus.vi"/>
 			<Item Name="MH_StopMeas.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_StopMeas.vi"/>
 			<Item Name="MH_ClearHistMem.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_ClearHistMem.vi"/>
 			<Item Name="MH_StartMeas.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_StartMeas.vi"/>
-			<Item Name="MH_SetHistoLen.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetHistoLen.vi"/>
-			<Item Name="MH_SetBinning.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetBinning.vi"/>
-			<Item Name="MH_SetOffset.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetOffset.vi"/>
 			<Item Name="MultiharpComm.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/MultiharpComm/MultiharpComm.lvlib"/>
-			<Item Name="MH_CloseDevice.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_CloseDevice.vi"/>
 			<Item Name="MH_RefSource.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_RefSource.ctl"/>
 			<Item Name="InitMH_UIThread.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/InitMH_UIThread.vi"/>
-			<Item Name="MH_GetLibraryVersion.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_GetLibraryVersion.vi"/>
-			<Item Name="MH_OpenDevice.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_OpenDevice.vi"/>
-			<Item Name="MH_Initialize.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_Initialize.vi"/>
-			<Item Name="MH_GetHardwareInfo.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_GetHardwareInfo.vi"/>
-			<Item Name="MH_GetFeatures.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_GetFeatures.vi"/>
-			<Item Name="MH_GetNumOfInputChannels.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_GetNumOfInputChannels.vi"/>
-			<Item Name="MH_GetBaseResolution.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_GetBaseResolution.vi"/>
 			<Item Name="MH_SetSyncChannelOffset.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncChannelOffset.vi"/>
 			<Item Name="MH_SetSyncDeadTime.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncDeadTime.vi"/>
 			<Item Name="MH_SetSyncDiv.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncDiv.vi"/>
 			<Item Name="SetInputChannels.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/SetInputChannels.vi"/>
 			<Item Name="MH_SetInputChannelEnable.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputChannelEnable.vi"/>
-			<Item Name="MH_SetInputChannelOffset.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetInputChannelOffset.vi"/>
-			<Item Name="MH_SetInputDeadTime.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetInputDeadTime.vi"/>
-			<Item Name="MH_SetInputEdgeTrg.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetInputEdgeTrg.vi"/>
 			<Item Name="MH_SetSyncEdgeTrg.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncEdgeTrg.vi"/>
-			<Item Name="MH_GetAllCountRates.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_GetAllCountRates.vi"/>
 			<Item Name="MH_AllocateCntRateBuffer.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_AllocateCntRateBuffer.vi"/>
-			<Item Name="MH_GetAllHistograms.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_GetAllHistograms.vi"/>
 			<Item Name="MH_AllocateAllHistoBuffer.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_AllocateAllHistoBuffer.vi"/>
 			<Item Name="MH_ReadFiFo.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_ReadFiFo.vi"/>
 			<Item Name="MH_DataProcThread_Modified_T2.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_DataProcThread_Modified_T2.vi"/>
@@ -166,15 +148,33 @@
 			<Item Name="MH_ActorCluster.ctl" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Multiharp/MH_ActorCluster.ctl"/>
 			<Item Name="ControllerComm.lvlib" Type="Library" URL="../../ControllerComm.lvlib"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
-			<Item Name="JX_GoHome Msg.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_GoHome Msg/JX_GoHome Msg.lvclass"/>
 			<Item Name="JX_SetHome Msg.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_SetHome Msg/JX_SetHome Msg.lvclass"/>
-			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../../SinglePhoton_UI/Thorlabs.MotionControl.Controls.dll"/>
 			<Item Name="SPIController.lvlib" Type="Library" URL="../../SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
 			<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
 			<Item Name="Mean_stdev_Calculation.vi" Type="VI" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Mean_stdev_Calculation.vi"/>
 			<Item Name="Calc_Allan-Variance.VI" Type="VI" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Calc_Allan-Variance.VI"/>
 			<Item Name="MH_SetAllChannels.vi" Type="VI" URL="../../SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/MH_SetAllChannels.vi"/>
-			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../SinglePhoton_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
+			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
+			<Item Name="Thorlabs.MotionControl.Benchtop.PiezoCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.Benchtop.PiezoCLI.dll"/>
+			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
+			<Item Name="EnableControls.vi" Type="VI" URL="../../../SubVIs/EnableControls.vi"/>
+			<Item Name="MH_SetBinning.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetBinning.vi"/>
+			<Item Name="MH_SetOffset.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetOffset.vi"/>
+			<Item Name="MH_SetHistoLen.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetHistoLen.vi"/>
+			<Item Name="MH_CTCStatus.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_CTCStatus.vi"/>
+			<Item Name="MH_CloseDevice.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_CloseDevice.vi"/>
+			<Item Name="MH_GetLibraryVersion.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetLibraryVersion.vi"/>
+			<Item Name="MH_OpenDevice.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_OpenDevice.vi"/>
+			<Item Name="MH_Initialize.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_Initialize.vi"/>
+			<Item Name="MH_GetHardwareInfo.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetHardwareInfo.vi"/>
+			<Item Name="MH_GetFeatures.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetFeatures.vi"/>
+			<Item Name="MH_GetNumOfInputChannels.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetNumOfInputChannels.vi"/>
+			<Item Name="MH_GetBaseResolution.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetBaseResolution.vi"/>
+			<Item Name="MH_SetInputChannelOffset.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputChannelOffset.vi"/>
+			<Item Name="MH_SetInputDeadTime.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputDeadTime.vi"/>
+			<Item Name="MH_SetInputEdgeTrg.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputEdgeTrg.vi"/>
+			<Item Name="MH_GetAllCountRates.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetAllCountRates.vi"/>
+			<Item Name="MH_GetAllHistograms.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetAllHistograms.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

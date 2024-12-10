@@ -51,26 +51,15 @@
 							<Item Name="GrabFrame Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraDAQ Messages/GrabFrame Msg/GrabFrame Msg.lvclass"/>
 						</Item>
 					</Item>
-					<Item Name="CameraInterface" Type="Folder">
-						<Item Name="CameraInterface.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvclass"/>
-					</Item>
+					<Item Name="CameraInterface" Type="Folder"/>
 				</Item>
 			</Item>
 			<Item Name="InitDeInitInterface" Type="Folder">
-				<Item Name="InitDeinit" Type="Folder">
-					<Item Name="InitDeinit.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinit/InitDeinit.lvclass"/>
-				</Item>
+				<Item Name="InitDeinit" Type="Folder"/>
 				<Item Name="InitDeinit Messages" Type="Folder"/>
-				<Item Name="InitDeinitComm" Type="Folder">
-					<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm/InitDeinitComm.lvclass"/>
-				</Item>
+				<Item Name="InitDeinitComm" Type="Folder"/>
 				<Item Name="InitDeinitComm Messages" Type="Folder">
-					<Item Name="Disconnected Msg" Type="Folder">
-						<Item Name="Disconnected Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/Disconnected Msg/Disconnected Msg.lvclass"/>
-					</Item>
-					<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
-					<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
-					<Item Name="DeInit Done Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/DeInit Done Msg/DeInit Done Msg.lvclass"/>
+					<Item Name="Disconnected Msg" Type="Folder"/>
 				</Item>
 			</Item>
 		</Item>
@@ -102,28 +91,23 @@
 				<Item Name="Time-Delay Override Options.ctl" Type="VI" URL="/&lt;vilib&gt;/ActorFramework/Time-Delayed Send Message/Time-Delay Override Options.ctl"/>
 				<Item Name="High Resolution Relative Seconds.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/High Resolution Relative Seconds.vi"/>
 				<Item Name="Select Event Type.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/Select Event Type.ctl"/>
+				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 			</Item>
-			<Item Name="instrumentType.ctl" Type="VI" URL="../../InterferometryUI/InterferometryUI/instrumentType.ctl"/>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
-			<Item Name="systemLogging.framework" Type="Document" URL="systemLogging.framework">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
-			<Item Name="tm_initialize_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_initialize_40.vi"/>
-			<Item Name="tmcamcon.dll" Type="Document" URL="tmcamcon.dll">
+			<Item Name="SpectrSlitControl.ctl" Type="VI" URL="../../SinglePhoton_UI/typedefs/SpectrSlitControl.ctl"/>
+			<Item Name="typedefs.lvlib" Type="Library" URL="../../../typedefs/typedefs.lvlib"/>
+			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../TranslationStage_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
+			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="tm_errorreport.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_errorreport.vi"/>
-			<Item Name="tm_waitnextframe_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_waitnextframe_40.vi"/>
-			<Item Name="tm_getframe16_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_getframe16_40.vi"/>
-			<Item Name="tm_opencamera_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_opencamera_40.vi"/>
-			<Item Name="tm_preparecapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_preparecapture_40.vi"/>
-			<Item Name="tm_startcapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_startcapture_40.vi"/>
-			<Item Name="tm_unpreparecapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_unpreparecapture_40.vi"/>
-			<Item Name="tm_stopcapture_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_stopcapture_40.vi"/>
-			<Item Name="tm_closecamera_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_closecamera_40.vi"/>
-			<Item Name="tm_deinitialize_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_deinitialize_40.vi"/>
-			<Item Name="tm_getparameterlist_40.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/Hamamatsu Video Capture [4423]/tm_getparameterlist_40.vi"/>
+			<Item Name="SpectroMirrorCtrl.ctl" Type="VI" URL="../SpectroscopyUI/SpectroMirrorCtrl.ctl"/>
+			<Item Name="SpectrSlitControl.ctl" Type="VI" URL="../SpectroscopyUI/SpectrSlitControl.ctl"/>
+			<Item Name="SpectroMirrorCtrl.ctl" Type="VI" URL="../../SinglePhoton_UI/typedefs/SpectroMirrorCtrl.ctl"/>
+			<Item Name="InitDeInit.lvlib" Type="Library" URL="../../../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
+			<Item Name="Send FindInstruments.vi" Type="VI" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam Messages/FindInstruments Msg/Send FindInstruments.vi"/>
+			<Item Name="HamaCam.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaCam/HamaCam/HamaCam.lvclass"/>
+			<Item Name="SpectrometerParameters.ctl" Type="VI" URL="../../SinglePhoton_UI/typedefs/SpectrometerParameters.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

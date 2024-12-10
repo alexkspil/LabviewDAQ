@@ -30,20 +30,12 @@
 					<Item Name="GrabFrame Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraDAQ Messages/GrabFrame Msg/GrabFrame Msg.lvclass"/>
 				</Item>
 			</Item>
-			<Item Name="InitDeinit" Type="Folder">
-				<Item Name="InitDeinit.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinit/InitDeinit.lvclass"/>
-			</Item>
+			<Item Name="InitDeinit" Type="Folder"/>
 			<Item Name="InitDeinit Messages" Type="Folder"/>
-			<Item Name="InitDeinitComm" Type="Folder">
-				<Item Name="InitDeinitComm.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm/InitDeinitComm.lvclass"/>
-			</Item>
+			<Item Name="InitDeinitComm" Type="Folder"/>
 			<Item Name="InitDeinitComm Messages" Type="Folder">
-				<Item Name="FoundInstruments Msg" Type="Folder">
-					<Item Name="FoundInstruments Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/FoundInstruments Msg/FoundInstruments Msg.lvclass"/>
-				</Item>
-				<Item Name="InitDone Msg" Type="Folder">
-					<Item Name="InitDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/InitDeinitInterface/InitDeinitComm Messages/InitDone Msg/InitDone Msg.lvclass"/>
-				</Item>
+				<Item Name="FoundInstruments Msg" Type="Folder"/>
+				<Item Name="InitDone Msg" Type="Folder"/>
 			</Item>
 			<Item Name="StepperMotorController" Type="Folder">
 				<Item Name="StepperMotorController.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/StepperMotorControllers_LV/StepperMotorController/StepperMotorController.lvclass"/>
@@ -56,23 +48,13 @@
 					<Item Name="WriteCommand Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/StepperMotorControllers_LV/StepperMotorController Messages/WriteCommand Msg/WriteCommand Msg.lvclass"/>
 				</Item>
 			</Item>
-			<Item Name="TranslationStages" Type="Folder">
-				<Item Name="TranslationStagesInterface.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStageInterface/TranslationStagesInterface.lvclass"/>
-			</Item>
-			<Item Name="TranslationStagesComm" Type="Folder">
-				<Item Name="TranslationStagesComm.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesComm/TranslationStagesComm.lvclass"/>
-			</Item>
+			<Item Name="TranslationStages" Type="Folder"/>
+			<Item Name="TranslationStagesComm" Type="Folder"/>
 			<Item Name="TranslationStagesComm Messages" Type="Folder">
-				<Item Name="LimitReached Msg" Type="Folder">
-					<Item Name="LimitReached Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesComm Messages/LimitReached Msg/LimitReached Msg.lvclass"/>
-				</Item>
-				<Item Name="StageMoveDone Msg" Type="Folder">
-					<Item Name="StageMoveDone Msg.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesComm Messages/StageMoveDone Msg/StageMoveDone Msg.lvclass"/>
-				</Item>
+				<Item Name="LimitReached Msg" Type="Folder"/>
+				<Item Name="StageMoveDone Msg" Type="Folder"/>
 			</Item>
-			<Item Name="CameraInterface" Type="Folder">
-				<Item Name="CameraInterface.lvclass" Type="LVClass" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvclass"/>
-			</Item>
+			<Item Name="CameraInterface" Type="Folder"/>
 		</Item>
 		<Item Name="User Interface" Type="Folder">
 			<Item Name="InterferometryUI" Type="Folder">
@@ -147,19 +129,25 @@
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="subDisplayMessage.vi" Type="VI" URL="/&lt;vilib&gt;/express/express output/DisplayMessageBlock.llb/subDisplayMessage.vi"/>
+				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 			</Item>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="ASICamera2_no_err.lvlib" Type="Library" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/ZWO_ASI_LV/Labview_ASI_demo_64bit_221128/user.lib/ASICamera2_no_err/ASICamera2_no_err.lvlib"/>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="ASICamera2.dll" Type="Document" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/ZWO_ASI_LV/Labview_ASI_demo_64bit_221128/user.lib/ASICamera2_no_err/ASICamera2.dll"/>
-			<Item Name="systemLogging.framework" Type="Document" URL="systemLogging.framework">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
-			<Item Name="ASICamera2.dll" Type="Document" URL="/../../LabviewDAQ-master/ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/ZWO_ASI_LV/Labview_ASI_demo_64bit_221128/user.lib/ASICamera2_no_err/ASICamera2.dll"/>
-			<Item Name="ASICamera2.dll" Type="Document" URL="ASICamera2.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="OpenCamera Msg.lvclass" Type="LVClass" URL="../../../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/ZWO_ASI_LV/ZWO_ASI Messages/OpenCamera Msg/OpenCamera Msg.lvclass"/>
+			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../../TranslationStage_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
+			<Item Name="StageMoveDone Msg.lvclass" Type="LVClass" URL="../../TranslationStage_UI/TranslationStage_UI Messages/StageMoveDone Msg/StageMoveDone Msg.lvclass"/>
+			<Item Name="KIM101_UI.lvclass" Type="LVClass" URL="../../TranslationStage_UI/TranslationStage_UI/KIM101_UI.lvclass"/>
+			<Item Name="InitDeInit.lvlib" Type="Library" URL="../../../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
+			<Item Name="TranslationStage.lvlib" Type="Library" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStageInterface/TranslationStage.lvlib"/>
+			<Item Name="FoundInstruments.ctl" Type="VI" URL="../../SinglePhoton_UI/typedefs/FoundInstruments.ctl"/>
+			<Item Name="TranslationStagesComm.lvlib" Type="Library" URL="../../../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesComm/TranslationStagesComm.lvlib"/>
+			<Item Name="Send GrabFrame.vi" Type="VI" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraDAQ Messages/GrabFrame Msg/Send GrabFrame.vi"/>
+			<Item Name="CameraInterface.lvlib" Type="Library" URL="../../../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvlib"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
