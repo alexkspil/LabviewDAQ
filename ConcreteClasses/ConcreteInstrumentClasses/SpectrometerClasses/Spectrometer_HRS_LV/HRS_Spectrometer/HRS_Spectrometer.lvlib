@@ -5,14 +5,5 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Messages for this Actor" Type="Folder">
-		<Item Name="SetMirror Msg.lvclass" Type="LVClass" URL="../../../../../../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/Spectrometer Messages/SetMirror Msg/SetMirror Msg.lvclass"/>
-		<Item Name="Init Msg.lvclass" Type="LVClass" URL="../HRS_Spectrometer Messages/Init Msg/Init Msg.lvclass"/>
-		<Item Name="DeInit Msg.lvclass" Type="LVClass" URL="../HRS_Spectrometer Messages/DeInit Msg/DeInit Msg.lvclass"/>
-		<Item Name="QueryParameters Msg.lvclass" Type="LVClass" URL="../HRS_Spectrometer Messages/QueryParameters Msg/QueryParameters Msg.lvclass"/>
-		<Item Name="GoToWavelength Msg.lvclass" Type="LVClass" URL="../HRS_Spectrometer Messages/GoToWavelength Msg/GoToWavelength Msg.lvclass"/>
-		<Item Name="SetSlitwidth Msg.lvclass" Type="LVClass" URL="../HRS_Spectrometer Messages/SetSlitwidth Msg/SetSlitwidth Msg.lvclass"/>
-		<Item Name="ChangeGrating Msg.lvclass" Type="LVClass" URL="../HRS_Spectrometer Messages/ChangeGrating Msg/ChangeGrating Msg.lvclass"/>
-	</Item>
 	<Item Name="HRS_Spectrometer.lvclass" Type="LVClass" URL="../HRS_Spectrometer/HRS_Spectrometer.lvclass"/>
 </Library>

@@ -4,6 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="BPC_Voltages.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/BPC_Voltages.ctl"/>
 	<Item Name="Camera_Init_Params.ctl" Type="VI" URL="../Camera_Init_Params.ctl"/>
 	<Item Name="Controller_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhoton_UI/Libraries/SPIController/Controller_Cluster.ctl"/>
 	<Item Name="Controller_Scan_Cluster.ctl" Type="VI" URL="../../UIs/SinglePhoton_UI/Libraries/SPIController/Controller_Scan_Cluster.ctl"/>
@@ -15,12 +16,13 @@
 	<Item Name="InstrumentData.ctl" Type="VI" URL="../InstrumentData.ctl"/>
 	<Item Name="instrumentType.ctl" Type="VI" URL="../instrumentType.ctl"/>
 	<Item Name="KIM_Init_Params.ctl" Type="VI" URL="../KIM_Init_Params.ctl"/>
-	<Item Name="BPC_Voltages.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/BPC_Voltages.ctl"/>
 	<Item Name="LeftJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/LeftJog.ctl"/>
 	<Item Name="LUT_Scale.ctl" Type="VI" URL="../../UIs/Camera_Controller/Camera_Controller/SubVIs/LUT_Scale.ctl"/>
 	<Item Name="MH_InitInfo.ctl" Type="VI" URL="../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_InitInfo.ctl"/>
 	<Item Name="RightJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/RightJog.ctl"/>
 	<Item Name="Scan_Data_For_Controller.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/Scan_Data_For_Controller.ctl"/>
+	<Item Name="SpectroMirrorCtrl.ctl" Type="VI" URL="../SpectroMirrorCtrl.ctl"/>
+	<Item Name="SpectrSlitControl.ctl" Type="VI" URL="../SpectrSlitControl.ctl"/>
 	<Item Name="StageMoveDone_For_UI.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/StageMoveDone_For_UI.ctl"/>
 	<Item Name="TranslationStagePublicData.ctl" Type="VI" URL="../TranslationStagePublicData.ctl"/>
 	<Item Name="UpJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/UpJog.ctl"/>

@@ -5,11 +5,10 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="JX_VIs" Type="Folder">
-		<Item Name="Jiaxin_Goto.vi" Type="VI" URL="../Jiaxin_Stepper_Controller/Jiaxin_Goto.vi"/>
 		<Item Name="JX_ConvertNumToReg.vi" Type="VI" URL="../Jiaxin_Stepper_Controller/JX_ConvertNumToReg.vi"/>
+		<Item Name="JX_MoveBySteps.vi" Type="VI" URL="../Jiaxin_Stepper_Controller/JX_MoveBySteps.vi"/>
 		<Item Name="JX_SetHomePosition_SubVI.vi" Type="VI" URL="../Jiaxin_Stepper_Controller/JX_SetHomePosition_SubVI.vi"/>
 	</Item>
 	<Item Name="Messages for this Actor" Type="Folder"/>
-	<Item Name="Jiaxin_Stepper_Controller.lvclass" Type="LVClass" URL="../Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller.lvclass"/>
-	<Item Name="MB Master.lvlib" Type="Library" URL="../Plasmionique/MB Master/MB Master.lvlib"/>
+	<Item Name="Jiaxin_Stepper.lvclass" Type="LVClass" URL="../Jiaxin_Stepper/Jiaxin_Stepper.lvclass"/>
 </Library>
