@@ -29,4 +29,5 @@
 	<Item Name="XY_Dummy.ctl" Type="VI" URL="../../UIs/Camera_Controller/Camera_Controller/SubVIs/XY_Dummy.ctl"/>
 	<Item Name="zJogIn.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/zJogIn.ctl"/>
 	<Item Name="zJogOut.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/zJogOut.ctl"/>
+	<Item Name="SpectroData.ctl" Type="VI" URL="../SpectroData.ctl"/>
 </Library>

@@ -12,37 +12,18 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
 		<Item Name="InitDeInit.lvlib" Type="Library" URL="../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
-		<Item Name="SLM_Controller.lvlib" Type="Library" URL="../UIs/SLM_Controller/SLM_Controller/SLM_Controller.lvlib"/>
-		<Item Name="SLMInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMInterface/SLMInterface.lvlib"/>
-		<Item Name="SLMComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMComm.lvlib"/>
-		<Item Name="Camera_Controller.lvlib" Type="Library" URL="../UIs/Camera_Controller/Camera_Controller.lvlib"/>
-		<Item Name="CameraInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvlib"/>
-		<Item Name="CameraInterface Messages.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/CameraInterface Messages.lvlib"/>
-		<Item Name="CameraComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm/CameraComm.lvlib"/>
-		<Item Name="CameraComm Messages.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm Messages/CameraComm Messages.lvlib"/>
-		<Item Name="Inovance_Camera.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Inovance_LV/Inovance_Camera/Inovance_Camera.lvlib"/>
-		<Item Name="Hamamatsu_Camera.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/Hamamatsu_Camera.lvlib"/>
-		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_controller.lvlib"/>
-		<Item Name="SpectrometerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerInterface.lvlib"/>
-		<Item Name="SpectrometerComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm.lvlib"/>
-		<Item Name="HRS_Spectrometer.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/SpectrometerClasses/Spectrometer_HRS_LV/HRS_Spectrometer/HRS_Spectrometer.lvlib"/>
-		<Item Name="SpectrometerUI.lvlib" Type="Library" URL="../UIs/SpectrometerUI/SpectrometerUI.lvlib"/>
-		<Item Name="Multiharp.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Multiharp.lvlib"/>
-		<Item Name="MultiharpComm.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/MultiharpComm/MultiharpComm.lvlib"/>
-		<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
 		<Item Name="SPIController.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
 		<Item Name="ControllerComm.lvlib" Type="Library" URL="../UIs/ControllerComm.lvlib"/>
-		<Item Name="TranslationStage_UI.lvlib" Type="Library" URL="../UIs/TranslationStage_UI/TranslationStage_UI.lvlib"/>
-		<Item Name="TranslationStagesCommMessages.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesComm Messages/TranslationStagesCommMessages.lvlib"/>
-		<Item Name="TranslationStagesComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesComm/TranslationStagesComm.lvlib"/>
-		<Item Name="TranslationStage.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStageInterface/TranslationStage.lvlib"/>
-		<Item Name="TranslationStagesInterface Messages.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStagesInterface Messages/TranslationStagesInterface Messages.lvlib"/>
-		<Item Name="KIM101.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KIM101/KIM101.lvlib"/>
-		<Item Name="BPC30x.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/BPC301/BPC30x.lvlib"/>
-		<Item Name="Jiaxin_Stepper_Controller.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller.lvlib"/>
-		<Item Name="MB Master.lvlib" Type="Library" URL="/&lt;vilib&gt;/Plasmionique/MB Master/MB Master.lvlib"/>
+		<Item Name="Spectroscopy_Controller.lvlib" Type="Library" URL="../Top_Controllers/Spectroscopy_Controller/Spectroscopy_Controller.lvlib"/>
+		<Item Name="TopController_Interface.lvlib" Type="Library" URL="../Top_Controllers/TopController_Interface.lvlib"/>
+		<Item Name="CameraLibrary.lvlib" Type="Library" URL="../CameraLibrary.lvlib"/>
+		<Item Name="SLMLibrary.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMLibrary.lvlib"/>
+		<Item Name="Spectrometer Library.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/Spectrometer Library.lvlib"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../typedefs/typedefs.lvlib"/>
+		<Item Name="TranslationStage Library.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStage Library.lvlib"/>
+		<Item Name="SinglePhoton Library.lvlib" Type="Library" URL="../SinglePhoton Library.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../UIs/SLM_Controller/launcher.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -136,6 +117,10 @@
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 				<Item Name="MB_VISA_Lock.lvlib" Type="Library" URL="/&lt;vilib&gt;/Plasmionique/MB Master/MB_VISA_Lock/MB_VISA_Lock.lvlib"/>
+				<Item Name="UTF8 Tools.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/Tools/Unicode/UTF8 Tools.lvlib"/>
+				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
+				<Item Name="VISA Configure Serial Port (Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Instr).vi"/>
+				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
@@ -290,32 +275,32 @@
 				<Property Name="Source[2].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[2].type" Type="Str">Library</Property>
 				<Property Name="Source[3].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SLMInterface.lvlib</Property>
+				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLMInterface.lvlib</Property>
 				<Property Name="Source[3].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[3].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[3].type" Type="Str">Library</Property>
 				<Property Name="Source[4].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[4].itemID" Type="Ref">/My Computer/SLM_Controller.lvlib</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLM_Controller.lvlib</Property>
 				<Property Name="Source[4].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Library</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLMComm.lvlib</Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLMComm.lvlib</Property>
 				<Property Name="Source[5].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[5].type" Type="Str">Library</Property>
 				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[6].itemID" Type="Ref">/My Computer/Camera_Controller.lvlib</Property>
+				<Property Name="Source[6].itemID" Type="Ref">/My Computer/CameraLibrary.lvlib/Camera_Controller.lvlib</Property>
 				<Property Name="Source[6].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[6].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[6].type" Type="Str">Library</Property>
 				<Property Name="Source[7].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[7].itemID" Type="Ref">/My Computer/Inovance_Camera.lvlib</Property>
+				<Property Name="Source[7].itemID" Type="Ref">/My Computer/CameraLibrary.lvlib/Inovance_Camera.lvlib</Property>
 				<Property Name="Source[7].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[7].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[7].type" Type="Str">Library</Property>
 				<Property Name="Source[8].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[8].itemID" Type="Ref">/My Computer/Hamamatsu_Camera.lvlib</Property>
+				<Property Name="Source[8].itemID" Type="Ref">/My Computer/CameraLibrary.lvlib/Hamamatsu_Camera.lvlib</Property>
 				<Property Name="Source[8].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[8].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[8].type" Type="Str">Library</Property>

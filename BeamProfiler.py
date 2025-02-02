@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.optimize import curve_fit
 from scipy.ndimage import center_of_mass
+from scipy.stats import skew, kurtosis
 
 class BeamProfiler:
     def __init__(self, **kwargs):
@@ -8,12 +9,9 @@ class BeamProfiler:
           # Accepts either image file or array input
         self.centroid_x = None
         self.centroid_y = None
-
         self.beam_width_x = None
         self.beam_width_y = None
         self.ellipticity = None
-
-
         self.error_message = None  # For error handling
         self.rotation = None
         self.asymmetry = None
@@ -24,78 +22,116 @@ class BeamProfiler:
         self.init_done = True
     
     def calculate_values(self, image):
-        self.image = np.array(image)
-        self._calculate_centroid()
-        self._calculate_profile_rotation_angle()
-        self._calculate_intensity_profile()
-        self._calculate_beam_width()
-        self._calculate_asymmetry()
-        self._calculate_power()
-        self._calculate_power_density()
-        # self._calculate_gaussian_fit_error()
-        # self._calculate_flatness()
-        beam_profiler_data = {'Centroid':{'x':str(self.centroid_x),'y':str(self.centroid_y)},'Beam Width':{'x':str(self.beam_width_x),'y':str(self.beam_width_y)},
-                              'Asymmetry':str(self.asymmetry),'Angle':str(self.rotation)}
-        return beam_profiler_data
+        
+        if image is None or len(image) == 0:
+            self.error_message = "Image data is empty or invalid."
+            return
+        else:
+            self.image = np.array(image)
+            self.error_message = None
+            self._calculate_centroid()
+            self._calculate_profile_rotation_angle()
+            self._calculate_beam_width()
+            self._calculate_asymmetry()
+            self._calculate_power()
+            self._calculate_power_density()
+            self._calculate_intensity_profile()
+            # self._calculate_gaussian_fit_error()
+            self._calculate_flatness()
+            self._measure_skewness()
+            self._measure_kurtosis()
+            beam_profiler_data = {'Centroid':{'x':str(self.x_o),'y':str(self.y_o)},'Beam Width':{'x':str(self.beam_width_x),'y':str(self.beam_width_y)},
+                                'Asymmetry':str(self.asymmetry),'Angle':str(self.rotation)}#,'Skewness':self.skewness,'Kurtosis':self.kurtosis}
+            return beam_profiler_data
 
     def _gaussian(self, x, a, x0, sigma):
         """Gaussian function for fitting."""
         return a * np.exp(-(x - x0)**2 / (2 * sigma**2))
 
-    def _calculate_centroid(self):
-        """Calculate the centroid of the beam with an optional intensity threshold to reduce noise influence."""
+    def _calculate_centroid(self, threshold_ratio=1):
+        """Calculate the centroid of the beam, applying a threshold to reduce background noise."""
         try:
-            # Apply threshold to ignore background noise; threshold as a percentage of the max intensity
+            # Apply threshold to filter out background noise, as a percentage of max intensity
             max_intensity = np.max(self.image)
-       
-            # Calculate centroid of thresholded image
-            centroid_y, centroid_x = center_of_mass(self.image)
-            self.centroid_x,self.centroid_y = round(centroid_x,3), round(centroid_y,3)
-            self.error_message = None
+            threshold = threshold_ratio * max_intensity
+            thresholded_image = np.where(self.image >= threshold, self.image, 0)
+
+            # Calculate the centroid based on the thresholded image
+            centroid_y, centroid_x = center_of_mass(thresholded_image)
+
+            # Save calculated values and round for output clarity
+            self.centroid_x = round(centroid_x, 3)
+            self.centroid_y = round(centroid_y, 3)
+
         except Exception as e:
-            self.centroid_x,self.centroid_y = None, None
+            # Reset attributes and log error if computation fails
+            self.centroid_x, self.centroid_y = None, None
             self.error_message = f"Centroid calculation failed: {e}"
 
+
     def _calculate_beam_width(self):
-        """Calculate the beam width along X and Y using Gaussian fit."""
-        # if self.centroid is None:
-        #     self.calculate_centroid()
-        
-        x_guess = self.beam_width_x if self.beam_width_x else 10
-        y_guess = self.beam_width_y if self.beam_width_y else 10
-
-        x_profile = self.image[int(self.centroid_x), :]
-        y_profile = self.image[:, int(self.centroid_y)]
-
-        x = np.arange(x_profile.size)
-        y = np.arange(y_profile.size)
+        """Calculate the beam width along X and Y using Gaussian fitting, with fallback to moments."""
+        if self.centroid_x is None or self.centroid_y is None:
+            self.error_message = "Centroid not defined. Unable to calculate beam width."
+            return
 
         try:
-            self._popt_x, _ = curve_fit(self._gaussian, x, x_profile, p0=[x_profile.max(), self.centroid_x, x_guess])
-            self._popt_y, _ = curve_fit(self._gaussian, y, y_profile, p0=[y_profile.max(), self.centroid_y, y_guess])
-        
-        # TODO: Beam Width Error
-        
-            self.beam_width_x = round(2 * self._popt_x[2] * self.pixel_size,3)
-            self.beam_width_y = round(2 * self._popt_y[2] * self.pixel_size,3)
-            self.ellipticity = self.beam_width_x / self.beam_width_y
-            self.error_message = None
+            # Get profiles along the X and Y axes at the centroid
+            x_profile = self.image[int(self.centroid_y), :]
+            y_profile = self.image[:, int(self.centroid_x)]
+            
+            x = np.arange(x_profile.size)
+            y = np.arange(y_profile.size)
+            
+            # Check if profiles are close to Gaussian; if not, skip fitting
+            if not self._is_gaussian_like(x_profile) or not self._is_gaussian_like(y_profile):
+                raise RuntimeError("Profile data too noisy or irregular for Gaussian fit.")
+
+            # Dynamic initial guesses for Gaussian fit
+            x_initial = [x_profile.max(), self.centroid_x, max(np.std(x_profile), 10)]
+            y_initial = [y_profile.max(), self.centroid_y, max(np.std(y_profile), 10)]
+
+            # Attempt Gaussian fitting
+            self._popt_x, _ = curve_fit(self._gaussian, x, x_profile, p0=x_initial)
+            self._popt_y, _ = curve_fit(self._gaussian, y, y_profile, p0=y_initial)
+
+            # Compute widths and convert to real units
+            self.beam_width_x = round(2 * self._popt_x[2] * self.pixel_size, 3)
+            self.beam_width_y = round(2 * self._popt_y[2] * self.pixel_size, 3)
+
+            self.x_o = round(self._popt_x[1])
+            self.y_o = round(self._popt_y[1])
+
+            # Calculate ellipticity as the ratio of X to Y beam widths
+            self.ellipticity = round(self.beam_width_x / self.beam_width_y, 3)
 
         except RuntimeError:
-            self.error_message = "Gaussian fit failed. Beam widths and ellipticity are unavailable."
-            self.beam_width_x = None
-            self.beam_width_y = None
-            self.ellipticity = None
+            # Fallback: Use second moment to approximate beam width if fit fails
+            self.beam_width_x = round(2 * np.sqrt(np.sum((x - self.centroid_x)**2 * x_profile) / np.sum(x_profile)) * self.pixel_size, 3)
+            self.beam_width_y = round(2 * np.sqrt(np.sum((y - self.centroid_y)**2 * y_profile) / np.sum(y_profile)) * self.pixel_size, 3)
+            self.ellipticity = round(self.beam_width_x / self.beam_width_y, 3)
+            self._log_error("Gaussian fit failed. Beam width estimated using second moment.")
+
+        except Exception as e:
+            # Handle any other exceptions and log an error
+            self.beam_width_x, self.beam_width_y, self.ellipticity = None, None, None
+            self.error_message = f"Beam width calculation failed: {e}"
+            self._log_error(self.error_message)
+
+    def _is_gaussian_like(self, profile):
+        """Quick check if a profile is likely Gaussian-shaped using width at half max."""
+        half_max = profile.max() / 2
+        above_half_max = np.where(profile >= half_max)[0]
+        if len(above_half_max) < 3:
+            return False  # Not enough points at high intensity to fit a Gaussian
+        return True
+
 
     def _calculate_intensity_profile(self):
         """Calculate the 1D intensity profile along the X and Y axes."""
-        # if self.centroid is None:
-        #     self.calculate_centroid()
-
         try:
-            self.x_profile = self.image[int(self.centroid_x), :]
-            self.y_profile = self.image[:, int(self.centroid_y)]
-            self.error_message = None
+            self.x_profile = self.image[int(self.centroid_y), :]
+            self.y_profile = self.image[:, int(self.centroid_x)]
         except Exception as e:
             self.x_profile = None
             self.y_profile = None
@@ -105,28 +141,20 @@ class BeamProfiler:
         """Calculate the total power (sum of pixel intensities)."""
         try:
             self.total_power = round(np.sum(self.image),3)
-            self.error_message = None
         except Exception as e:
             self.total_power = None
             self.error_message = f"Power calculation failed: {e}"
 
     def _calculate_asymmetry(self):
         """Calculate the asymmetry between X and Y beam widths."""
-        # if self.beam_width_x is None or self.beam_width_y is None:
-        #     self.calculate_beam_width()
-
         try:
             self.asymmetry = round(abs(self.beam_width_x - self.beam_width_y) / max(self.beam_width_x, self.beam_width_y),4)
-            self.error_message = None
         except Exception as e:
             self.asymmetry = None
             self.error_message = f"Asymmetry calculation failed: {e}"
 
     def _calculate_gaussian_fit_error(self):
-        """Estimate fit quality by calculating residuals from the Gaussian model."""
-        # if self.centroid is None:
-        #     self.calculate_centroid()
-
+        
         x = np.arange(self.x_profile.size)
         y = np.arange(self.y_profile.size)
 
@@ -135,7 +163,7 @@ class BeamProfiler:
             residual_y = self.y_profile - self._gaussian(y, *self._popt_y)
 
             self.fit_error = np.sqrt(np.mean(residual_x**2) + np.mean(residual_y**2))
-            self.error_message = None
+            
         except RuntimeError:
             self.fit_error = None
             self.error_message = "Gaussian fit error calculation failed due to fit failure."
@@ -166,7 +194,6 @@ class BeamProfiler:
             self.eigenvalues, self.eigenvectors = np.linalg.eig(covariance_matrix)
             angle = np.arctan2(self.eigenvectors[1, 0], self.eigenvectors[0, 0])
         
-            self.error_message = None
             self.rotation = round(np.degrees(angle),3)
 
         except Exception as e:
@@ -175,9 +202,6 @@ class BeamProfiler:
             self.rotation = None
 
     def _calculate_power_density(self):
-        """Calculate the power density by dividing total power by beam area."""
-        # if self.beam_width_x is None or self.beam_width_y is None:
-        #     self.calculate_beam_width()
 
         try:
             if self.total_power is None or self.beam_width_x is None or self.beam_width_y is None:
@@ -185,7 +209,6 @@ class BeamProfiler:
 
             area = np.pi * (self.beam_width_x / 2) * (self.beam_width_y / 2)
             self.power_density = round(self.total_power / area,3)
-            self.error_message = None
         except Exception as e:
             self.power_density = None
             self.error_message = f"Power density calculation failed: {e}"
@@ -199,7 +222,17 @@ class BeamProfiler:
             # Calculate the standard deviation of the profile intensity values
             flatness_value = np.std(profile)
             self.flatness = round(flatness_value,3)
-            self.error_message = None
         except Exception as e:
             self.flatness = None
             self.error_message = f"Flatness calculation failed: {e}"
+
+    def _measure_skewness(self):
+        flat_image = self.image.flatten()
+        self.skewness = round(skew(flat_image),3)
+
+    def _measure_kurtosis(self):
+        flat_image = self.image.flatten()
+        self.kurtosis = round(kurtosis(flat_image,fisher=False),3)
+
+    def _log_error(self, message):
+        self.error_message = message
