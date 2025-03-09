@@ -25,6 +25,7 @@
 		<Item Name="TranslationStage Library.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/TranslationStages_LV/TranslationStage Library.lvlib"/>
 		<Item Name="SinglePhoton Library.lvlib" Type="Library" URL="../SinglePhoton Library.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../UIs/SLM_Controller/launcher.vi"/>
+		<Item Name="TranslationStageType.ctl" Type="VI" URL="../typedefs/TranslationStageType.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>

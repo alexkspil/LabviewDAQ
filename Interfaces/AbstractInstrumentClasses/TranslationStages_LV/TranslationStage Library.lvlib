@@ -4,6 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Item Name="ArduinoTranslationStage.lvlib" Type="Library" URL="../../../../ConcreteClasses/ConcreteInstrumentClasses/Arduino_Stepper/ArduinoTranslationStage.lvlib"/>
 	<Item Name="BPC30x.lvlib" Type="Library" URL="../../../../ConcreteClasses/ConcreteInstrumentClasses/BPC301/BPC30x.lvlib"/>
 	<Item Name="Jiaxin_Stepper_Controller.lvlib" Type="Library" URL="../../../../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller.lvlib"/>
 	<Item Name="KIM101.lvlib" Type="Library" URL="../../../../ConcreteClasses/ConcreteInstrumentClasses/KIM101/KIM101.lvlib"/>
