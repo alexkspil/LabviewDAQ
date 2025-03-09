@@ -20,7 +20,7 @@
 	<Item Name="LUT_Scale.ctl" Type="VI" URL="../../UIs/Camera_Controller/Camera_Controller/SubVIs/LUT_Scale.ctl"/>
 	<Item Name="MH_InitInfo.ctl" Type="VI" URL="../../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_InitInfo.ctl"/>
 	<Item Name="RightJog.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/RightJog.ctl"/>
-	<Item Name="Scan_Data_For_Controller.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/Scan_Data_For_Controller.ctl"/>
+	<Item Name="Scan_Data_For_Controller.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/Arduino_Stepper_UI/Scan_Data_For_Controller.ctl"/>
 	<Item Name="SpectroMirrorCtrl.ctl" Type="VI" URL="../SpectroMirrorCtrl.ctl"/>
 	<Item Name="SpectrSlitControl.ctl" Type="VI" URL="../SpectrSlitControl.ctl"/>
 	<Item Name="StageMoveDone_For_UI.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/StageMoveDone_For_UI.ctl"/>

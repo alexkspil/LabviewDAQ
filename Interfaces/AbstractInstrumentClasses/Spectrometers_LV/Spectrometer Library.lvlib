@@ -4,8 +4,4 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="HRS_Spectrometer.lvlib" Type="Library" URL="../../../../ConcreteClasses/ConcreteInstrumentClasses/SpectrometerClasses/Spectrometer_HRS_LV/HRS_Spectrometer/HRS_Spectrometer.lvlib"/>
-	<Item Name="SpectrometerComm.lvlib" Type="Library" URL="../SpectrometerComm.lvlib"/>
-	<Item Name="SpectrometerInterface.lvlib" Type="Library" URL="../SpectrometerInterface.lvlib"/>
-	<Item Name="SpectrometerUI.lvlib" Type="Library" URL="../../../../UIs/SpectrometerUI/SpectrometerUI.lvlib"/>
 </Library>
