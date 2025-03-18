@@ -30,4 +30,5 @@
 	<Item Name="zJogIn.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/zJogIn.ctl"/>
 	<Item Name="zJogOut.ctl" Type="VI" URL="../../UIs/TranslationStage_UI/TranslationStage_UI/zJogOut.ctl"/>
 	<Item Name="SpectroData.ctl" Type="VI" URL="../SpectroData.ctl"/>
+	<Item Name="TranslationStageType.ctl" Type="VI" URL="../TranslationStageType.ctl"/>
 </Library>

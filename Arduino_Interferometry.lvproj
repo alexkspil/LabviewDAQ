@@ -136,7 +136,6 @@
 			<Item Name="EnableControls.vi" Type="VI" URL="../SubVIs/EnableControls.vi"/>
 			<Item Name="Get_Delays_Ctrl.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/Get_Delays_Ctrl.ctl"/>
 			<Item Name="GetDLLPath.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/GetDLLPath.vi"/>
-			<Item Name="Hamamatsu_Camera.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/Hamamatsu_Camera.lvlib"/>
 			<Item Name="InitMH_UIThread.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/InitMH_UIThread.vi"/>
 			<Item Name="Jiaxin_Stepper_Controller.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller.lvlib"/>
 			<Item Name="JX_SetHome Msg.lvclass" Type="LVClass" URL="../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_SetHome Msg/JX_SetHome Msg.lvclass"/>
@@ -216,24 +215,6 @@
 			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
 			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../UIs/TranslationStage_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
-			<Item Name="tm_closecamera_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_closecamera_40.vi"/>
-			<Item Name="tm_deinitialize_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_deinitialize_40.vi"/>
-			<Item Name="tm_errorreport.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_errorreport.vi"/>
-			<Item Name="tm_getframe16_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_getframe16_40.vi"/>
-			<Item Name="tm_getparameter_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_getparameter_40.vi"/>
-			<Item Name="tm_initialize_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_initialize_40.vi"/>
-			<Item Name="tm_opencamera_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_opencamera_40.vi"/>
-			<Item Name="tm_preparecapture_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_preparecapture_40.vi"/>
-			<Item Name="tm_sensorcooler_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/advanced/tm_sensorcooler_40.vi"/>
-			<Item Name="tm_setinputtrigger_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/trigger/tm_setinputtrigger_40.vi"/>
-			<Item Name="tm_setparameter_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_setparameter_40.vi"/>
-			<Item Name="tm_startcapture_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_startcapture_40.vi"/>
-			<Item Name="tm_stopcapture_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_stopcapture_40.vi"/>
-			<Item Name="tm_unpreparecapture_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_unpreparecapture_40.vi"/>
-			<Item Name="tm_waitnextframe_40.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/HamaVIs/LV/Hamamatsu Video Capture [4423]/tm_waitnextframe_40.vi"/>
-			<Item Name="tmcamcon.dll" Type="Document" URL="tmcamcon.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="TranslationStageType.ctl" Type="VI" URL="../typedefs/TranslationStageType.ctl"/>
 			<Item Name="TranslationStageUI.lvclass" Type="LVClass" URL="../UIs/TranslationStage_UI/TranslationStage_UI/TranslationStageUI.lvclass"/>
 		</Item>

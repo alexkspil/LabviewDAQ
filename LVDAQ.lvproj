@@ -49,8 +49,10 @@
 		<Item Name="TopController_Interface.lvlib" Type="Library" URL="../Top_Controllers/TopController_Interface.lvlib"/>
 		<Item Name="SLMLibrary.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMLibrary.lvlib"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../typedefs/typedefs.lvlib"/>
-		<Item Name="launcher.vi" Type="VI" URL="../UIs/SLM_Controller/launcher.vi"/>
-		<Item Name="TranslationStageType.ctl" Type="VI" URL="../typedefs/TranslationStageType.ctl"/>
+		<Item Name="KeysightN9020B.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/KeysightN9020B.lvlib"/>
+		<Item Name="SpectrumAnalyzerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerInterface/SpectrumAnalyzerInterface.lvlib"/>
+		<Item Name="SpectrumAnalyzerUI.lvlib" Type="Library" URL="../UIs/SpectrumAnalyzerUI/SpectrumAnalyzerUI.lvlib"/>
+		<Item Name="launcher.vi" Type="VI" URL="../launcher.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
@@ -151,6 +153,9 @@
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
+			</Item>
+			<Item Name="instr.lib" Type="Folder">
+				<Item Name="Keysight XSAn.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Keysight XSAn/Keysight XSAn.lvlib"/>
 			</Item>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
@@ -256,6 +261,12 @@
 			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
 			<Item Name="Thorlabs.MotionControl.Benchtop.PiezoCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.Benchtop.PiezoCLI.dll"/>
+			<Item Name="SpectrumAnalyzerData.ctl" Type="VI" URL="../typedefs/SpectrumAnalyzerData.ctl"/>
+			<Item Name="AgXSAn_64.dll" Type="Document" URL="AgXSAn_64.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="Get_SA_Spectrum_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Get_SA_Spectrum_SubVI.vi"/>
+			<Item Name="Init_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Init_SubVI.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SLM_Controller" Type="EXE">
@@ -339,7 +350,7 @@
 				<Property Name="TgtF_companyName" Type="Str">Westlake university</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">SLM_Controller</Property>
 				<Property Name="TgtF_internalName" Type="Str">SLM_Controller</Property>
-				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2024 Westlake university</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright ? 2024 Westlake university</Property>
 				<Property Name="TgtF_productName" Type="Str">SLM_Controller</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{DF8D9D84-BF6E-4B1A-BEB5-E08E65D1026A}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">SLM_Controller.exe</Property>
