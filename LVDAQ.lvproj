@@ -41,6 +41,12 @@
 			<Item Name="MultiharpComm.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/MultiharpComm/MultiharpComm.lvlib"/>
 			<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
 		</Item>
+		<Item Name="Spectrum Analyzer Library" Type="Folder">
+			<Item Name="KeysightN9020B.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/KeysightN9020B.lvlib"/>
+			<Item Name="SpectrumAnalyzerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerInterface/SpectrumAnalyzerInterface.lvlib"/>
+			<Item Name="SpectrumAnalyzerUI.lvlib" Type="Library" URL="../UIs/SpectrumAnalyzerUI/SpectrumAnalyzerUI.lvlib"/>
+			<Item Name="SpectrumAnalyzerComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerComm/SpectrumAnalyzerComm.lvlib"/>
+		</Item>
 		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
 		<Item Name="InitDeInit.lvlib" Type="Library" URL="../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
 		<Item Name="SPIController.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
@@ -49,9 +55,6 @@
 		<Item Name="TopController_Interface.lvlib" Type="Library" URL="../Top_Controllers/TopController_Interface.lvlib"/>
 		<Item Name="SLMLibrary.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMLibrary.lvlib"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../typedefs/typedefs.lvlib"/>
-		<Item Name="KeysightN9020B.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/KeysightN9020B.lvlib"/>
-		<Item Name="SpectrumAnalyzerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerInterface/SpectrumAnalyzerInterface.lvlib"/>
-		<Item Name="SpectrumAnalyzerUI.lvlib" Type="Library" URL="../UIs/SpectrumAnalyzerUI/SpectrumAnalyzerUI.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../launcher.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -149,6 +152,7 @@
 				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
 				<Item Name="VISA Configure Serial Port (Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Instr).vi"/>
 				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
+				<Item Name="Merge Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Merge Errors.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
@@ -262,6 +266,9 @@
 			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
 			<Item Name="Thorlabs.MotionControl.Benchtop.PiezoCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.Benchtop.PiezoCLI.dll"/>
 			<Item Name="SpectrumAnalyzerData.ctl" Type="VI" URL="../typedefs/SpectrumAnalyzerData.ctl"/>
+			<Item Name="AgXSAn.dll" Type="Document" URL="AgXSAn.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 			<Item Name="AgXSAn_64.dll" Type="Document" URL="AgXSAn_64.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
