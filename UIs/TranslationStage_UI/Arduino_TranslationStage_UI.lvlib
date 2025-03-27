@@ -7,5 +7,5 @@
 	<Item Name="Messages for this Actor" Type="Folder">
 		<Property Name="NI.SortType" Type="Int">3</Property>
 	</Item>
-	<Item Name="Arduino_Stepper.lvclass" Type="LVClass" URL="../Arduino_Stepper_UI/Arduino_Stepper.lvclass"/>
+	<Item Name="Arduino_Stepper_UI.lvclass" Type="LVClass" URL="../Arduino_Stepper_UI/Arduino_Stepper_UI.lvclass"/>
 </Library>

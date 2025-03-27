@@ -4,6 +4,13 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="Messages for this Actor" Type="Folder"/>
-	<Item Name="Spectroscopy_Controller.lvclass" Type="LVClass" URL="../Spectroscopy_Controller/Spectroscopy_Controller.lvclass"/>
+	<Item Name="Messages for this Actor" Type="Folder">
+		<Item Name="Acquisition Done Msg.lvclass" Type="LVClass" URL="../Camera_Scan_Controller Messages/Acquisition Done Msg/Acquisition Done Msg.lvclass"/>
+		<Item Name="Cam_DeInitDone Msg.lvclass" Type="LVClass" URL="../Camera_Scan_Controller Messages/Cam_DeInitDone Msg/Cam_DeInitDone Msg.lvclass"/>
+		<Item Name="Cam_Init_Done Msg.lvclass" Type="LVClass" URL="../Camera_Scan_Controller Messages/Cam_Init_Done Msg/Cam_Init_Done Msg.lvclass"/>
+		<Item Name="Control_DeInit_Done Msg.lvclass" Type="LVClass" URL="../Camera_Scan_Controller Messages/Control_DeInit_Done Msg/Control_DeInit_Done Msg.lvclass"/>
+		<Item Name="Control_Init_Done Msg.lvclass" Type="LVClass" URL="../Camera_Scan_Controller Messages/Control_Init_Done Msg/Control_Init_Done Msg.lvclass"/>
+		<Item Name="Control_Moved Msg.lvclass" Type="LVClass" URL="../Camera_Scan_Controller Messages/Control_Moved Msg/Control_Moved Msg.lvclass"/>
+	</Item>
+	<Item Name="Camera_Scan_Controller.lvclass" Type="LVClass" URL="../Spectroscopy_Controller/Camera_Scan_Controller.lvclass"/>
 </Library>

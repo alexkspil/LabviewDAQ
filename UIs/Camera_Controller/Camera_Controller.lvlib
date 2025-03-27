@@ -20,5 +20,4 @@
 		<Item Name="Read_Camera_Variant.vi" Type="VI" URL="../Camera_Controller/SubVIs/Read_Camera_Variant.vi"/>
 	</Item>
 	<Item Name="Camera_Controller.lvclass" Type="LVClass" URL="../Camera_Controller/Camera_Controller.lvclass"/>
-	<Item Name="External_Acq Msg.lvclass" Type="LVClass" URL="../Camera_Controller Messages/External_Acq Msg/External_Acq Msg.lvclass"/>
 </Library>
