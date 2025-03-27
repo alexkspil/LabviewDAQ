@@ -41,16 +41,25 @@
 			<Item Name="MultiharpComm.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/MultiharpComm/MultiharpComm.lvlib"/>
 			<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
 		</Item>
-		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
+		<Item Name="Spectrum Analyzer Library" Type="Folder">
+			<Item Name="SpectrumAnalyzerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerInterface/SpectrumAnalyzerInterface.lvlib"/>
+			<Item Name="SpectrumAnalyzerComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerComm.lvlib"/>
+			<Item Name="KeysightN9020B.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/KeysightN9020B.lvlib"/>
+			<Item Name="SpectrumAnalyzerUI.lvlib" Type="Library" URL="../UIs/SpectrumAnalyzerUI/SpectrumAnalyzerUI.lvlib"/>
+		</Item>
+		<Item Name="SLM" Type="Folder">
+			<Item Name="SLM_Controller.lvlib" Type="Library" URL="../UIs/SLM_Controller/SLM_Controller/SLM_Controller.lvlib"/>
+			<Item Name="SLMComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMComm.lvlib"/>
+			<Item Name="SLMInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMInterface/SLMInterface.lvlib"/>
+		</Item>
 		<Item Name="InitDeInit.lvlib" Type="Library" URL="../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
+		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
 		<Item Name="SPIController.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
 		<Item Name="ControllerComm.lvlib" Type="Library" URL="../UIs/ControllerComm.lvlib"/>
 		<Item Name="Spectroscopy_Controller.lvlib" Type="Library" URL="../Top_Controllers/Spectroscopy_Controller/Spectroscopy_Controller.lvlib"/>
 		<Item Name="TopController_Interface.lvlib" Type="Library" URL="../Top_Controllers/TopController_Interface.lvlib"/>
-		<Item Name="SLMLibrary.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMLibrary.lvlib"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../typedefs/typedefs.lvlib"/>
-		<Item Name="launcher.vi" Type="VI" URL="../UIs/SLM_Controller/launcher.vi"/>
-		<Item Name="TranslationStageType.ctl" Type="VI" URL="../typedefs/TranslationStageType.ctl"/>
+		<Item Name="launcher.vi" Type="VI" URL="../launcher.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
@@ -147,10 +156,14 @@
 				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
 				<Item Name="VISA Configure Serial Port (Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Instr).vi"/>
 				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
+				<Item Name="Merge Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Merge Errors.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
+			</Item>
+			<Item Name="instr.lib" Type="Folder">
+				<Item Name="Keysight XSAn.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Keysight XSAn/Keysight XSAn.lvlib"/>
 			</Item>
 			<Item Name="AF Debug.lvlib" Type="Library" URL="/&lt;resource&gt;/AFDebug/AF Debug.lvlib"/>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
@@ -256,6 +269,16 @@
 			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
 			<Item Name="Thorlabs.MotionControl.Benchtop.PiezoCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.Benchtop.PiezoCLI.dll"/>
+			<Item Name="SpectrumAnalyzerData.ctl" Type="VI" URL="../typedefs/SpectrumAnalyzerData.ctl"/>
+			<Item Name="AgXSAn.dll" Type="Document" URL="AgXSAn.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="AgXSAn_64.dll" Type="Document" URL="AgXSAn_64.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="Get_SA_Spectrum_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Get_SA_Spectrum_SubVI.vi"/>
+			<Item Name="Init_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Init_SubVI.vi"/>
+			<Item Name="Configure_Trigger_Source.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Configure_Trigger_Source.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SLM_Controller" Type="EXE">
@@ -301,17 +324,17 @@
 				<Property Name="Source[2].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[2].type" Type="Str">Library</Property>
 				<Property Name="Source[3].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLMInterface.lvlib</Property>
+				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SLM/SLMInterface.lvlib</Property>
 				<Property Name="Source[3].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[3].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[3].type" Type="Str">Library</Property>
 				<Property Name="Source[4].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[4].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLM_Controller.lvlib</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/My Computer/SLM/SLM_Controller.lvlib</Property>
 				<Property Name="Source[4].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Library</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLMComm.lvlib</Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLM/SLMComm.lvlib</Property>
 				<Property Name="Source[5].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[5].type" Type="Str">Library</Property>
@@ -339,7 +362,7 @@
 				<Property Name="TgtF_companyName" Type="Str">Westlake university</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">SLM_Controller</Property>
 				<Property Name="TgtF_internalName" Type="Str">SLM_Controller</Property>
-				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2024 Westlake university</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright ? 2024 Westlake university</Property>
 				<Property Name="TgtF_productName" Type="Str">SLM_Controller</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{DF8D9D84-BF6E-4B1A-BEB5-E08E65D1026A}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">SLM_Controller.exe</Property>

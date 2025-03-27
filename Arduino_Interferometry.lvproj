@@ -121,6 +121,15 @@
 			<Item Name="Camera_Selected.ctl" Type="VI" URL="../../casc_correlations/Camera_Selected.ctl"/>
 			<Item Name="ControllerComm.lvlib" Type="Library" URL="../UIs/ControllerComm.lvlib"/>
 			<Item Name="EnableControls.vi" Type="VI" URL="../SubVIs/EnableControls.vi"/>
+<<<<<<< HEAD
+=======
+			<Item Name="Get_Delays_Ctrl.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/Get_Delays_Ctrl.ctl"/>
+			<Item Name="GetDLLPath.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/GetDLLPath.vi"/>
+			<Item Name="InitMH_UIThread.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/InitMH_UIThread.vi"/>
+			<Item Name="Jiaxin_Stepper_Controller.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller.lvlib"/>
+			<Item Name="JX_SetHome Msg.lvclass" Type="LVClass" URL="../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_SetHome Msg/JX_SetHome Msg.lvclass"/>
+			<Item Name="KIM101.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KIM101/KIM101.lvlib"/>
+>>>>>>> 01596245a34fe0d69bda33666927e32597e20469
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -134,6 +143,7 @@
 			</Item>
 			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../UIs/TranslationStage_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="TranslationStageType.ctl" Type="VI" URL="../typedefs/TranslationStageType.ctl"/>
+<<<<<<< HEAD
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -181,6 +191,9 @@
 				<Property Name="TgtF_targetfileName" Type="Str">Arduino_Interferometry.exe</Property>
 				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
 			</Item>
+=======
+			<Item Name="TranslationStageUI.lvclass" Type="LVClass" URL="../UIs/TranslationStage_UI/TranslationStage_UI/TranslationStageUI.lvclass"/>
+>>>>>>> 01596245a34fe0d69bda33666927e32597e20469
 		</Item>
 	</Item>
 </Project>
