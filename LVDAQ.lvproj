@@ -42,18 +42,22 @@
 			<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
 		</Item>
 		<Item Name="Spectrum Analyzer Library" Type="Folder">
-			<Item Name="KeysightN9020B.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/KeysightN9020B.lvlib"/>
 			<Item Name="SpectrumAnalyzerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerInterface/SpectrumAnalyzerInterface.lvlib"/>
+			<Item Name="SpectrumAnalyzerComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerComm.lvlib"/>
+			<Item Name="KeysightN9020B.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/KeysightN9020B.lvlib"/>
 			<Item Name="SpectrumAnalyzerUI.lvlib" Type="Library" URL="../UIs/SpectrumAnalyzerUI/SpectrumAnalyzerUI.lvlib"/>
-			<Item Name="SpectrumAnalyzerComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerComm/SpectrumAnalyzerComm.lvlib"/>
 		</Item>
-		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
+		<Item Name="SLM" Type="Folder">
+			<Item Name="SLM_Controller.lvlib" Type="Library" URL="../UIs/SLM_Controller/SLM_Controller/SLM_Controller.lvlib"/>
+			<Item Name="SLMComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMComm.lvlib"/>
+			<Item Name="SLMInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMInterface/SLMInterface.lvlib"/>
+		</Item>
 		<Item Name="InitDeInit.lvlib" Type="Library" URL="../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
+		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
 		<Item Name="SPIController.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
 		<Item Name="ControllerComm.lvlib" Type="Library" URL="../UIs/ControllerComm.lvlib"/>
 		<Item Name="Spectroscopy_Controller.lvlib" Type="Library" URL="../Top_Controllers/Spectroscopy_Controller/Spectroscopy_Controller.lvlib"/>
 		<Item Name="TopController_Interface.lvlib" Type="Library" URL="../Top_Controllers/TopController_Interface.lvlib"/>
-		<Item Name="SLMLibrary.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMLibrary.lvlib"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../typedefs/typedefs.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../launcher.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -274,6 +278,7 @@
 			</Item>
 			<Item Name="Get_SA_Spectrum_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Get_SA_Spectrum_SubVI.vi"/>
 			<Item Name="Init_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Init_SubVI.vi"/>
+			<Item Name="Configure_Trigger_Source.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Configure_Trigger_Source.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SLM_Controller" Type="EXE">
@@ -319,17 +324,17 @@
 				<Property Name="Source[2].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[2].type" Type="Str">Library</Property>
 				<Property Name="Source[3].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLMInterface.lvlib</Property>
+				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SLM/SLMInterface.lvlib</Property>
 				<Property Name="Source[3].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[3].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[3].type" Type="Str">Library</Property>
 				<Property Name="Source[4].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[4].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLM_Controller.lvlib</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/My Computer/SLM/SLM_Controller.lvlib</Property>
 				<Property Name="Source[4].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Library</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLMLibrary.lvlib/SLMComm.lvlib</Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLM/SLMComm.lvlib</Property>
 				<Property Name="Source[5].Library.allowMissingMembers" Type="Bool">true</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[5].type" Type="Str">Library</Property>

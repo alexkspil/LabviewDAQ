@@ -5,7 +5,6 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="ChangeAverage.vi" Type="VI" URL="../ChangeAverage.vi"/>
-	<Item Name="Configure_Trigger_Source.vi" Type="VI" URL="../Configure_Trigger_Source.vi"/>
 	<Item Name="Configure_YAxisUnit.vi" Type="VI" URL="../Configure_YAxisUnit.vi"/>
 	<Item Name="KeysightN9020B.lvclass" Type="LVClass" URL="../KeysightN9020B.lvclass"/>
 	<Item Name="Measurement_Type.ctl" Type="VI" URL="../../../../UIs/SpectrumAnalyzerUI/SpectrumAnalyzerUI/Measurement_Type.ctl"/>

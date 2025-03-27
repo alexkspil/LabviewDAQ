@@ -4,6 +4,11 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="SpectrumAcquired Msg.lvclass" Type="LVClass" URL="../SpectrumAnalyzerComm Messages/SpectrumAcquired Msg/SpectrumAcquired Msg.lvclass"/>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="SpectrumAnalyzerComm Messages" Type="Folder">
+		<Item Name="TriggerSet Msg.lvclass" Type="LVClass" URL="../SpectrumAnalyzerComm Messages/TriggerSet Msg/TriggerSet Msg.lvclass"/>
+		<Item Name="SpectrumAcquired Msg.lvclass" Type="LVClass" URL="../SpectrumAnalyzerComm Messages/SpectrumAcquired Msg/SpectrumAcquired Msg.lvclass"/>
+		<Item Name="SpectrumConfigDone Msg.lvclass" Type="LVClass" URL="../SpectrumAnalyzerComm Messages/SpectrumConfigDone Msg/SpectrumConfigDone Msg.lvclass"/>
+	</Item>
 	<Item Name="SpectrumAnalyzerComm.lvclass" Type="LVClass" URL="../SpectrumAnalyzerComm/SpectrumAnalyzerComm.lvclass"/>
 </Library>
