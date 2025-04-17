@@ -5,9 +5,9 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="SLMComm Messages" Type="Folder">
-		<Item Name="Phase Uploaded Msg.lvclass" Type="LVClass" URL="../SLMComm Messages/Phase Uploaded Msg/Phase Uploaded Msg.lvclass"/>
 		<Item Name="SLM_Init_Done Msg.lvclass" Type="LVClass" URL="../SLMComm Messages/SLM_Init_Done Msg/SLM_Init_Done Msg.lvclass"/>
 	</Item>
+	<Item Name="ScanMoveDone Msg.lvclass" Type="LVClass" URL="../SLMComm Messages/ScanMoveDone Msg/ScanMoveDone Msg.lvclass"/>
 	<Item Name="SLM_DeInit_Done Msg.lvclass" Type="LVClass" URL="../SLMComm Messages/SLM_DeInit_Done Msg/SLM_DeInit_Done Msg.lvclass"/>
 	<Item Name="SLMComm.lvclass" Type="LVClass" URL="../SLMComm/SLMComm.lvclass"/>
 </Library>

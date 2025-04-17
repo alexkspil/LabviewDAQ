@@ -4,8 +4,10 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="Acquisition Done Msg.lvclass" Type="LVClass" URL="../Camera_Controller_Comm Messages/Acquisition Done Msg/Acquisition Done Msg.lvclass"/>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Cam_DeInitDone Msg.lvclass" Type="LVClass" URL="../Camera_Controller_Comm Messages/Cam_DeInitDone Msg/Cam_DeInitDone Msg.lvclass"/>
 	<Item Name="Cam_Init_Done Msg.lvclass" Type="LVClass" URL="../Camera_Controller_Comm Messages/Cam_Init_Done Msg/Cam_Init_Done Msg.lvclass"/>
 	<Item Name="Camera_Controller_Comm.lvclass" Type="LVClass" URL="../Camera_Controller_Comm/Camera_Controller_Comm.lvclass"/>
+	<Item Name="ScanAcquisitionDone Msg.lvclass" Type="LVClass" URL="../Camera_Controller_Comm Messages/ScanAcquisitionDone Msg/ScanAcquisitionDone Msg.lvclass"/>
+	<Item Name="AcquisitionDone Msg.lvclass" Type="LVClass" URL="../Camera_Controller_Comm Messages/AcquisitionDone Msg/AcquisitionDone Msg.lvclass"/>
 </Library>

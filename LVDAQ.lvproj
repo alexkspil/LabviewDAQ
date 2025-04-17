@@ -23,6 +23,7 @@
 		</Item>
 		<Item Name="Spectrometer Library" Type="Folder">
 			<Item Name="HRS_Spectrometer.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/SpectrometerClasses/Spectrometer_HRS_LV/HRS_Spectrometer/HRS_Spectrometer.lvlib"/>
+			<Item Name="DongWoo_Spectrometer.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/SpectrometerClasses/DongWoo_LV/DongWoo_Spectrometer.lvlib"/>
 			<Item Name="SpectrometerComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerComm.lvlib"/>
 			<Item Name="SpectrometerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Spectrometers_LV/SpectrometerInterface.lvlib"/>
 			<Item Name="SpectrometerUI.lvlib" Type="Library" URL="../UIs/SpectrometerUI/SpectrometerUI.lvlib"/>
@@ -53,12 +54,12 @@
 			<Item Name="SLMInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMInterface/SLMInterface.lvlib"/>
 		</Item>
 		<Item Name="InitDeInit.lvlib" Type="Library" URL="../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
+		<Item Name="Spectroscopy_Controller.lvlib" Type="Library" URL="../Top_Controllers/Spectroscopy_Controller/Spectroscopy_Controller.lvlib"/>
 		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
 		<Item Name="SPIController.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
 		<Item Name="ControllerComm.lvlib" Type="Library" URL="../UIs/ControllerComm.lvlib"/>
-		<Item Name="Spectroscopy_Controller.lvlib" Type="Library" URL="../Top_Controllers/Spectroscopy_Controller/Spectroscopy_Controller.lvlib"/>
-		<Item Name="TopController_Interface.lvlib" Type="Library" URL="../Top_Controllers/TopController_Interface.lvlib"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../typedefs/typedefs.lvlib"/>
+		<Item Name="TopControllerComm.lvlib" Type="Library" URL="../Top_Controllers/TopControllerComm.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../launcher.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -156,7 +157,6 @@
 				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
 				<Item Name="VISA Configure Serial Port (Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Instr).vi"/>
 				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
-				<Item Name="Merge Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Merge Errors.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
@@ -270,15 +270,17 @@
 			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
 			<Item Name="Thorlabs.MotionControl.Benchtop.PiezoCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.Benchtop.PiezoCLI.dll"/>
 			<Item Name="SpectrumAnalyzerData.ctl" Type="VI" URL="../typedefs/SpectrumAnalyzerData.ctl"/>
-			<Item Name="AgXSAn.dll" Type="Document" URL="AgXSAn.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="AgXSAn_64.dll" Type="Document" URL="AgXSAn_64.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="Get_SA_Spectrum_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Get_SA_Spectrum_SubVI.vi"/>
 			<Item Name="Init_SubVI.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Init_SubVI.vi"/>
 			<Item Name="Configure_Trigger_Source.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Configure_Trigger_Source.vi"/>
+			<Item Name="Read Wavelength Test.vi" Type="VI" URL="../../../Downloads/MonoRa201/labview vi/Read Wavelength Test.vi"/>
+			<Item Name="GOTO SL DW Test.vi" Type="VI" URL="../../../Downloads/MonoRa201/labview vi/GOTO SL DW Test.vi"/>
+			<Item Name="CommToUI.lvclass" Type="LVClass" URL="../UIs/ControllerComm/Controller Comm/CommToUI.lvclass"/>
+			<Item Name="AcquisitionDone Msg.lvclass" Type="LVClass" URL="../UIs/ControllerComm/ControllerComm Mesages/AcquisitionDone Msg/AcquisitionDone Msg.lvclass"/>
+			<Item Name="Phase Uploaded Msg.lvclass" Type="LVClass" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMComm Messages/Phase Uploaded Msg/Phase Uploaded Msg.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SLM_Controller" Type="EXE">

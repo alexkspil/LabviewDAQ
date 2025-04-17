@@ -5,7 +5,8 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="AcquisitionDone Msg.lvclass" Type="LVClass" URL="../ControllerComm/ControllerComm Mesages/AcquisitionDone Msg/AcquisitionDone Msg.lvclass"/>
-	<Item Name="ScanDone Msg.lvclass" Type="LVClass" URL="../ControllerComm/ControllerComm Mesages/ScanDone Msg/ScanDone Msg.lvclass"/>
-	<Item Name="CommToUI.lvclass" Type="LVClass" URL="../ControllerComm/Controller Comm/CommToUI.lvclass"/>
+	<Item Name="TopControllerInterface.lvclass" Type="LVClass" URL="../../Top_Controllers/TopControllerInterface/TopControllerInterface.lvclass"/>
+	<Item Name="InitScan Msg.lvclass" Type="LVClass" URL="../../Top_Controllers/TopControllerInterface Messages/InitScan Msg/InitScan Msg.lvclass"/>
+	<Item Name="ScanAcquisitionDone Msg.lvclass" Type="LVClass" URL="../../Top_Controllers/TopControllerInterface Messages/ScanAcquisitionDone Msg/ScanAcquisitionDone Msg.lvclass"/>
+	<Item Name="ScanMoveDone Msg.lvclass" Type="LVClass" URL="../../Top_Controllers/TopControllerInterface Messages/ScanMoveDone Msg/ScanMoveDone Msg.lvclass"/>
 </Library>

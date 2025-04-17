@@ -5,6 +5,6 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="AcquisitionDone Msg.lvclass" Type="LVClass" URL="../TranslationStage_UI/TranslationStage_UI Messages/AcquisitionDone Msg/AcquisitionDone Msg.lvclass"/>
-	<Item Name="ScanDone Msg.lvclass" Type="LVClass" URL="../TranslationStage_UI/TranslationStage_UI Messages/ScanDone Msg/ScanDone Msg.lvclass"/>
+	<Item Name="AcquisitionDone Msg.lvclass" Type="LVClass" URL="../ControllerComm Mesages/AcquisitionDone Msg/AcquisitionDone Msg.lvclass"/>
+	<Item Name="ScanDone Msg.lvclass" Type="LVClass" URL="../ControllerComm Mesages/ScanDone Msg/ScanDone Msg.lvclass"/>
 </Library>
