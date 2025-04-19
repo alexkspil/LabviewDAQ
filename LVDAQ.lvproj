@@ -30,17 +30,11 @@
 		</Item>
 		<Item Name="Camera Library" Type="Folder">
 			<Item Name="Camera_Controller.lvlib" Type="Library" URL="../UIs/Camera_Controller/Camera_Controller.lvlib"/>
-			<Item Name="Camera_Controller_Comm.lvlib" Type="Library" URL="../UIs/Camera_Controller/Camera_Controller_Comm/Camera_Controller_Comm.lvlib"/>
 			<Item Name="CameraComm.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraComm.lvlib"/>
 			<Item Name="CameraInterface Messages.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface Messages/CameraInterface Messages.lvlib"/>
 			<Item Name="CameraInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/Cameras_LV/CameraInterface/CameraInterface.lvlib"/>
 			<Item Name="Hamamatsu_Camera.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Hama_LV/Hamamatsu_Camera.lvlib"/>
 			<Item Name="Inovance_Camera.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/CameraClasses/Inovance_LV/Inovance_Camera/Inovance_Camera.lvlib"/>
-		</Item>
-		<Item Name="Single Photon Library" Type="Folder">
-			<Item Name="Multiharp.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Multiharp.lvlib"/>
-			<Item Name="MultiharpComm.lvlib" Type="Library" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/MultiharpComm/MultiharpComm.lvlib"/>
-			<Item Name="SinglePhotonInterferenceUI.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI.lvlib"/>
 		</Item>
 		<Item Name="Spectrum Analyzer Library" Type="Folder">
 			<Item Name="SpectrumAnalyzerInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SpectrumAnalyzer_LV/SpectrumAnalyzerInterface/SpectrumAnalyzerInterface.lvlib"/>
@@ -54,13 +48,21 @@
 			<Item Name="SLMInterface.lvlib" Type="Library" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMInterface/SLMInterface.lvlib"/>
 		</Item>
 		<Item Name="InitDeInit.lvlib" Type="Library" URL="../Interfaces/InitDeinitInterface/InitDeInit.lvlib"/>
-		<Item Name="Spectroscopy_Controller.lvlib" Type="Library" URL="../Top_Controllers/Spectroscopy_Controller/Spectroscopy_Controller.lvlib"/>
 		<Item Name="Cam_SLM_controller.lvlib" Type="Library" URL="../Top_Controllers/Cam_SLM_Controller/Cam_SLM_controller.lvlib"/>
-		<Item Name="SPIController.lvlib" Type="Library" URL="../UIs/SinglePhoton_UI/Libraries/SPIController/SPIController.lvlib"/>
-		<Item Name="ControllerComm.lvlib" Type="Library" URL="../UIs/ControllerComm.lvlib"/>
 		<Item Name="typedefs.lvlib" Type="Library" URL="../typedefs/typedefs.lvlib"/>
-		<Item Name="TopControllerComm.lvlib" Type="Library" URL="../Top_Controllers/TopControllerComm.lvlib"/>
 		<Item Name="launcher.vi" Type="VI" URL="../launcher.vi"/>
+		<Item Name="Acq_Scan_Controller_Interface.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface/Acq_Scan_Controller_Interface.lvclass"/>
+		<Item Name="Acq_comm_Interface.lvclass" Type="LVClass" URL="../Acq_comm_Interface/Acq_comm_Interface.lvclass"/>
+		<Item Name="Control_comm_Interface.lvclass" Type="LVClass" URL="../Control_comm_Interface/Control_comm_Interface.lvclass"/>
+		<Item Name="External_Acq Msg.lvclass" Type="LVClass" URL="../Acq_comm_Interface Messages/External_Acq Msg/External_Acq Msg.lvclass"/>
+		<Item Name="External_Move Msg.lvclass" Type="LVClass" URL="../Control_comm_Interface Messages/External_Move Msg/External_Move Msg.lvclass"/>
+		<Item Name="Init Scan Msg.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface Messages/Init Scan Msg/Init Scan Msg.lvclass"/>
+		<Item Name="Ext_Move_Done Msg.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface Messages/Ext_Move_Done Msg/Ext_Move_Done Msg.lvclass"/>
+		<Item Name="Ext_Acq_Done Msg.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface Messages/Ext_Acq_Done Msg/Ext_Acq_Done Msg.lvclass"/>
+		<Item Name="Control_Inst_InitDone Msg.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface Messages/Control_Inst_InitDone Msg/Control_Inst_InitDone Msg.lvclass"/>
+		<Item Name="Control_Inst_DeInitDone Msg.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface Messages/Control_Inst_DeInitDone Msg/Control_Inst_DeInitDone Msg.lvclass"/>
+		<Item Name="Acq_Inst_InitDone Msg.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface Messages/Acq_Inst_InitDone Msg/Acq_Inst_InitDone Msg.lvclass"/>
+		<Item Name="Acq_Inst_DeInitDone Msg.lvclass" Type="LVClass" URL="../Acq_Scan_Controller_Interface Messages/Acq_Inst_DeInitDone Msg/Acq_Inst_DeInitDone Msg.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Actor Framework.lvlib" Type="Library" URL="/&lt;vilib&gt;/ActorFramework/Actor Framework.lvlib"/>
@@ -141,17 +143,6 @@
 				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
 				<Item Name="IMAQ Overlay Oval" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay Oval"/>
 				<Item Name="Select Event Type.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/Select Event Type.ctl"/>
-				<Item Name="Write Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet.vi"/>
-				<Item Name="Write Delimited Spreadsheet (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (DBL).vi"/>
-				<Item Name="Write Spreadsheet String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Spreadsheet String.vi"/>
-				<Item Name="Write Delimited Spreadsheet (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (I64).vi"/>
-				<Item Name="Write Delimited Spreadsheet (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (string).vi"/>
-				<Item Name="System Directory Type.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/System Directory Type.ctl"/>
-				<Item Name="Get System Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/Get System Directory.vi"/>
-				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
-				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
-				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
-				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 				<Item Name="MB_VISA_Lock.lvlib" Type="Library" URL="/&lt;vilib&gt;/Plasmionique/MB Master/MB_VISA_Lock/MB_VISA_Lock.lvlib"/>
 				<Item Name="UTF8 Tools.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/Tools/Unicode/UTF8 Tools.lvlib"/>
 				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
@@ -203,68 +194,8 @@
 			<Item Name="ASI_States.ctl" Type="VI" URL="../../casc_correlations/ZWO/ASI_States.ctl"/>
 			<Item Name="ASI_DataCluster.ctl" Type="VI" URL="../../casc_correlations/ZWO/ASI_DataCluster.ctl"/>
 			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../UIs/TranslationStage_UI/Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
-			<Item Name="MH_CTCStatus.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_CTCStatus.vi"/>
-			<Item Name="MH_DllPath_global.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_DllPath_global.vi"/>
-			<Item Name="MH_GetErrorString.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetErrorString.vi"/>
-			<Item Name="MH_StopMeas.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_StopMeas.vi"/>
-			<Item Name="MH_ClearHistMem.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_ClearHistMem.vi"/>
-			<Item Name="MH_StartMeas.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_StartMeas.vi"/>
-			<Item Name="MH_SetHistoLen.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetHistoLen.vi"/>
-			<Item Name="MH_SetBinning.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetBinning.vi"/>
-			<Item Name="MH_SetOffset.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetOffset.vi"/>
-			<Item Name="MH_CloseDevice.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_CloseDevice.vi"/>
-			<Item Name="MH_MeasMode.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_MeasMode.ctl"/>
-			<Item Name="MH_RefSource.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/MH_RefSource.ctl"/>
-			<Item Name="InitMH_UIThread.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/InitMH_UIThread.vi"/>
-			<Item Name="MH_GetLibraryVersion.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetLibraryVersion.vi"/>
-			<Item Name="MH_OpenDevice.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_OpenDevice.vi"/>
-			<Item Name="MH_Initialize.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_Initialize.vi"/>
-			<Item Name="MH_GetHardwareInfo.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetHardwareInfo.vi"/>
-			<Item Name="MH_GetFeatures.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetFeatures.vi"/>
-			<Item Name="MH_GetNumOfInputChannels.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetNumOfInputChannels.vi"/>
-			<Item Name="MH_GetBaseResolution.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetBaseResolution.vi"/>
-			<Item Name="MH_SetSyncChannelOffset.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncChannelOffset.vi"/>
-			<Item Name="MH_SetSyncDeadTime.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncDeadTime.vi"/>
-			<Item Name="MH_SetSyncDiv.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncDiv.vi"/>
-			<Item Name="MH_SetInpChanData.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_SetInpChanData.ctl"/>
-			<Item Name="MH_SetInpChanCmds.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_SetInpChanCmds.ctl"/>
-			<Item Name="MH_InputChannel.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_InputChannel.ctl"/>
-			<Item Name="SetInputChannels.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/SetInputChannels.vi"/>
-			<Item Name="MH_SetInputChannelEnable.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputChannelEnable.vi"/>
-			<Item Name="MH_SetInputChannelOffset.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputChannelOffset.vi"/>
-			<Item Name="MH_SetInputDeadTime.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputDeadTime.vi"/>
-			<Item Name="MH_SetInputEdgeTrg.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetInputEdgeTrg.vi"/>
-			<Item Name="MH_SetSyncEdgeTrg.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_UIThread.llb/MH_SetSyncEdgeTrg.vi"/>
-			<Item Name="MH_ActorCluster.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Multiharp/MH_ActorCluster.ctl"/>
-			<Item Name="MH_DataProcThread_QData.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_DataProcThread_QData.ctl"/>
-			<Item Name="MH_DataProcThread_QCmds.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_DataProcThread_QCmds.ctl"/>
-			<Item Name="MH_ReadFiFo.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_ReadFiFo.vi"/>
-			<Item Name="MH_AllocateCntRateBuffer.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_AllocateCntRateBuffer.vi"/>
-			<Item Name="MH_GetAllCountRates.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetAllCountRates.vi"/>
-			<Item Name="MH_AllocateAllHistoBuffer.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_AllocateAllHistoBuffer.vi"/>
-			<Item Name="MH_GetAllHistograms.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_GetAllHistograms.vi"/>
-			<Item Name="MH_DataProcThread_Modified_T2.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_DataProcThread_Modified_T2.vi"/>
-			<Item Name="MH_DataProcThread_QRef.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_DataProcThread_QRef.ctl"/>
-			<Item Name="Get_Delays_Ctrl.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/Get_Delays_Ctrl.ctl"/>
-			<Item Name="OTF_subtraction.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/OTF_subtraction.vi"/>
-			<Item Name="ProcessTTRecMHT2.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/ProcessTTRecMHT2.vi"/>
-			<Item Name="Count_Triggers.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/Count_Triggers.vi"/>
-			<Item Name="AnalyzeEvent_Double.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/AnalyzeEvent_Double.vi"/>
-			<Item Name="Count_Coincidences.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_OTF_Subtraction/Count_Coincidences.vi"/>
-			<Item Name="GetDLLPath.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/GetDLLPath.vi"/>
-			<Item Name="MH_CalcBinningValues.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_CalcBinningValues.vi"/>
-			<Item Name="MH_InitChannels.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_InitChannels.vi"/>
-			<Item Name="MH_InputChannel2.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_InputChannel2.ctl"/>
-			<Item Name="MH_SetInputChannels.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/SubVIs/MH_SetInputChannels.vi"/>
-			<Item Name="MH_SetStopOverflow.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/PQ/MultiHarp/mhlib_x86_x64_AnyThread.llb/MH_SetStopOverflow.vi"/>
-			<Item Name="CalcRate.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/_lib/CalcRate.vi"/>
 			<Item Name="JX_SetHome Msg.lvclass" Type="LVClass" URL="../ConcreteClasses/ConcreteInstrumentClasses/Jiaxin_Stepper_Controller/Jiaxin_Stepper_Controller Messages/JX_SetHome Msg/JX_SetHome Msg.lvclass"/>
 			<Item Name="Read_Stage_Variant.vi" Type="VI" URL="../UIs/TranslationStage_UI/Read_Stage_Variant.vi"/>
-			<Item Name="MH_UIThread_Data_SPI.ctl" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/Multiharp/Multiharp/Types/MH_UIThread_Data_SPI.ctl"/>
-			<Item Name="Mean_stdev_Calculation.vi" Type="VI" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Mean_stdev_Calculation.vi"/>
-			<Item Name="Calc_Allan-Variance.VI" Type="VI" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/Calc_Allan-Variance.VI"/>
-			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
-			<Item Name="MH_SetAllChannels.vi" Type="VI" URL="../UIs/SinglePhoton_UI/Libraries/SinglePhotonInterferenceUI/SinglePhotonInterferenceUI/MH_SetAllChannels.vi"/>
 			<Item Name="EnableControls.vi" Type="VI" URL="../SubVIs/EnableControls.vi"/>
 			<Item Name="Thorlabs.MotionControl.KCube.InertialMotorCLI.dll" Type="Document" URL="../Thorlabs.MotionControl.KCube.InertialMotorCLI.dll"/>
 			<Item Name="Thorlabs.MotionControl.Controls.dll" Type="Document" URL="../Thorlabs.MotionControl.Controls.dll"/>
@@ -278,8 +209,6 @@
 			<Item Name="Configure_Trigger_Source.vi" Type="VI" URL="../ConcreteClasses/ConcreteInstrumentClasses/KeysightN9020B/Configure_Trigger_Source.vi"/>
 			<Item Name="Read Wavelength Test.vi" Type="VI" URL="../../../Downloads/MonoRa201/labview vi/Read Wavelength Test.vi"/>
 			<Item Name="GOTO SL DW Test.vi" Type="VI" URL="../../../Downloads/MonoRa201/labview vi/GOTO SL DW Test.vi"/>
-			<Item Name="CommToUI.lvclass" Type="LVClass" URL="../UIs/ControllerComm/Controller Comm/CommToUI.lvclass"/>
-			<Item Name="AcquisitionDone Msg.lvclass" Type="LVClass" URL="../UIs/ControllerComm/ControllerComm Mesages/AcquisitionDone Msg/AcquisitionDone Msg.lvclass"/>
 			<Item Name="Phase Uploaded Msg.lvclass" Type="LVClass" URL="../Interfaces/AbstractInstrumentClasses/SLM_LV/SLMComm Messages/Phase Uploaded Msg/Phase Uploaded Msg.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">

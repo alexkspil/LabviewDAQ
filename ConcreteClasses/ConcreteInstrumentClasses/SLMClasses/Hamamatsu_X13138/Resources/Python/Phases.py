@@ -2,11 +2,38 @@ import numpy as np
 from scipy import special
 import math
 
+def partial_grating(size, angles, flip=0, orientation=1, slm_size=(1280, 1024)):
+    """Create a properly oriented grating pattern with both X and Y modulation"""
+    width, height = size
+    nx, ny = angles
+    print(angles)
+    slm_width, slm_height = slm_size
+    
+    # Create coordinate arrays (relative to grating center)
+    x = np.arange(-width//2, width//2)
+    y = np.arange(-height//2, height//2)
+    X, Y = np.meshgrid(x, y)
+    
+    # Calculate spatial periods (how many pixels per full cycle)
+    period_x = slm_width / nx if nx != 0 else float('inf')
+    period_y = slm_height / ny if ny != 0 else float('inf')
+    
+    # Convert to wave numbers (radians/pixel)
+    kx = (2 * np.pi) / period_x if period_x != float('inf') else 0
+    ky = (2 * np.pi) / period_y if period_y != float('inf') else 0
+    
+    # Create phase pattern with proper orientation
+    phase = np.mod(kx * X + orientation * ky * Y, 2 * np.pi)
+    
+    if flip:
+        phase =  np.flip(np.flip(phase,0),1)
+    
+    return phase
 
-def grating(shape, nx, ny, flip=0, orientation=1):
+def grating(shape, nx, ny,flip=0, orientation=1):
     width, height = shape
-    x = np.arange(- width / 2, width / 2 , 1)
-    y = np.arange(-height / 2, height / 2 , 1)
+    x = np.arange(-width // 2, width // 2 , 1)
+    y = np.arange(-height // 2, height // 2 , 1)
     X, Y = np.meshgrid(x, y)  
 
     gx = nx / width 
@@ -15,7 +42,6 @@ def grating(shape, nx, ny, flip=0, orientation=1):
     grating_phase = np.mod( 2 * np.pi * (orientation*gy * Y + gx * X), 2 * np.pi)
     if flip:
         grating_phase = np.flip(np.flip(grating_phase,0),1)
-    
     
     return grating_phase
 

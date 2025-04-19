@@ -23,6 +23,63 @@ def update_phase(phases):
     return final_phase.tolist()
 
 
+def update_grating_partial(grating1_json, grating2_json):
+    # Parse JSON inputs
+    g1 = json.loads(grating1_json)
+    g2 = json.loads(grating2_json)
+    
+
+    def place_grating(slm_screen, grating, center, size):
+        """Place a grating on the SLM screen at specified center position"""
+        cx, cy = center
+        width, height = size
+        grating_height, grating_width = grating.shape
+        
+        # Calculate bounds
+        x_start = max(0, cx - width//2)
+        x_end = min(1280, cx + width//2)
+        y_start = max(0, cy - height//2)
+        y_end = min(1024, cy + height//2)
+        
+        # Calculate corresponding grating portion
+        gx_start = max(0, -cx + width//2)
+        gx_end = grating_width - max(0, cx + width//2 - 1280)
+        gy_start = max(0, -cy + height//2)
+        gy_end = grating_height - max(0, cy + height//2 - 1024)
+        
+        # Place the grating
+        slm_screen[y_start:y_end, x_start:x_end] = grating[gy_start:gy_end, gx_start:gx_end]
+
+    # Create blank SLM screen
+    slm_screen = np.zeros((1024, 1280))
+    
+    # Generate grating 1
+    grating1 = partial_grating(
+        size = (int(g1['X Size']), int(g1['Y Size'])),
+        angles=(int(g1['X Angle']), int(g1['Y Angle'])),
+        flip=int(g1['Flip']),
+        orientation=orientations[int(g1['Orientation'])],
+        slm_size = (1280,1024)
+    )
+
+    place_grating(slm_screen, grating1, 
+                 (int(g1['X Center']), int(g1['Y Center'])),
+                 (int(g1['X Size']), int(g1['Y Size'])))
+    
+    grating2 = partial_grating(
+        size=(int(g2['X Size']), int(g2['Y Size'])),
+        angles = (int(g2['X Angle']), int(g2['Y Angle'])),
+        flip=int(g2['Flip']),
+        orientation=orientations[int(g2['Orientation'])],
+        slm_size =  (1280,1024)
+    )
+    
+    place_grating(slm_screen, grating2,
+                 (int(g2['X Center']), int(g2['Y Center'])),
+                 (int(g2['X Size']), int(g2['Y Size'])))
+    
+    return slm_screen.tolist()
+
 def update_grating(grating_json, height, width):
     grating_data = json.loads(grating_json)
     grating_phase = grating((width,height),int(grating_data['X']), int(grating_data['Y']), int(grating_data['Flip']),  orientations[int(grating_data['Orientation'])])
